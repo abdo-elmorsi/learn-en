@@ -35,6 +35,7 @@ const Signin = () => {
   const history = useHistory();
   return (
     <>
+      <div id="development">You may find some mistakes because it's still under development</div>
       <section className="login-content">
         <Row className="m-0 align-items-center bg-white vh-100">
           <Col md="6">
