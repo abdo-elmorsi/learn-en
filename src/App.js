@@ -26,7 +26,6 @@ const App = () => {
           draggable
           pauseOnHover
         />
-        <div id="development">{`You may find some mistakes because it's still under development`}</div>
         <AppRouter />
       </StrictMode>
     </Provider>

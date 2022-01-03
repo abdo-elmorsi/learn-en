@@ -15,7 +15,6 @@ import { useHistory } from "react-router-dom";
 import { encryptName } from "../../helpers/encryptions";
 import Cookies from "js-cookie";
 import ImageLoader from "../../components/Image-loader";
-import { use } from "i18next";
 
 const loginSchema = yup.object({
   username: yup.string().required("Required"),
