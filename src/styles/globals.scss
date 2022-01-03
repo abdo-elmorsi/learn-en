@@ -185,13 +185,14 @@ input[type="number"] {
 #development {
     position: fixed;
     z-index: 99999;
-    bottom: 30px;
-    right: 30px;
-    color: #272727;
+    bottom: 20px;
+    right: 2%;
+    color: #181818;
     font-size: 14px;
     font-weight: bold;
-    background-color: white;
+    background-color: rgb(255, 221, 221);
     padding: 1rem;
     border-radius: 10px;
     opacity: 0.7;
+    pointer-events: none;
 }
