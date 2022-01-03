@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Loading from "../components/Table/Loading"
 import { Card, Col, Form, Row } from "react-bootstrap";
-import DataTable, { createTheme, ExpanderComponentProps } from "react-data-table-component";
+import DataTable, { createTheme } from "react-data-table-component";
 import { useSelector } from "react-redux";
 import { itemSlideUp } from "../helpers/Animation";
 
