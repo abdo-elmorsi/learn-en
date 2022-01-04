@@ -57,7 +57,7 @@ const Home = () => {
 	useEffect(() => {
 		(async () => {
 			try {
-				await fetch("http://localhost:30002/collocations")
+				await fetch("http://localhost:3002/collocations")
 					.then(e => e.json())
 					.then(res => {
 						setAllData([...res]);

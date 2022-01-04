@@ -3,12 +3,11 @@ import Cookies from 'js-cookie'
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import { encryptName } from "../../helpers/encryptions";
+import { toast } from 'react-toastify';
 
 const AdminRoute = ({ path, component: Component, ...rest }) => {
 	const User = Cookies.get(encryptName("User")) || null;
 	const Admin = Cookies.get(encryptName("Admin")) || null;
-	console.log("user" + User)
-	console.log("Admin" + Admin)
 
 	return (
 		<>
@@ -16,11 +15,14 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 			{User !== null &&
 				<Route
 					{...rest}
-					component={(props) =>
-						path === "/login" || path === "/admin" ? <Redirect to="/" /> : <Component {...props} />
-						// path === "/login" ? (<Redirect to="/" />) : (
-						// path === "/admin" ? (<Redirect to="/" />) : <Component {...props} />
-						// )
+					component={(props) => {
+						if (path === "/login") return <Redirect to="/" />;
+						if (path === "/admin") {
+							toast.warning("You are not Abdo");
+							return <Redirect to="/" />
+						};
+						return <Component {...props} />
+					}
 					}
 				/>
 			}
@@ -28,7 +30,9 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 			{Admin !== null &&
 				<Route
 					{...rest}
-					component={(props) => path === "/login" ? <Redirect to="/admin" /> : <Component {...props} />}
+					component={(props) =>
+						path === "/login" ? <Redirect to="/" /> : <Component {...props} />
+					}
 				/>
 			}
 			{/* redirect to login */}
