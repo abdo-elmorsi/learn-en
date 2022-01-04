@@ -1,0 +1,95 @@
+{
+    "collocations": [
+        {
+            "id": 1,
+            "Name": "do shopping",
+            "Ex": "My wife always does the shopping, and I do the cooking.",
+            "Desc": "To do the shopping describes the regular process of going to the supermarket to buy food and the other necessary items we need to live on a day to day basis. There is an aspect of doing this regularly and it is more of an obligation than an enjoyable activity, for most.",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 2,
+            "Name": "go shopping",
+            "Ex": "I like to go shopping the weekend after payday. I need to go shopping for a new coat.",
+            "Desc": "To go shopping means that your intentions are to buy things because you want to or because you need a new version of something. There isn’t necessarily any routine aspect to this action.",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 3,
+            "Name": "do business",
+            "Ex": "do business",
+            "Desc": "do business",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 4,
+            "Name": "do nothing",
+            "Ex": "do nothing",
+            "Desc": "do nothing",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 5,
+            "Name": "do someone a favour",
+            "Ex": "do someone a favour",
+            "Desc": "do someone a favour",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 6,
+            "Name": "do cooking",
+            "Ex": "do cooking",
+            "Desc": "do cooking",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 7,
+            "Name": "do housework",
+            "Ex": "do housework",
+            "Desc": "do housework",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 8,
+            "Name": "do washing up",
+            "Ex": "do washing up",
+            "Desc": "do washing up",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 9,
+            "Name": "do your best",
+            "Ex": "do your best",
+            "Desc": "do your best",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 10,
+            "Name": "do your hair",
+            "Ex": "do your hair",
+            "Desc": "do your hair",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 11,
+            "Name": "do your homework",
+            "Ex": "do your homework",
+            "Desc": "do your homework",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 12,
+            "Name": "make a choice",
+            "Ex": "make a choice",
+            "Desc": "make a choice",
+            "Link": "https://www.google.com"
+        },
+        {
+            "id": 13,
+            "Name": "make plans",
+            "Ex": "make plans",
+            "Desc": "make plans",
+            "Link": "https://www.google.com"
+        }
+    ]
+}

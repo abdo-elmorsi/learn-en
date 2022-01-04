@@ -1,10 +1,10 @@
 import React from "react";
-import { Row, Col, Form, Card, Button, Image, InputGroup } from "react-bootstrap";
+import { Row, Col, Form, InputGroup } from "react-bootstrap";
 // translation
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const Admin = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <Row>
       <Col md={6}>
