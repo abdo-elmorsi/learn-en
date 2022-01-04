@@ -57,10 +57,10 @@ const Home = () => {
 	useEffect(() => {
 		(async () => {
 			try {
-				await fetch("assets/collocations.json")
+				await fetch("http://localhost:30002/collocations")
 					.then(e => e.json())
 					.then(res => {
-						setAllData([...res.Works]);
+						setAllData([...res]);
 						setTimeout(() => {
 							setloading(false);
 						}, 1000);

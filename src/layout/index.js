@@ -34,7 +34,6 @@ const Layout = ({ children }) => {
           {children}
           {/* <DefaultRouter /> */}
         </div>
-
         {!location.pathname.includes("login") && <Footer />}
       </main>
     </>

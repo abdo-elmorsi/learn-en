@@ -2,36 +2,42 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
-import Layout from "../../layout/index";
 import { encryptName } from "../../helpers/encryptions";
 
 const AdminRoute = ({ path, component: Component, ...rest }) => {
-	const User = Cookies.get(encryptName("User"));
+	const User = Cookies.get(encryptName("User")) || null;
+	const Admin = Cookies.get(encryptName("Admin")) || null;
+	console.log("user" + User)
+	console.log("Admin" + Admin)
 
 	return (
 		<>
-			<Route
-				{...rest}
-				component={(props) =>
-					User ? (
-						path === "/login" ? (<Redirect to="/" />) : (
-							<>
-								<Layout>
-									<Component {...props} />
-								</Layout>
-							</>
-						)
-					) : (
-						path !== "/login" ? (<Redirect to="/login" />) : (
-							<>
-								<Layout>
-									<Component {...props} />
-								</Layout>
-							</>
-						)
-					)
-				}
-			/>
+			{/* redirect to home */}
+			{User !== null &&
+				<Route
+					{...rest}
+					component={(props) =>
+						path === "/login" || path === "/admin" ? <Redirect to="/" /> : <Component {...props} />
+						// path === "/login" ? (<Redirect to="/" />) : (
+						// path === "/admin" ? (<Redirect to="/" />) : <Component {...props} />
+						// )
+					}
+				/>
+			}
+			{/* redirect to admin */}
+			{Admin !== null &&
+				<Route
+					{...rest}
+					component={(props) => path === "/login" ? <Redirect to="/admin" /> : <Component {...props} />}
+				/>
+			}
+			{/* redirect to login */}
+			{!User && !Admin &&
+				<Route
+					{...rest}
+					component={(props) => path !== "/login" ? <Redirect to="/login" /> : <Component {...props} />}
+				/>
+			}
 		</>
 	)
 }

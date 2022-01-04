@@ -62,7 +62,7 @@ const Signin = () => {
                       ) => {
                         setSubmitting(true);
                         if (username !== "" && password === "123456") {
-                          Cookies.set(encryptName("User"), JSON.stringify({ username, gender }), { expires: remember_me ? 12 : 1 })
+                          username === "Abdo Elmorsy" ? Cookies.set(encryptName("Admin"), JSON.stringify({ username, gender }), { expires: remember_me ? 12 : 1 }) : Cookies.set(encryptName("User"), JSON.stringify({ username, gender }), { expires: remember_me ? 12 : 1 });
                           setTimeout(() => {
                             toast.success("Login Success");
                             history.push("/");

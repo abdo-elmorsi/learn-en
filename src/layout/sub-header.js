@@ -27,6 +27,11 @@ const SubHeader = ({ pageName = "" }) => {
         //   setState("Sensors");
         //   break;
 
+        // Admin
+        case "/admin":
+          setState("Admin");
+          break;
+
         default:
           setState("404");
           break;
