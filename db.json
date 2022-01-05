@@ -2,94 +2,198 @@
     "collocations": [
         {
             "id": 1,
-            "Name": "do shopping",
-            "Ex": "My wife always does the shopping, and I do the cooking.",
-            "Desc": "To do the shopping describes the regular process of going to the supermarket to buy food and the other necessary items we need to live on a day to day basis. There is an aspect of doing this regularly and it is more of an obligation than an enjoyable activity, for most.",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do shopping",
+                "Ex": "My wife always does the shopping, and I do the cooking.",
+                "Desc": "To do the shopping describes the regular process of going to the supermarket to buy food and the other necessary items we need to live on a day to day basis. There is an aspect of doing this regularly and it is more of an obligation than an enjoyable activity, for most.",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "قم بالتبضع",
+                "Ex": "زوجتي دائمًا هي التي تتسوق ، وأنا أقوم بالطهي.",
+                "Desc": "للقيام بالتسوق ، يصف العملية المنتظمة للذهاب إلى السوبر ماركت لشراء الطعام والأشياء الضرورية الأخرى التي نحتاجها للعيش على أساس يومي. هناك جانب من القيام بذلك بانتظام وهو التزام أكثر منه نشاط ممتع بالنسبة لمعظم الناس.",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 2,
-            "Name": "go shopping",
-            "Ex": "I like to go shopping the weekend after payday. I need to go shopping for a new coat.",
-            "Desc": "To go shopping means that your intentions are to buy things because you want to or because you need a new version of something. There isn’t necessarily any routine aspect to this action.",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "go shopping",
+                "Ex": "I like to go shopping the weekend after payday. I need to go shopping for a new coat.",
+                "Desc": "To go shopping means that your intentions are to buy things because you want to or because you need a new version of something. There isn’t necessarily any routine aspect to this action.",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "اذهب للتسوق",
+                "Ex": "أحب الذهاب للتسوق في عطلة نهاية الأسبوع بعد يوم الدفع. أنا بحاجة للذهاب للتسوق من أجل معطف جديد.",
+                "Desc": "الذهاب للتسوق يعني أن نيتك هي شراء الأشياء لأنك تريد أو لأنك بحاجة إلى نسخة جديدة من شيء ما. ليس هناك بالضرورة أي جانب روتيني لهذا الإجراء.",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 3,
-            "Name": "do business",
-            "Ex": "do business",
-            "Desc": "do business",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do business",
+                "Ex": "do business",
+                "Desc": "do business",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "القيام بأعمال تجارية",
+                "Ex": "القيام بأعمال تجارية",
+                "Desc": "القيام بأعمال تجارية",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 4,
-            "Name": "do nothing",
-            "Ex": "do nothing",
-            "Desc": "do nothing",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do nothing",
+                "Ex": "do nothing",
+                "Desc": "do nothing",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "لا تفعل شيئا",
+                "Ex": "لا تفعل شيئا",
+                "Desc": "لا تفعل شيئا",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 5,
-            "Name": "do someone a favour",
-            "Ex": "do someone a favour",
-            "Desc": "do someone a favour",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do someone a favour",
+                "Ex": "do someone a favour",
+                "Desc": "do someone a favour",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "افعل معروفا لشخص ما",
+                "Ex": "افعل معروفا لشخص ما",
+                "Desc": "افعل معروفا لشخص ما",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 6,
-            "Name": "do cooking",
-            "Ex": "do cooking",
-            "Desc": "do cooking",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do cooking",
+                "Ex": "do cooking",
+                "Desc": "do cooking",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "القيام بالطبخ",
+                "Ex": "القيام بالطبخ",
+                "Desc": "القيام بالطبخ",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 7,
-            "Name": "do housework",
-            "Ex": "do housework",
-            "Desc": "do housework",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do housework",
+                "Ex": "do housework",
+                "Desc": "do housework",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "يقوم باعمال المنزل",
+                "Ex": "يقوم باعمال المنزل",
+                "Desc": "يقوم باعمال المنزل",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 8,
-            "Name": "do washing up",
-            "Ex": "do washing up",
-            "Desc": "do washing up",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do washing up",
+                "Ex": "do washing up",
+                "Desc": "do washing up",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "قم بالغسيل",
+                "Ex": "قم بالغسيل",
+                "Desc": "قم بالغسيل",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 9,
-            "Name": "do your best",
-            "Ex": "do your best",
-            "Desc": "do your best",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do your best",
+                "Ex": "do your best",
+                "Desc": "do your best",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "ابذل قصارى جهدك",
+                "Ex": "ابذل قصارى جهدك",
+                "Desc": "ابذل قصارى جهدك",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 10,
-            "Name": "do your hair",
-            "Ex": "do your hair",
-            "Desc": "do your hair",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do your hair",
+                "Ex": "do your hair",
+                "Desc": "do your hair",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "صفف شعرك",
+                "Ex": "صفف شعرك",
+                "Desc": "صفف شعرك",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 11,
-            "Name": "do your homework",
-            "Ex": "do your homework",
-            "Desc": "do your homework",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "do your homework",
+                "Ex": "do your homework",
+                "Desc": "do your homework",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "قم بواجبك المنزلى",
+                "Ex": "قم بواجبك المنزلى",
+                "Desc": "قم بواجبك المنزلى",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 12,
-            "Name": "make a choice",
-            "Ex": "make a choice",
-            "Desc": "make a choice",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "make a choice",
+                "Ex": "make a choice",
+                "Desc": "make a choice",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "أختار",
+                "Ex": "أختار",
+                "Desc": "أختار",
+                "Link": "https://www.google.com"
+            }
         },
         {
             "id": 13,
-            "Name": "make plans",
-            "Ex": "make plans",
-            "Desc": "make plans",
-            "Link": "https://www.google.com"
+            "en": {
+                "Name": "make plans",
+                "Ex": "make plans",
+                "Desc": "make plans",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "يضع خطط",
+                "Ex": "يضع خطط",
+                "Desc": "يضع خطط",
+                "Link": "https://www.google.com"
+            }
         }
     ]
 }
