@@ -67,25 +67,25 @@ const Admin = () => {
       <Row>
         <Col md={6}>
           <h2>en</h2>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setNameAr(e.target.value)} name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
           </InputGroup>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setExAr(e.target.value)} name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
           </InputGroup>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setDescAr(e.target.value)} name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
           </InputGroup>
         </Col>
         <Col md={6}>
           <h2>ar</h2>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setNameEn(e.target.value)} name="الاسم" type="text" placeholder="الاسم" aria-label="الاسم" aria-describedby="basic-addon1" />
           </InputGroup>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setExEn(e.target.value)} name="المثال" type="text" placeholder="المثال" aria-label="المثال" aria-describedby="basic-addon1" />
           </InputGroup>
-          <InputGroup className=" mb-4">
+          <InputGroup className="mb-4">
             <Form.Control onChange={(e) => setDescEn(e.target.value)} name="الوصف" type="text" placeholder="الوصف" aria-label="الوصف" aria-describedby="basic-addon1" />
           </InputGroup>
         </Col>

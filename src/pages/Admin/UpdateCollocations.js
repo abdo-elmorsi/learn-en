@@ -131,6 +131,7 @@ const UpdateCollocations = () => {
 				name: 'id',
 				selector: (row) => row.id,
 				sortable: true,
+				maxWidth: "50px"
 			},
 			{
 				name: `${t("Name")}`,
