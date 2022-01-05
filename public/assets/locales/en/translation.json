@@ -1,5 +1,9 @@
 {
     "Home": "Home",
     "Collocations": "Collocations",
-    "Search": "Search"
+    "Search": "Search",
+    "Name": "Name",
+    "Choose Collocations Type": "Choose Collocations Type",
+    "Update Collocations": "Update Collocations",
+    "Add Collocations": "Add Collocation"
 }

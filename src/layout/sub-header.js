@@ -28,10 +28,12 @@ const SubHeader = ({ pageName = "" }) => {
         //   break;
 
         // Admin
-        case "/admin":
-          setState("Admin");
+        case "/addCollocation":
+          setState("Add Collocation");
           break;
-
+        case "/updateCollocations":
+          setState("Update Collocations");
+          break;
         default:
           setState("404");
           break;

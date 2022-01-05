@@ -112,7 +112,7 @@ const Signin = () => {
                           <Row>
                             <Col lg="12">
                               <Form.Group className="form-group">
-                                <FormLabel htmlFor="username" className="">
+                                <FormLabel htmlFor="username">
                                   Username
                                 </FormLabel>
                                 <Form.Control

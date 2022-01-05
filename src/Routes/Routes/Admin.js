@@ -17,7 +17,7 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 					{...rest}
 					component={(props) => {
 						if (path === "/login") return <Redirect to="/" />;
-						if (path === "/admin") {
+						if (path === "/addCollocation" || path === "/CollocationsReports") {
 							toast.warning("You are not Abdo");
 							return <Redirect to="/" />
 						};

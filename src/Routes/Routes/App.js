@@ -4,7 +4,8 @@ import { createBrowserHistory } from "history";
 import * as ROUTES from "../Constants";
 import Home from "../../pages";
 import Collocations from "../../pages/Collocations";
-import AdminP from "../../pages/Admin";
+import AddCollocation from "../../pages/Admin/AddCollocation";
+import UpdateCollocations from "../../pages/Admin/UpdateCollocations";
 import Login from "../../pages/auth/Signin";
 import NotFound from "../../pages/PageNotFound";
 import Layout from "../../layout/index";
@@ -17,11 +18,13 @@ const AppRouter = () => {
         <Switch>
           <Admin exact component={Home} path={ROUTES.HOME} />
           <Admin component={Collocations} path={ROUTES.COLLOCATIONS} />
-          <Admin component={AdminP} path={ROUTES.ADMIN} />
+
+          {/* Admin */}
+          <Admin component={AddCollocation} path={ROUTES.ADD_COLLOCATION} />
+          <Admin component={UpdateCollocations} path={ROUTES.UPDATE_COLLOCATIONS} />
+          
+          {/* Not Found And Login*/}
           <Admin component={Login} path={ROUTES.LOGIN} />
-
-
-          {/* Not Found */}
           <Admin component={NotFound} path={ROUTES.NOT_FOUND} />
         </Switch>
       </Layout>

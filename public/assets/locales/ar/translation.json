@@ -1,5 +1,9 @@
 {
     "Home": "الرئيسيه",
     "Collocations": "المتلازمات",
-    "Search": "بحث"
+    "Search": "بحث",
+    "Name": "الاسم",
+    "Choose Collocations Type": "اختر نوع الارتباطات",
+    "Update Collocations": "تحديث الترابطات",
+    "Add Collocation": "اضافه ترابط"
 }

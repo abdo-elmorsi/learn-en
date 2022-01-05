@@ -3,19 +3,22 @@ import { motion } from "framer-motion";
 import Loading from "../components/Table/Loading"
 import { Card, Col, Form, Row } from "react-bootstrap";
 import DataTable, { createTheme } from "react-data-table-component";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { itemSlideUp } from "../helpers/Animation";
-
+import { AddCollocations } from "../lib/slices/collocations";
 import { useTranslation } from "react-i18next";
+import httpRequest from "../api";
+import Cookies from "js-cookie";
 
 const Home = () => {
+	const Language = Cookies.get("i18next") || "en";
 	const { t } = useTranslation();
+	const dispatch = useDispatch();
 	const [filter, setfilter] = useState('');
 	const [CollocationsType, setCollocationsType] = useState('')
 	const [Data, setData] = useState([]);
-	const [AllData, setAllData] = useState([]);
 	const [loading, setloading] = useState(true);
-	const { config } = useSelector((state) => state);
+	const { config, Collocations } = useSelector((state) => state);
 	createTheme(
 		"solarized",
 		{
@@ -37,51 +40,74 @@ const Home = () => {
 				sortable: true,
 			},
 			{
-				name: `${t("name")}`,
-				selector: (row) => row.Name,
+				name: `${t("Name")}`,
+				selector: (row) => Language === "en" ? (row?.en?.Name) : (row?.ar?.Name),
 				sortable: true,
 			},
 		],
-		[t],
+		[t, Language],
 	);
 	// handle filter
 	useEffect(() => {
-		const newData = AllData?.filter((item) => {
+		const newData = Collocations?.collocations.filter((item) => {
 			return item?.en?.Name?.toString().includes(filter?.toLowerCase()) ||
 				false;
 		});
 		setData(newData);
-	}, [AllData, filter]);
+	}, [Collocations, filter]);
 
 	// Fetch Data
 	useEffect(() => {
-		(async () => {
-			try {
-				await fetch("https://abdo-en.herokuapp.com/api/collocations")
-					.then(e => e.json())
-					.then(res => {
-						setAllData([...res]);
-						console.log(res)
-						setTimeout(() => {
-							setloading(false);
-						}, 1000);
-					})
-			} catch (error) {
-				console.log(error);
-			}
-		})();
-	}, []);
+		if (Collocations.collocations.length === 0) {
+			httpRequest({
+				method: 'GET', url: `/collocations`,
+			}).then(res => {
+				dispatch(AddCollocations([...res]))
+				setloading(false);
+			}).catch(er => console.log(er))
+		} else {
+			setloading(false);
+		}
+	}, [dispatch, Collocations.collocations.length]);
 	// data provides access to your row data
 	const ExpandedComponent = ({ data }) => {
 		return (
-			<div className="">
+			<div>
 				<pre></pre>
-				Example:<pre
-					className="mx-0 mx-lg-5"
-					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>{`${JSON.stringify(data?.en?.Ex)}`}</pre>
-				Description:<pre
-					className="mx-0 mx-lg-5"
-					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#0dcaf0" : "#198754"}` }}>{`${JSON.stringify(data?.en?.Desc)}`}</pre>
+				{Language === "en" ? (
+					<>
+						Example:<pre
+							className="mx-0 mx-lg-5"
+							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							{JSON.stringify(data?.en?.Ex)}
+						</pre>
+					</>
+				) : (
+					<>
+						مثال:<pre
+							className="mx-0 mx-lg-5"
+							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							{JSON.stringify(data?.ar?.Ex)}
+						</pre>
+					</>
+				)}
+				{Language === "en" ? (
+					<>
+						Description:<pre
+							className="mx-0 mx-lg-5"
+							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							{JSON.stringify(data?.en?.Desc)}
+						</pre>
+					</>
+				) : (
+					<>
+						الوصف:<pre
+							className="mx-0 mx-lg-5"
+							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							{JSON.stringify(data?.ar?.Desc)}
+						</pre>
+					</>
+				)}
 			</div>
 		)
 	};
@@ -93,12 +119,11 @@ const Home = () => {
 					<Col sm="12" md="6">
 						{/* <div className="d-flex justify-content-between mt-3"> */}
 						<Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start">
-							<Form.Label>Filter</Form.Label>
+							<Form.Label>{t("Search")}</Form.Label>
 							<Form.Control
 								value={filter}
 								type="search"
 								id="search"
-								name="search"
 								onChange={(e) => setfilter(e.target.value)}
 								placeholder={`${t("Name")}...`}
 							/>
@@ -107,7 +132,7 @@ const Home = () => {
 					</Col>
 					<Col sm="12" md="6">
 						<Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start mt-3 mt-md-0">
-							<Form.Label>Choose Collocations Type</Form.Label>
+							<Form.Label>{t("Choose Collocations Type")}</Form.Label>
 							<Form.Select style={{ cursor: "pointer" }} aria-label="Floating label select example" onChange={(e) => setCollocationsType(e.target.value)}>
 								<option value="">All Types</option>
 								<option>do</option>
@@ -129,7 +154,7 @@ const Home = () => {
 					>
 						{!loading ? (
 							<DataTable
-								title="Collocations"
+								title={t("Collocations")}
 								columns={columns}
 								data={Data.filter(ele => ele?.en?.Name.toString().startsWith(`${CollocationsType}`))}
 								highlightOnHover

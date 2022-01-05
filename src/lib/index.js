@@ -4,6 +4,7 @@ import ConfigSlice from "./slices/config";
 import ToggleAddMarkerRoutingMachineSlice from "./slices/toggleAddMarkerRoutingMachine";
 import fetchUserSlice from "./slices/auth";
 import ToggleHeaderSlice from "./slices/toggle-header";
+import CollocationsSlice from './slices/collocations';
 
 export default configureStore({
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
@@ -13,5 +14,6 @@ export default configureStore({
         auth: fetchUserSlice,
         toggleAddMarkerRoutingMachine: ToggleAddMarkerRoutingMachineSlice,
         ToggleHeader: ToggleHeaderSlice,
+        Collocations: CollocationsSlice
     },
 })

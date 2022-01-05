@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Dropdown, Image } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
 import { toggleHead } from "../lib/slices/toggle-header";
@@ -395,17 +395,6 @@ const Header = () => {
                   aria-labelledby="navbarDropdown"
                 >
                   <Dropdown.Item
-                    as={Link}
-                    to='/admin'
-                    // onClick={handleSignOut}
-                    className="px-0"
-                  >
-                    <div className="d-flex justify-content-around ">
-                      <span>Admin</span>
-                      <svg width="18" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="users-cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="svg-inline--fa fa-users-cog fa-w-20 fa-2x"><g className="fa-group"><path fill="currentColor" d="M636.3 356.1l-25.8-14.9a117.31 117.31 0 0 0 0-42.6l25.8-14.9a7.24 7.24 0 0 0 3.3-8.5 150.07 150.07 0 0 0-33.2-57.4 7.29 7.29 0 0 0-9-1.4l-25.8 14.9a117.4 117.4 0 0 0-36.9-21.3v-29.8a7.28 7.28 0 0 0-5.7-7.1 150.88 150.88 0 0 0-66.2 0 7.28 7.28 0 0 0-5.7 7.1V210a117.4 117.4 0 0 0-36.9 21.3l-25.8-14.9a7.31 7.31 0 0 0-9 1.4 150.07 150.07 0 0 0-33.2 57.4 7.37 7.37 0 0 0 3.3 8.5l25.8 14.9a117.31 117.31 0 0 0 0 42.6l-25.8 14.9a7.24 7.24 0 0 0-3.3 8.5 150.82 150.82 0 0 0 33.2 57.4 7.29 7.29 0 0 0 9 1.4l25.8-14.9a117.4 117.4 0 0 0 36.9 21.3v29.8a7.28 7.28 0 0 0 5.7 7.1 150.88 150.88 0 0 0 66.2 0 7.28 7.28 0 0 0 5.7-7.1v-29.8a117.4 117.4 0 0 0 36.9-21.3l25.8 14.9a7.31 7.31 0 0 0 9-1.4 150.07 150.07 0 0 0 33.2-57.4 7.37 7.37 0 0 0-3.3-8.5zM496 368.4a48.5 48.5 0 1 1 48.5-48.5 48.55 48.55 0 0 1-48.5 48.5z" className="fa-secondary"></path><path fill="currentColor" d="M320 255.9c1.9 0 3.7-.5 5.6-.6a184.35 184.35 0 0 1 36.3-59.2 39.41 39.41 0 0 1 28.9-12.6 38.44 38.44 0 0 1 19.6 5.3l7.9 4.6c.8-.5 1.6-.9 2.4-1.4a110.69 110.69 0 0 0 11.2-48A112 112 0 1 0 320 255.9zm-146.9 18.6a63.81 63.81 0 0 0-45.1-18.6H64a64.06 64.06 0 0 0-64 64v32a32 32 0 0 0 32 32h65.9a146.64 146.64 0 0 1 75.2-109.4zM96 223.9a64 64 0 1 0-64-64 64.06 64.06 0 0 0 64 64zm329.2 226.5c-2.3-1.2-4.6-2.6-6.8-3.9-8.2 4.8-15.3 9.8-27.5 9.8a39.75 39.75 0 0 1-28.9-12.6 182.34 182.34 0 0 1-40.2-69.6c-10.7-34.5 24.9-49.7 25.8-50.3q-.15-3.9 0-7.8l-7.9-4.6a40.73 40.73 0 0 1-9.8-8.1c-3.3.2-6.5.6-9.8.6-24.6 0-47.6-6-68.5-16h-8.3A115.25 115.25 0 0 0 128 403.1v28.8a48 48 0 0 0 48 48h255.4a38.5 38.5 0 0 1-6.2-20.3z" className="fa-primary"></path></g></svg>
-                    </div>
-                  </Dropdown.Item>
-                  <Dropdown.Item
                     as={"button"}
                     onClick={handleSignOut}
                     className="px-0"
@@ -426,7 +415,6 @@ const Header = () => {
                         <path
                           fill="currentColor"
                           d="M272 112v51.6h-96c-26.5 0-48 21.5-48 48v88.6c0 26.5 21.5 48 48 48h96v51.6c0 42.6 51.7 64.2 81.9 33.9l144-143.9c18.7-18.7 18.7-49.1 0-67.9l-144-144C323.8 48 272 69.3 272 112zm192 144L320 400v-99.7H176v-88.6h144V112l144 144zM96 64h84c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12H96c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h84c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12H96c-53 0-96-43-96-96V160c0-53 43-96 96-96z"
-                          className=""
                         ></path>
                       </svg>
                     </div>
