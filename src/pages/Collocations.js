@@ -57,7 +57,7 @@ const Home = () => {
 	useEffect(() => {
 		(async () => {
 			try {
-				await fetch("http://localhost:3001/collocations")
+				await fetch("https://abdo-en.herokuapp.com/api/collocations")
 					.then(e => e.json())
 					.then(res => {
 						setAllData([...res]);
