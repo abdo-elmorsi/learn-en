@@ -19,37 +19,40 @@ const Admin = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    httpRequest({
-      method: 'POST', url: `/collocations`, data: {
-        "id": `${Collocations.collocations.length + 1}`,
-        "en": {
-          "Name": NameAr,
-          "Ex": ExAr,
-          "Desc": DescAr,
-          "Link": "https://www.google.com"
-        },
-        "ar": {
-          "Name": NameEn,
-          "Ex": ExEn,
-          "Desc": DescEn,
-          "Link": "https://www.google.com"
+    if (NameAr !== "" && ExAr !== "" && DescAr !== "" && NameEn !== "" && ExEn !== "" && DescEn !== "") {
+      httpRequest({
+        method: 'POST', url: `/collocations`, data: {
+          "id": `${Collocations.collocations.length + 1}`,
+          "en": {
+            "Name": NameAr,
+            "Ex": ExAr,
+            "Desc": DescAr,
+            "Link": "https://www.google.com"
+          },
+          "ar": {
+            "Name": NameEn,
+            "Ex": ExEn,
+            "Desc": DescEn,
+            "Link": "https://www.google.com"
+          }
         }
-      }
-    }).then(res => {
-      console.log(res);
-      toast.success("Collocation added");
-      setNameAr("");
-      setExAr("");
-      setDescAr("");
-      setNameEn("");
-      setExEn("");
-      setDescEn("");
-
-    }).catch(er => {
-      console.log(er);
-      toast.error("sorry there is an error");
-      window.location.reload();
-    })
+      }).then(res => {
+        console.log(res);
+        toast.success("Collocation added");
+        setNameAr("");
+        setExAr("");
+        setDescAr("");
+        setNameEn("");
+        setExEn("");
+        setDescEn("");
+      }).catch(er => {
+        console.log(er);
+        toast.error("sorry there is an error");
+        window.location.reload();
+      })
+    } else {
+      toast.warning("Plz Add All Data")
+    }
   }
   // Fetch Data
   useEffect(() => {
