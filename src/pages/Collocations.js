@@ -47,7 +47,7 @@ const Home = () => {
 	// handle filter
 	useEffect(() => {
 		const newData = AllData?.filter((item) => {
-			return item?.Name?.toString().includes(filter?.toLowerCase()) ||
+			return item?.en?.Name?.toString().includes(filter?.toLowerCase()) ||
 				false;
 		});
 		setData(newData);
@@ -61,6 +61,7 @@ const Home = () => {
 					.then(e => e.json())
 					.then(res => {
 						setAllData([...res]);
+						console.log(res)
 						setTimeout(() => {
 							setloading(false);
 						}, 1000);
@@ -77,10 +78,10 @@ const Home = () => {
 				<pre></pre>
 				Example:<pre
 					className="mx-0 mx-lg-5"
-					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>{`${JSON.stringify(data.Ex)}`}</pre>
+					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>{`${JSON.stringify(data?.en?.Ex)}`}</pre>
 				Description:<pre
 					className="mx-0 mx-lg-5"
-					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#0dcaf0" : "#198754"}` }}>{`${JSON.stringify(data.Desc)}`}</pre>
+					style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#0dcaf0" : "#198754"}` }}>{`${JSON.stringify(data?.en?.Desc)}`}</pre>
 			</div>
 		)
 	};
@@ -130,7 +131,7 @@ const Home = () => {
 							<DataTable
 								title="Collocations"
 								columns={columns}
-								data={Data.filter(ele => ele.Name.toString().startsWith(`${CollocationsType}`))}
+								data={Data.filter(ele => ele?.en?.Name.toString().startsWith(`${CollocationsType}`))}
 								highlightOnHover
 								theme={`${config.darkMode && "solarized"}`}
 								pagination

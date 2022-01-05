@@ -11,6 +11,17 @@ const Admin = () => {
         <InputGroup className=" mb-3">
           <Form.Control type="text" className="" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
         </InputGroup>
+        <InputGroup className=" mb-3">
+          <Form.Control type="text" className="" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        </InputGroup>
+      </Col>
+      <Col md={6}>
+        <InputGroup className=" mb-3">
+          <Form.Control type="text" className="" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        </InputGroup>
+        <InputGroup className=" mb-3">
+          <Form.Control type="text" className="" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        </InputGroup>
       </Col>
     </Row>
   );
