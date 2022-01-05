@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://abdo-en.herokuapp.com/api'
+axios.defaults.baseURL = 'https://elmorsy.herokuapp.com/api'
 // axios.defaults.baseURL = 'https://souk-team-server.herokuapp.com/api'
 
 axios.interceptors.response.use(
