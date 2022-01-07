@@ -38,6 +38,9 @@ const Admin = () => {
       }).then(res => {
         console.log(res);
         toast.success("Collocation added");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }).catch(er => {
         toast.error("sorry there is an error");
         window.location.reload();
