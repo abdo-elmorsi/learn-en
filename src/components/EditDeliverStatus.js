@@ -1,8 +1,9 @@
+import React from 'react';
 import { useForm } from 'react-hook-form'
 import { useDialog } from 'react-st-modal'
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
-const EditDeliverStatus = ({ status }) => {
-	const dialog = useDialog()
+const EditDeliverStatus = ({ status, config }) => {
+	const dialog = useDialog();
 	const {
 		register,
 		handleSubmit,
@@ -15,28 +16,16 @@ const EditDeliverStatus = ({ status }) => {
 			data?.DescAr &&
 			data?.NameEn &&
 			data?.ExEn &&
-			data?.DescEn
+			data?.DescEn &&
+			data?.isphrasal
 		) {
 			dialog.close(data)
 		}
-	}
+	};
 
 	return (
-		<div>
+		<div className={`${config.darkMode && "dark"}`}>
 			<form className="d-flex flex-column justify-content-center p-4" onSubmit={handleSubmit(onSubmit)} >
-				{/* <Form.Group className="mb-5" >
-					<Form.Label>Status</Form.Label>
-					<Form.Select placeholder="chose" controlid="formGridState" {...register('status', {
-						required: 'status is required',
-					})}>
-						<option>verified</option>
-						<option>pending</option>
-						<option>hold</option>
-					</Form.Select>
-					<Form.Text className="err-msg text-danger">
-						{errors?.status?.message}
-					</Form.Text>
-				</Form.Group > */}
 				<Row>
 					<Col md={6}>
 						<h2>ar</h2>
@@ -110,6 +99,11 @@ const EditDeliverStatus = ({ status }) => {
 
 				<Form.Group className="d-flex justify-content-around w-100 mt-4">
 					<Button type="submit" className="px-4 py-2 bg-primary text-white rounded d-block">update</Button>
+
+					<Form.Check {...register('isphrasal')} type="switch" id="custom-switch"
+						label={'phrasal verb'}
+					/>
+
 					<Button className="px-4 py-2 bg-secondary text-white rounded d-block" onClick={() => dialog.close(false)}>Close</Button>
 				</Form.Group>
 			</form>

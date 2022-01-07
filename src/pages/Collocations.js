@@ -38,12 +38,14 @@ const Home = () => {
 				name: 'id',
 				selector: (row) => row.id,
 				sortable: true,
+				cell: (row) => <span style={{ color: `${row?.isphrasal ? "red" : null}` }}>{row?.id} {row?.isphrasal && "_ isphrasal"}</span>,
 			},
 			{
 				name: `${t("Name")}`,
-				selector: (row) => Language === "en" ? (row?.en?.Name) : (row?.ar?.Name),
+				selector: (row) => Language === "en" ? row?.en?.Name : row?.ar?.Name,
+				cell: (row) => <span style={{ color: `${row?.isphrasal && "red"}` }}>{Language === "en" ? row?.en?.Name : row?.ar?.Name}</span>,
 				sortable: true,
-			},
+			}
 		],
 		[t, Language],
 	);
@@ -78,7 +80,7 @@ const Home = () => {
 					<>
 						Example:<pre
 							className="mx-0 mx-lg-5"
-							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#6f42c1"}` }}>
 							{JSON.stringify(data?.en?.Ex)}
 						</pre>
 					</>
@@ -86,7 +88,7 @@ const Home = () => {
 					<>
 						مثال:<pre
 							className="mx-0 mx-lg-5"
-							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#198754"}` }}>
 							{JSON.stringify(data?.ar?.Ex)}
 						</pre>
 					</>
@@ -143,6 +145,8 @@ const Home = () => {
 								<option>have</option>
 								<option>get</option>
 								<option>come</option>
+								<option>break</option>
+								<option>calm</option>
 							</Form.Select>
 						</Form.Group>
 					</Col>

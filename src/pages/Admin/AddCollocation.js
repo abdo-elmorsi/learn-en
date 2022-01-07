@@ -11,18 +11,17 @@ const Admin = () => {
   const dispatch = useDispatch();
   const { Collocations } = useSelector((state) => state);
   const [Data, setData] = useState({});
-  const [isPrasel, setisPrasel] = useState(false)
+  const [isphrasal, setisphrasal] = useState(false)
   const HandleData = (e) => setData({ ...Data, [e.target.name]: e.target.value })
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(Data)
 
     if (Data.NameAr !== "" && Data.ExAr !== "" && Data.DescAr !== "" && Data.NameEn !== "" && Data.ExEn !== "" && Data.DescEn !== "") {
       httpRequest({
         method: 'POST', url: `/collocations`, data: {
           "id": `${Collocations.collocations.length + 1}`,
-          "isPrasel": isPrasel,
+          "isphrasal": isphrasal,
           "en": {
             "Name": Data.Name,
             "Ex": Data.Ex,
@@ -74,10 +73,10 @@ const Admin = () => {
             <Form.Control onChange={(e) => HandleData(e)} name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
           </InputGroup>
           <Form.Check
-            onChange={(e) => setisPrasel(e.target.checked)}
+            onChange={() => setisphrasal(!isphrasal)}
             type="switch"
             id="custom-switch"
-            label={`${isPrasel ? "phrasal verb" : "collocation"}`}
+            label={"phrasal verb"}
           />
         </Col>
         <Col md={6}>

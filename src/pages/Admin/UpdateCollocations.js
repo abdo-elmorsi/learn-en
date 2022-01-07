@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Card, Button, Form } from "react-bootstrap";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { CustomDialog } from "react-st-modal";
 import EditDeliverStatus from "../../components/EditDeliverStatus";
 import httpRequest from "../../api";
@@ -12,12 +12,12 @@ import DataTable, { createTheme } from "react-data-table-component";
 import { motion } from "framer-motion";
 import { itemSlideUp } from "../../helpers/Animation";
 import Loading from "../../components/Table/Loading";
-import { toast } from "react-toastify";
 
 // Loadin table and error message
 export const Actions = ({ id, status }) => {
 	const dispatch = useDispatch();
-	const { collocations } = useSelector((state) => state.Collocations);
+	const { Collocations, config } = useSelector((state) => state);
+	const collocations = Collocations.collocations
 	const handleDelete = async () => {
 		await httpRequest({
 			method: 'DELETE', url: `/collocations/${id}`
@@ -35,7 +35,7 @@ export const Actions = ({ id, status }) => {
 		})
 	}
 	const handleEdit = async () => {
-		const result = await CustomDialog(<EditDeliverStatus status={status} />, {
+		const result = await CustomDialog(<EditDeliverStatus config={config} status={status} />, {
 			title: "Update user status",
 		});
 		if (result) {
@@ -43,6 +43,7 @@ export const Actions = ({ id, status }) => {
 			httpRequest({
 				method: 'Put', url: `/collocations/${id}`, data: {
 					"id": id,
+					"isphrasal": result.isphrasal,
 					"en": {
 						"Name": result.NameEn,
 						"Ex": result.ExEn,
@@ -131,17 +132,19 @@ const UpdateCollocations = () => {
 				name: 'id',
 				selector: (row) => row.id,
 				sortable: true,
-				maxWidth: "50px"
+				maxWidth: "125px",
+				cell: (row) => <span style={{ color: `${row?.isphrasal ? "red" : null}` }}>{row?.id} {row?.isphrasal && "_ isphrasal"}</span>,
 			},
 			{
 				name: `${t("Name")}`,
-				selector: (row) => Language === "en" ? (row?.en?.Name) : (row?.ar?.Name),
+				selector: (row) => Language === "en" ? row?.en?.Name : row?.ar?.Name,
+				cell: (row) => <span style={{ color: `${row?.isphrasal && "red"}` }}>{Language === "en" ? row?.en?.Name : row?.ar?.Name}</span>,
 				sortable: true,
 			},
 			{
 				name: "actions",
 				cell: (row) => <Actions id={row.id} status={row} />,
-			},
+			}
 		],
 		[t, Language],
 	);
@@ -176,7 +179,7 @@ const UpdateCollocations = () => {
 					<>
 						Example:<pre
 							className="mx-0 mx-lg-5"
-							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#6f42c1"}` }}>
 							{JSON.stringify(data?.en?.Ex)}
 						</pre>
 					</>
@@ -184,7 +187,7 @@ const UpdateCollocations = () => {
 					<>
 						مثال:<pre
 							className="mx-0 mx-lg-5"
-							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#198754"}` }}>
 							{JSON.stringify(data?.ar?.Ex)}
 						</pre>
 					</>
