@@ -2,6 +2,7 @@
     "collocations": [
         {
             "id": 1,
+            "isPrasel": false,
             "en": {
                 "Name": "do shopping",
                 "Ex": "My wife always does the shopping, and I do the cooking.",
@@ -17,6 +18,7 @@
         },
         {
             "id": 2,
+            "isPrasel": false,
             "en": {
                 "Name": "go shopping",
                 "Ex": "I like to go shopping the weekend after payday. I need to go shopping for a new coat.",
@@ -32,6 +34,7 @@
         },
         {
             "id": 3,
+            "isPrasel": false,
             "en": {
                 "Name": "do business",
                 "Ex": "do business",
@@ -47,6 +50,7 @@
         },
         {
             "id": 4,
+            "isPrasel": false,
             "en": {
                 "Name": "do nothing",
                 "Ex": "do nothing",
@@ -62,6 +66,7 @@
         },
         {
             "id": 5,
+            "isPrasel": false,
             "en": {
                 "Name": "do someone a favour",
                 "Ex": "do someone a favour",
@@ -77,6 +82,7 @@
         },
         {
             "id": 6,
+            "isPrasel": false,
             "en": {
                 "Name": "do cooking",
                 "Ex": "do cooking",
@@ -92,6 +98,7 @@
         },
         {
             "id": 7,
+            "isPrasel": false,
             "en": {
                 "Name": "do housework",
                 "Ex": "do housework",
@@ -107,6 +114,7 @@
         },
         {
             "id": 8,
+            "isPrasel": false,
             "en": {
                 "Name": "do washing up",
                 "Ex": "do washing up",
@@ -122,6 +130,7 @@
         },
         {
             "id": 9,
+            "isPrasel": false,
             "en": {
                 "Name": "do your best",
                 "Ex": "do your best",
@@ -137,6 +146,7 @@
         },
         {
             "id": 10,
+            "isPrasel": false,
             "en": {
                 "Name": "do your hair",
                 "Ex": "do your hair",
@@ -152,6 +162,7 @@
         },
         {
             "id": 11,
+            "isPrasel": false,
             "en": {
                 "Name": "do your homework",
                 "Ex": "do your homework",
@@ -167,6 +178,7 @@
         },
         {
             "id": 12,
+            "isPrasel": false,
             "en": {
                 "Name": "make a choice",
                 "Ex": "make a choice",
@@ -182,6 +194,7 @@
         },
         {
             "id": 13,
+            "isPrasel": false,
             "en": {
                 "Name": "make plans",
                 "Ex": "make plans",

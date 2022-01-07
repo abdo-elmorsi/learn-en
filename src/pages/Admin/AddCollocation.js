@@ -10,49 +10,43 @@ import { AddCollocations } from "../../lib/slices/collocations";
 const Admin = () => {
   const dispatch = useDispatch();
   const { Collocations } = useSelector((state) => state);
-  const [NameAr, setNameAr] = useState('');
-  const [ExAr, setExAr] = useState('');
-  const [DescAr, setDescAr] = useState('');
-  const [NameEn, setNameEn] = useState('');
-  const [ExEn, setExEn] = useState('');
-  const [DescEn, setDescEn] = useState('');
+  const [Data, setData] = useState({});
+  const [isPrasel, setisPrasel] = useState(false)
+  const HandleData = (e) => setData({ ...Data, [e.target.name]: e.target.value })
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    if (NameAr !== "" && ExAr !== "" && DescAr !== "" && NameEn !== "" && ExEn !== "" && DescEn !== "") {
+    console.log(Data)
+
+    if (Data.NameAr !== "" && Data.ExAr !== "" && Data.DescAr !== "" && Data.NameEn !== "" && Data.ExEn !== "" && Data.DescEn !== "") {
       httpRequest({
         method: 'POST', url: `/collocations`, data: {
           "id": `${Collocations.collocations.length + 1}`,
+          "isPrasel": isPrasel,
           "en": {
-            "Name": NameAr,
-            "Ex": ExAr,
-            "Desc": DescAr,
+            "Name": Data.Name,
+            "Ex": Data.Ex,
+            "Desc": Data.Desc,
             "Link": "https://www.google.com"
           },
           "ar": {
-            "Name": NameEn,
-            "Ex": ExEn,
-            "Desc": DescEn,
+            "Name": Data.NameAr,
+            "Ex": Data.ExAr,
+            "Desc": Data.DescAr,
             "Link": "https://www.google.com"
           }
         }
       }).then(res => {
         console.log(res);
         toast.success("Collocation added");
-        setNameAr("");
-        setExAr("");
-        setDescAr("");
-        setNameEn("");
-        setExEn("");
-        setDescEn("");
       }).catch(er => {
-        console.log(er);
         toast.error("sorry there is an error");
         window.location.reload();
       })
     } else {
       toast.warning("Plz Add All Data")
     }
+
   }
   // Fetch Data
   useEffect(() => {
@@ -71,25 +65,31 @@ const Admin = () => {
         <Col md={6}>
           <h2>en</h2>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setNameAr(e.target.value)} name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setExAr(e.target.value)} name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setDescAr(e.target.value)} name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
           </InputGroup>
+          <Form.Check
+            onChange={(e) => setisPrasel(e.target.checked)}
+            type="switch"
+            id="custom-switch"
+            label={`${isPrasel ? "phrasal verb" : "collocation"}`}
+          />
         </Col>
         <Col md={6}>
           <h2>ar</h2>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setNameEn(e.target.value)} name="الاسم" type="text" placeholder="الاسم" aria-label="الاسم" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="NameAr" type="text" placeholder="الاسم" aria-label="الاسم" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setExEn(e.target.value)} name="المثال" type="text" placeholder="المثال" aria-label="المثال" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="ExAr" type="text" placeholder="المثال" aria-label="المثال" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => setDescEn(e.target.value)} name="الوصف" type="text" placeholder="الوصف" aria-label="الوصف" aria-describedby="basic-addon1" />
+            <Form.Control onChange={(e) => HandleData(e)} name="DescAr" type="text" placeholder="الوصف" aria-label="الوصف" aria-describedby="basic-addon1" />
           </InputGroup>
         </Col>
         <Col md="6 mx-auto">
