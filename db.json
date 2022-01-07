@@ -175,6 +175,38 @@
                 "Desc": "قم بواجبك المنزلى",
                 "Link": "https://www.google.com"
             }
+        },
+        {
+            "id": 12,
+            "phrasal": false,
+            "en": {
+                "Name": "make a choice",
+                "Ex": "make a choice",
+                "Desc": "make a choice",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "أختار",
+                "Ex": "أختار",
+                "Desc": "أختار",
+                "Link": "https://www.google.com"
+            }
+        },
+        {
+            "id": 13,
+            "phrasal": false,
+            "en": {
+                "Name": "make plans",
+                "Ex": "make plans",
+                "Desc": "make plans",
+                "Link": "https://www.google.com"
+            },
+            "ar": {
+                "Name": "يضع خطط",
+                "Ex": "يضع خطط",
+                "Desc": "يضع خطط",
+                "Link": "https://www.google.com"
+            }
         }
     ]
 }
