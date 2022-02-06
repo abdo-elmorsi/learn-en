@@ -1,34 +1,12 @@
 import React from "react";
-// import React, { useContext } from 'react'
 import { Accordion } from "react-bootstrap";
-// import { Accordion, useAccordionButton, AccordionContext } from 'react-bootstrap'
-// import { Accordion, useAccordionButton, AccordionContext, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import { encryptName } from "../helpers/encryptions";
+import { auth } from "../firebase";
 
-// function CustomToggle({ children, eventKey, onClick }) {
-
-//     const { activeEventKey } = useContext(AccordionContext);
-
-//     const decoratedOnClick = useAccordionButton(eventKey, (active) => onClick({ state: !active, eventKey: eventKey }));
-
-//     const isCurrentEventKey = activeEventKey === eventKey;
-
-//     return (
-//         <Link style={{ textDecoration: 'none' }} to="/" aria-expanded={isCurrentEventKey ? 'true' : 'false'} className="nav-link" role="button"
-//             onClick={(e) => {
-//                 decoratedOnClick(isCurrentEventKey)
-//             }}>
-//             {children}
-//         </Link>
-//     );
-// }
 const VerticalNav = () => {
   const { t } = useTranslation();
   let location = useLocation();
-  const Admin = Cookies.get(encryptName("Admin")) || null;
   return (
     <>
       <Accordion as="ul" className="navbar-nav iq-main-menu">
@@ -82,7 +60,7 @@ const VerticalNav = () => {
           </Link>
         </Accordion.Item>
         {/* Admin */}
-        {Admin && (
+        {auth?.currentUser?.email.startsWith('abdelrahmandiv') && (
           <>
             <Accordion.Item
               as="li"

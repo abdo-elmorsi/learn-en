@@ -1,4 +1,4 @@
-import React, { StrictMode } from "react";
+import React, { StrictMode, useEffect } from "react";
 import './styles/globals.scss'
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,10 +7,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import AppRouter from "./Routes/Routes/App";
+const AppRouter = React.lazy(() => import("./Routes/Routes/App"));
 const App = () => {
-  window.addEventListener('offline', () => toast.error("You Are Offline Now"));
-  window.addEventListener('online', () => toast.success("You Are Online Now"));
+  useEffect(() => {
+    const online = () => toast.warning("Back Online");
+    const offline = () => toast.warning("No Connection");
+    window.addEventListener("online", online);
+    window.addEventListener("offline", offline);
+  }, []);
   return (
     <StrictMode>
       <ToastContainer

@@ -1,7 +1,5 @@
-// import React from 'react'
 import React, { useEffect } from "react";
 import VerticalNav from "./vertical-nav";
-// import Scrollbar from 'smooth-scrollbar'
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
 import { sidebarMini } from "../lib/slices/toggleSidebar";
@@ -19,7 +17,6 @@ const Sidebar = () => {
     History.listen(() => {
       dispatch(closeHead());
       dispatch(sidebarMini());
-      // Scrollbar.init(document.getElementById('my-scrollbar'));
     });
   }, [History, dispatch]);
 
