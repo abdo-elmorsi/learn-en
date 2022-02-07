@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { Link, useHistory } from "react-router-dom";
 
 import ImageLoader from '../../components/Image-loader'
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from '../../firebase';
 import "./style.css"
 
@@ -22,7 +22,7 @@ export default function Signin() {
 	const [Loading, setLoading] = useState(false);
 	const location = useHistory();
 
-	const handlesignIn = async (e) => {
+	const handlesignUp = async (e) => {
 		e.preventDefault();
 		setLoading(true);
 		await createUserWithEmailAndPassword(auth, email, password)
@@ -37,38 +37,22 @@ export default function Signin() {
 				setLoading(false);
 				toast.error(message);
 			});
-		// if (status) {
-		//   await createUserWithEmailAndPassword(auth, email, password)
-		//     .then(({ user }) => {
-		//       console.log(user);
-		//       setTimeout(() => {
-		//         toast.success("Login Success");
-		//         history.push("/");
-		//       }, 2000);
-		//     })
-		//     .catch(({ message }) => {
-		//       setLoading(false);
-		//       toast.error(message);
-		//     });
-		// } else {
-		//   await signInWithEmailAndPassword(auth, email, password)
-		//     .then(({ user }) => {
-		//       console.log(user);
-		//       setTimeout(() => {
-		//         toast.success("Login Success");
-		//         history.push("/");
-		//       }, 2000);
-		//     })
-		//     .catch(({ message }) => {
-		//       setLoading(false);
-		//       toast.error(message);
-		//     });
-		// }
 	}
 	const handlesignInWithGoogle = async (e) => {
 		setLoading(true);
 		const googleAuthProvider = new GoogleAuthProvider();
 		await signInWithPopup(auth, googleAuthProvider).then((res) => {
+			setLoading(false);
+			location.push("/sign-in");
+		}).catch(({ message }) => {
+			setLoading(false);
+			toast.error(message);
+		});
+	}
+	const handlesignInWithFacebook = async (e) => {
+		setLoading(true);
+		const facebookAuthProvider = new FacebookAuthProvider();
+		await signInWithPopup(auth, facebookAuthProvider).then((res) => {
 			setLoading(false);
 			location.push("/sign-in");
 		}).catch(({ message }) => {
@@ -96,7 +80,7 @@ export default function Signin() {
 											/>
 										</div>
 										<h2 className="mb-2 text-center">Sign Up</h2>
-										<Form onSubmit={handlesignIn} >
+										<Form onSubmit={handlesignUp} >
 											<Row>
 												<Col lg="12">
 													<Form.Group className="form-group">
@@ -152,7 +136,7 @@ export default function Signin() {
 													<li onClick={handlesignInWithGoogle} className="log-in-google list-group-item border-0 pb-0">
 														<img className='rounded-circle' src={'/assets/images/google.svg'} alt="fb" />
 													</li>
-													<li className="list-group-item log-in-facebook border-0 pb-0">
+													<li onClick={handlesignInWithFacebook} className="list-group-item log-in-facebook border-0 pb-0">
 														<img className='rounded-circle' src={'/assets/images/facebook.png'} alt="fb" />
 													</li>
 												</ul>
