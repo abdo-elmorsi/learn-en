@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Col, Row, Spinner } from "react-bootstrap";
-import GoogleButton from 'react-google-button'
+import {
+  Card,
+  Col,
+  Form,
+  FormLabel,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import ImageLoader from '../../components/Image-loader'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from '../../firebase';
 import "./style.css"
 
@@ -13,112 +20,151 @@ export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [Loading, setLoading] = useState(false);
-  const [status, setstatus] = useState(true);
   const location = useHistory();
 
   const handlesignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (status) {
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(({ user }) => {
-          console.log(user);
-          setTimeout(() => {
-            toast.success("Login Success");
-            history.push("/");
-          }, 2000);
-        })
-        .catch(({ message }) => {
-          setLoading(false);
-          toast.error(message);
-        });
-    } else {
-      await signInWithEmailAndPassword(auth, email, password)
-        .then(({ user }) => {
-          console.log(user);
-          setTimeout(() => {
-            toast.success("Login Success");
-            history.push("/");
-          }, 2000);
-        })
-        .catch(({ message }) => {
-          setLoading(false);
-          toast.error(message);
-        });
-    }
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        setTimeout(() => {
+          toast.success("Login Success");
+          history.push("/");
+        }, 2000);
+      })
+      .catch(({ message }) => {
+        setLoading(false);
+        toast.error(message);
+      });
   }
   const handlesignInWithGoogle = async (e) => {
     setLoading(true);
     const googleAuthProvider = new GoogleAuthProvider();
     await signInWithPopup(auth, googleAuthProvider).then((res) => {
       setLoading(false);
-      location.push("/login");
+      location.push("/sign-in");
     }).catch(({ message }) => {
       setLoading(false);
       toast.error(message);
     });
-
+  }
+  const handlesignInWithFacebook = async (e) => {
+    setLoading(true);
+    const facebookAuthProvider = new FacebookAuthProvider();
+    await signInWithPopup(auth, facebookAuthProvider).then((res) => {
+      setLoading(false);
+      location.push("/sign-in");
+    }).catch(({ message }) => {
+      setLoading(false);
+      toast.error(message);
+    });
   }
   return (
-    <div className='parent'>
-      <div className="container">
-        <div className="screen">
-          <div className="screen__content">
-            <Row className='px-5 w-100 logSt-box'>
-              <Col className={`${status && 'active'} logSt`}>
-                <button onClick={() => setstatus(!status)}>Sign Up</button>
-              </Col>
-              <Col className={`${!status && 'active'} logSt ms-2`}>
-                <button onClick={() => setstatus(!status)}>Sign In</button>
+    <>
+      <div id="development">You may find some mistakes because it's still under development</div>
+      <section className="login-content">
+        <Row className="m-0 align-items-center bg-white vh-100">
+          <Col md="6">
+            <Row className="justify-content-center">
+              <Col md="10">
+                <Card className="card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
+                  <Card.Body>
+                    <div className="d-flex align-items-center mb-2">
+                      <ImageLoader
+                        src="/assets/images/learn-en-logo.png"
+                        style={{ objectFit: "contain", margin: "5px auto" }}
+                        quality={100}
+                        alt="sign in logo"
+                        width={'50%'}
+                      />
+                    </div>
+                    <h2 className="mb-2 text-center">Sign In</h2>
+                    <Form onSubmit={handlesignIn} >
+                      <Row>
+                        <Col lg="12">
+                          <Form.Group className="form-group">
+                            <FormLabel htmlFor="email">
+                              Email
+                            </FormLabel>
+                            <Form.Control
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              type="email"
+                              id="email"
+                              name="email"
+                              aria-describedby="email"
+                              placeholder=" "
+                            />
+                          </Form.Group>
+                        </Col>
+                        <Col lg="12">
+                          <Form.Group className="form-group">
+                            <FormLabel htmlFor="password">
+                              Password
+                            </FormLabel>
+                            <Form.Control
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                              type="password"
+                              id="password"
+                              name="password"
+                              aria-describedby="password"
+                              placeholder=" "
+                            />
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <div className="d-flex justify-content-center">
+                        <button type="submit" className="btn btn-primary">Sign In
+                          {Loading && (
+                            <Spinner
+                              as="span"
+                              role="status"
+                              style={{ verticalAlign: "sub" }}
+                              className="mx-1"
+                              aria-hidden="true"
+                              size="sm"
+                              animation="border"
+                            />
+                          )}
+                        </button>
+                      </div>
+                      <p className="text-center my-2">or sign in with other accounts?</p>
+                      <div className="d-flex justify-content-center">
+                        <ul className="list-group list-group-horizontal list-group-flush">
+                          <li onClick={handlesignInWithGoogle} className="log-in-google list-group-item border-0 pb-0">
+                            <img className='rounded-circle' src={'/assets/images/google.svg'} alt="fb" />
+                          </li>
+                          <li onClick={handlesignInWithFacebook} className="list-group-item log-in-facebook border-0 pb-0">
+                            <img className='rounded-circle' src={'/assets/images/facebook.png'} alt="fb" />
+                          </li>
+                        </ul>
+                      </div>
+                      <p className="mt-2 text-center">
+                        Don’t have an account? <Link to="/sign-up" className="text-underline">Click here to sign up.</Link>
+                      </p>
+                    </Form>
+                  </Card.Body>
+                </Card>
               </Col>
             </Row>
-            <form onSubmit={(e) => handlesignIn(e)} className="login">
-              <div className="login__field">
-                <svg width={16} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="login__icon svg-inline--fa fa-user fa-w-14 fa-2x"><g className="fa-group"><path fill="currentColor" d="M352 128A128 128 0 1 1 224 0a128 128 0 0 1 128 128z" className="fa-secondary"></path><path fill="currentColor" d="M313.6 288h-16.7a174.1 174.1 0 0 1-145.8 0h-16.7A134.43 134.43 0 0 0 0 422.4V464a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48v-41.6A134.43 134.43 0 0 0 313.6 288z" className="fa-primary"></path></g></svg>
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="text" className="login__input" placeholder="User name / Email" />
-              </div>
-              <div className="login__field">
-                <svg width={16} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="login__icon svg-inline--fa fa-lock fa-w-14 fa-2x"><g className="fa-group"><path fill="currentColor" d="M152 224H72v-72C72 68.2 140.2 0 224 0s152 68.2 152 152v72h-80v-72a72 72 0 0 0-144 0z" className="fa-secondary"></path><path fill="currentColor" d="M448 272v192a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V272a48 48 0 0 1 48-48h352a48 48 0 0 1 48 48z" className="fa-primary"></path></g></svg>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password" className="login__input" placeholder="Password" />
-              </div>
-              <button className="button login__submit">
-                <span className="button__text">Log In Now</span>
-                {Loading && <Spinner
-                  as="span"
-                  role="status"
-                  style={{ verticalAlign: "sub" }}
-                  className="ms-1"
-                  aria-hidden="true"
-                  size="sm"
-                  animation="border"
-                />}
-                <svg width={16} aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="button__icon svg-inline--fa fa-chevron-right fa-w-10 fa-2x"><g className="fa-group"><path fill="currentColor" d="M188.74 256l56.78 56.89L91.21 466.9a24 24 0 0 1-33.94 0l-22.7-22.65a23.93 23.93 0 0 1 0-33.84z" className="fa-secondary"></path><path fill="currentColor" d="M91.25 45.06l194.33 194a23.93 23.93 0 0 1 0 33.84l-40 40-211-211.34a23.92 23.92 0 0 1 0-33.84l22.7-22.65a24 24 0 0 1 33.97-.01z" className="fa-primary"></path></g></svg>
-              </button>
-            </form>
-            <div className="social-login">
-              {/* <h3>log in with</h3> */}
-              <div className="social-icons mt-4">
-                <GoogleButton
-                  onClick={() => handlesignInWithGoogle()}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="screen__background">
-            <span className="screen__background__shape screen__background__shape4"></span>
-            <span className="screen__background__shape screen__background__shape3"></span>
-            <span className="screen__background__shape screen__background__shape2"></span>
-            <span className="screen__background__shape screen__background__shape1"></span>
-          </div>
-        </div>
-        {/* <GoogleButton /> */}
-      </div>
-    </div>
+          </Col>
+          <Col
+            md="6"
+            className="d-md-block d-none bg-primary p-0 vh-100 overflow-hidden "
+          >
+            <ImageLoader
+              src="/assets/images/learn-en-bg.jpg"
+              style={{ objectFit: "fill" }}
+              quality={100}
+              width={'100%'}
+              height={'100%'}
+              alt="sign in background"
+            />
+          </Col>
+        </Row>
+      </section>
+    </>
   );
 }

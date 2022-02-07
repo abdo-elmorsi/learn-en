@@ -6,7 +6,9 @@ import Home from "../../pages";
 import Collocations from "../../pages/Collocations";
 import AddCollocation from "../../pages/Admin/AddCollocation";
 import UpdateCollocations from "../../pages/Admin/UpdateCollocations";
-import Login from "../../pages/auth/Signin";
+import SignIn from "../../pages/auth/Signin";
+import SignUp from "../../pages/auth/Signup";
+
 import NotFound from "../../pages/PageNotFound";
 import Layout from "../../layout/index";
 import Admin from "./Admin"
@@ -22,9 +24,11 @@ const AppRouter = () => {
           {/* Admin */}
           <Admin component={AddCollocation} path={ROUTES.ADD_COLLOCATION} />
           <Admin component={UpdateCollocations} path={ROUTES.UPDATE_COLLOCATIONS} />
-          
+
           {/* Not Found And Login*/}
-          <Admin component={Login} path={ROUTES.LOGIN} />
+          <Admin component={SignIn} path={ROUTES.SIGN_IN} />
+          <Admin component={SignUp} path={ROUTES.SIGN_UP} />
+
           <Admin component={NotFound} path={ROUTES.NOT_FOUND} />
         </Switch>
       </Layout>

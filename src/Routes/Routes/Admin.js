@@ -11,7 +11,7 @@ import { getUser } from "../../lib/slices/auth"
 const AdminRoute = ({ path, component: Component, ...rest }) => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.auth.user);
-
+	console.log(path.startsWith("/sign"));
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
 			if (currentUser !== null) {
@@ -31,7 +31,7 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 						<Route
 							{...rest}
 							component={(props) => {
-								if (path === "/login") return <Redirect to="/" />;
+								if (path === "/sign-in" || path === "/sign-up") return <Redirect to="/" />;
 								if (path === "/addCollocation" || path === "/CollocationsReports") {
 									toast.warning("You are not Abdo");
 									return <Redirect to="/" />
@@ -46,7 +46,7 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 						<Route
 							{...rest}
 							component={(props) =>
-								path === "/login" ? <Redirect to="/" /> : <Component {...props} />
+								path === "/sign-in" || path === "/sign-up" ? <Redirect to="/" /> : <Component {...props} />
 							}
 						/>
 					}
@@ -54,7 +54,16 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 			) : (
 				<Route
 					{...rest}
-					component={(props) => path !== "/login" ? <Redirect to="/login" /> : <Component {...props} />}
+					// component={(props) => path !== "/sign-in" ? <Redirect to="/sign-in" /> : <Component {...props} />}
+
+				component={(props) => {
+					if(!path.startsWith("/sign")) {
+						return <Redirect to="/sign-in" />
+					}else {
+						return <Component {...props} />
+					}
+					// (path !== "/sign-in" || path !== "/sign-up") ? <Redirect to="/sign-in" /> : <Component {...props} />
+				}}
 				/>
 			)}
 

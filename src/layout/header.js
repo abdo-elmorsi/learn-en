@@ -43,7 +43,7 @@ const Header = () => {
   const handleSignOut = async (e) => {
     e.preventDefault();
     await signOut(auth).then(_ => {
-      location.push("/login");
+      location.push("/sign-in");
     }).catch((er) => {
       console.error(er)
     })

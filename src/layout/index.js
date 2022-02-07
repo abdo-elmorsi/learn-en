@@ -13,28 +13,28 @@ import Footer from './footer'
 import { useLocation } from "react-router-dom";
 
 const Layout = ({ children }) => {
-  let location = useLocation();
+  let { pathname } = useLocation();
 
   return (
     <>
-      {!location.pathname.includes("login") && <Sidebar />}
+      {!pathname.includes("sign") && <Sidebar />}
       <main className="main-content">
         <div className="position-relative">
-          {!location.pathname.includes("login") && <Header />}
-          {!location.pathname.includes("login") && (
-            <SubHeader pageName={location.pathname} />
+          {!pathname.includes("sign") && <Header />}
+          {!pathname.includes("sign") && (
+            <SubHeader pageName={pathname} />
           )}
         </div>
         <div
           className={
             "position-relative  py-0 " +
-            (!location.pathname.includes("login") && "content-inner mt-4")
+            (!pathname.includes("sign") && "content-inner mt-4")
           }
         >
           {children}
           {/* <DefaultRouter /> */}
         </div>
-        {!location.pathname.includes("login") && <Footer />}
+        {!pathname.includes("sign") && <Footer />}
       </main>
     </>
   );
