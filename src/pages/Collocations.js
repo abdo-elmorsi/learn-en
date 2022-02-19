@@ -38,7 +38,7 @@ const Home = () => {
 		() => [
 			{
 				name: 'id',
-				selector: (row, i) => i,
+				selector: (row, i) => i + 1,
 				// sortable: true,
 			},
 			{

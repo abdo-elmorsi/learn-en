@@ -4,7 +4,6 @@ import { Row, Col, Card, Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { CustomDialog } from "react-st-modal";
 import EditDeliverStatus from "../../components/EditDeliverStatus";
-import httpRequest from "../../api";
 import { AddCollocations } from "../../lib/slices/collocations";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
@@ -18,12 +17,10 @@ import { db } from "../../firebase/firebase";
 
 // Loadin table and error message
 export const Actions = ({ status }) => {
-	const dispatch = useDispatch();
-	const { Collocations, config } = useSelector((state) => state);
-	const collocations = Collocations.collocations
+	const { config } = useSelector((state) => state);
 	const handleDelete = async () => {
 		try {
-			await DataServices.deleteItem('Collocations',status.id);
+			await DataServices.deleteItem('Collocations', status.id);
 			toast.success("Collocation Deleted");
 		} catch (error) {
 			console.log(error);
@@ -113,7 +110,7 @@ const UpdateCollocations = () => {
 		() => [
 			{
 				name: 'id',
-				selector: (row) => row.id,
+				selector: (_, i) => i + 1,
 				sortable: true,
 				maxWidth: "125px",
 				cell: (row) => <span style={{ color: `${row?.isphrasal ? "red" : null}` }}>{row?.id} {row?.isphrasal && "_ isphrasal"}</span>,
