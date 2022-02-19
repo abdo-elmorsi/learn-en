@@ -12,7 +12,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import ImageLoader from '../../components/Image-loader'
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { auth } from '../../firebase';
+import { auth } from '../../firebase/firebase';
 import "./style.css"
 
 export default function Signin() {

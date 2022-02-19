@@ -7,8 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { itemSlideUp } from "../helpers/Animation";
 import { AddCollocations } from "../lib/slices/collocations";
 import { useTranslation } from "react-i18next";
-import httpRequest from "../api";
 import Cookies from "js-cookie";
+
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 const Home = () => {
 	const Language = Cookies.get("i18next") || "en";
@@ -36,9 +38,8 @@ const Home = () => {
 		() => [
 			{
 				name: 'id',
-				selector: (row) => row.id,
-				sortable: true,
-				cell: (row) => <span style={{ color: `${row?.isphrasal ? "red" : null}` }}>{row?.id} {row?.isphrasal && "_ isphrasal"}</span>,
+				selector: (row, i) => i,
+				// sortable: true,
 			},
 			{
 				name: `${t("Name")}`,
@@ -61,16 +62,22 @@ const Home = () => {
 	// Fetch Data
 	useEffect(() => {
 		if (Collocations.collocations.length === 0) {
-			httpRequest({
-				method: 'GET', url: `/collocations`,
-			}).then(res => {
-				dispatch(AddCollocations([...res]))
+			try {
+				onSnapshot(query(collection(db, 'Collocations'), orderBy('createdAt', 'asc')),
+					(snapshot) => {
+						dispatch(AddCollocations([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
+						setloading(false);
+					})
+			} catch (error) {
+				console.log(error);
 				setloading(false);
-			}).catch(er => console.log(er))
+			}
 		} else {
 			setloading(false);
 		}
 	}, [dispatch, Collocations.collocations.length]);
+
+
 	// data provides access to your row data
 	const ExpandedComponent = ({ data }) => {
 		return (

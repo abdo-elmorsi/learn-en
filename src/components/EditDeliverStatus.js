@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import { useDialog } from 'react-st-modal'
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 const EditDeliverStatus = ({ status, config }) => {
+	// Fetch Data
+	const [Name, setName] = useState(status.en.Name);
+	const [Ex, setEx] = useState(status.en.Ex);
+	const [Desc, setDesc] = useState(status.en.Desc);
+	const [NameAr, setNameAr] = useState(status.ar.Name);
+	const [ExAr, setExAr] = useState(status.ar.Ex);
+	const [DescAr, setDescAr] = useState(status.ar.Desc);
+
 	const dialog = useDialog();
 	const {
 		register,
@@ -12,12 +20,7 @@ const EditDeliverStatus = ({ status, config }) => {
 	const onSubmit = (data) => {
 		if (
 			data?.NameAr &&
-			data?.ExAr &&
-			data?.DescAr &&
-			data?.NameEn &&
-			data?.ExEn &&
-			data?.DescEn &&
-			data?.isphrasal
+			data?.NameEn
 		) {
 			dialog.close(data)
 		}
@@ -32,7 +35,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('NameAr', { required: 'Name is required', })}
 								name="NameAr"
-								placeholder={status.ar.Name}
+								value={NameAr}
+								onChange={(e) => setNameAr(e.target.value)}
 								type="text" aria-label="Name" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -43,7 +47,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('ExAr', { required: 'Example is required', })}
 								name="ExAr"
-								placeholder={status.ar.Ex}
+								value={ExAr}
+								onChange={(e) => setExAr(e.target.value)}
 								type="text" aria-label="Ex" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -53,7 +58,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('DescAr', { required: 'Description is required', })}
 								name="DescAr"
-								placeholder={status.ar.Desc}
+								value={DescAr}
+								onChange={(e) => setDescAr(e.target.value)}
 								type="text" aria-label="Descreption" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -67,7 +73,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('NameEn', { required: 'Name is required', })}
 								name="NameEn"
-								placeholder={status.en.Name}
+								value={Name}
+								onChange={(e) => setName(e.target.value)}
 								type="text" aria-label="Name" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -78,7 +85,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('ExEn', { required: 'Example is required', })}
 								name="ExEn"
-								placeholder={status.en.Ex}
+								value={Ex}
+								onChange={(e) => setEx(e.target.value)}
 								type="text" aria-label="Ex" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -88,7 +96,8 @@ const EditDeliverStatus = ({ status, config }) => {
 						<InputGroup className="mt-2">
 							<Form.Control {...register('DescEn', { required: 'Description is required', })}
 								name="DescEn"
-								placeholder={status.en.Desc}
+								value={Desc}
+								onChange={(e) => setDesc(e.target.value)}
 								type="text" aria-label="Descreption" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
@@ -99,10 +108,6 @@ const EditDeliverStatus = ({ status, config }) => {
 
 				<Form.Group className="d-flex justify-content-around w-100 mt-4">
 					<Button type="submit" className="px-4 py-2 bg-primary text-white rounded d-block">update</Button>
-
-					<Form.Check {...register('isphrasal')} type="switch" id="custom-switch"
-						label={'phrasal verb'}
-					/>
 
 					<Button className="px-4 py-2 bg-secondary text-white rounded d-block" onClick={() => dialog.close(false)}>Close</Button>
 				</Form.Group>

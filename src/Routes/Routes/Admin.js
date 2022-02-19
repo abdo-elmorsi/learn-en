@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { auth } from '../../firebase';
+import { auth } from '../../firebase/firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import { getUser } from "../../lib/slices/auth"
 

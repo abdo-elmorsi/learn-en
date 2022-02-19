@@ -11,7 +11,7 @@ import Styles from "../styles/WidgetMenu.module.scss";
 import i18next from "i18next";
 import Cookies from "js-cookie";
 import { signOut } from "firebase/auth";
-import { auth } from '../firebase';
+import { auth } from '../firebase/firebase';
 const languages = [
   {
     key: "222",

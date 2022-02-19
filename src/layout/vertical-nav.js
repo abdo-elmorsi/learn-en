@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase";
 
 const VerticalNav = () => {
   const { t } = useTranslation();

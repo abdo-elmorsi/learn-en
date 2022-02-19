@@ -12,65 +12,48 @@ import DataTable, { createTheme } from "react-data-table-component";
 import { motion } from "framer-motion";
 import { itemSlideUp } from "../../helpers/Animation";
 import Loading from "../../components/Table/Loading";
+import DataServices from "../../firebase/services"
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 
 // Loadin table and error message
-export const Actions = ({ id, status }) => {
+export const Actions = ({ status }) => {
 	const dispatch = useDispatch();
 	const { Collocations, config } = useSelector((state) => state);
 	const collocations = Collocations.collocations
 	const handleDelete = async () => {
-		await httpRequest({
-			method: 'DELETE', url: `/collocations/${id}`
-		}).then(res => {
+		try {
+			await DataServices.deleteItem('Collocations',status.id);
 			toast.success("Collocation Deleted");
-			const index = collocations.findIndex((el) => el.id === id);
-			dispatch(AddCollocations([
-				...collocations.slice(0, index),
-				...collocations.slice(index + 1),
-			]));
-		}).catch(er => {
-			console.log(er);
+		} catch (error) {
+			console.log(error);
 			toast.error("Sorry there is an error");
-			window.location.reload();
-		})
+		}
 	}
 	const handleEdit = async () => {
 		const result = await CustomDialog(<EditDeliverStatus config={config} status={status} />, {
 			title: "Update user status",
 		});
 		if (result) {
-			console.log(result);
-			httpRequest({
-				method: 'Put', url: `/collocations/${id}`, data: {
-					"id": id,
-					"isphrasal": result.isphrasal,
-					"en": {
-						"Name": result.NameEn,
-						"Ex": result.ExEn,
-						"Desc": result.DescEn,
-						"Link": "https://www.google.com"
-					},
-					"ar": {
-						"Name": result.NameAr,
-						"Ex": result.ExAr,
-						"Desc": result.DescAr,
-						"Link": "https://www.google.com"
-					}
+			const data = {
+				"en": {
+					"Name": result.NameEn,
+					"Ex": result.ExEn || 'Not available right now.',
+					"Desc": result.DescEn || 'Not available right now.',
+				},
+				"ar": {
+					"Name": result.NameAr,
+					"Ex": result.ExAr || 'غير متوفر.',
+					"Desc": result.DescAr || 'غير متوفر.',
 				}
-			}).then(res => {
+			}
+			try {
+				await DataServices.updateItem('Collocations', status.id, data)
 				toast.success("Collocation updated");
-				const newCollocation = res;
-				const index = collocations.findIndex((el) => el.id === res?.id);
-				dispatch(AddCollocations([
-					...collocations.slice(0, index),
-					newCollocation,
-					...collocations.slice(index + 1),
-				]));
-			}).catch(er => {
-				console.log(er);
+			} catch (error) {
+				console.log(error);
 				toast.error("Sorry there is an error");
-				window.location.reload();
-			})
+			}
 		}
 	};
 
@@ -143,7 +126,7 @@ const UpdateCollocations = () => {
 			},
 			{
 				name: "actions",
-				cell: (row) => <Actions id={row.id} status={row} />,
+				cell: (row) => <Actions status={row} />,
 			}
 		],
 		[t, Language],
@@ -160,12 +143,17 @@ const UpdateCollocations = () => {
 	// Fetch Data
 	useEffect(() => {
 		if (Collocations.collocations.length === 0) {
-			httpRequest({
-				method: 'GET', url: `/collocations`,
-			}).then(res => {
-				dispatch(AddCollocations([...res]))
+			try {
+				onSnapshot(query(collection(db, 'Collocations'), orderBy('createdAt', 'asc')),
+					(snapshot) => {
+						dispatch(AddCollocations([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
+						setloading(false);
+						console.log('yes');
+					})
+			} catch (error) {
+				console.log(error);
 				setloading(false);
-			}).catch(er => console.log(er))
+			}
 		} else {
 			setloading(false);
 		}

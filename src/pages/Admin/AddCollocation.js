@@ -1,101 +1,80 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col, Form, InputGroup, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useRef } from "react";
+import { Row, Col, Form, InputGroup, Button, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
-import httpRequest from "../../api";
-import { AddCollocations } from "../../lib/slices/collocations";
-// translation
-// import { useTranslation } from "react-i18next";
-
+import DataServices from "../../firebase/services"
 const Admin = () => {
-  const dispatch = useDispatch();
-  const { Collocations } = useSelector((state) => state);
-  const [Data, setData] = useState({});
-  const [isphrasal, setisphrasal] = useState(false)
-  const HandleData = (e) => setData({ ...Data, [e.target.name]: e.target.value })
+  const formData = useRef();
+  const [loading, setloading] = useState(false);
 
-  const handelSubmit = (e) => {
+  const handelSubmit = async (e) => {
     e.preventDefault();
-
-    if (Data.NameAr !== "" && Data.ExAr !== "" && Data.DescAr !== "" && Data.NameEn !== "" && Data.ExEn !== "" && Data.DescEn !== "") {
-      httpRequest({
-        method: 'POST', url: `/collocations`, data: {
-          "id": `${Collocations.collocations.length + 1}`,
-          "isphrasal": isphrasal,
-          "en": {
-            "Name": Data.Name,
-            "Ex": Data.Ex,
-            "Desc": Data.Desc,
-            "Link": "https://www.google.com"
-          },
-          "ar": {
-            "Name": Data.NameAr,
-            "Ex": Data.ExAr,
-            "Desc": Data.DescAr,
-            "Link": "https://www.google.com"
-          }
-        }
-      }).then(res => {
-        console.log(res);
+    setloading(true);
+    const data = {
+      "en": {
+        "Name": formData.current.Name.value,
+        "Ex": formData.current.Ex.value || 'Not available right now.',
+        "Desc": formData.current.Desc.value || 'Not available right now.',
+      },
+      "ar": {
+        "Name": formData.current.NameAr.value,
+        "Ex": formData.current.ExAr.value || 'غير متوفر.',
+        "Desc": formData.current.DescAr.value || 'غير متوفر.',
+      }
+    }
+    if (formData.current.Name.value !== "" && formData.current.Name.value !== undefined && formData.current.NameAr.value !== "" && formData.current.NameAr.value !== undefined) {
+      try {
+        await DataServices.addItem('Collocations', data);
         toast.success("Collocation added");
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      }).catch(er => {
-        toast.error("sorry there is an error");
-        window.location.reload();
-      })
+        formData.current.reset();
+        setloading(false);
+      } catch (error) {
+        console.log(error);
+        toast.error(error);
+        setloading(false);
+      }
     } else {
-      toast.warning("Plz Add All Data")
+      toast.warning("At least add collocation name ar/en")
     }
-
   }
-  // Fetch Data
-  useEffect(() => {
-    if (Collocations.collocations.length === 0) {
-      httpRequest({
-        method: 'GET', url: `/collocations`,
-      }).then(res => {
-        dispatch(AddCollocations([...res]))
-      }).catch(er => console.log(er))
-    }
-  }, [dispatch, Collocations.collocations.length]);
-  // const { t } = useTranslation();
   return (
-    <form onSubmit={handelSubmit}>
+    <form onSubmit={(e) => handelSubmit(e)} ref={formData}>
       <Row>
         <Col md={6}>
           <h2>en</h2>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
+            <Form.Control name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
+            <Form.Control name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
+            <Form.Control name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />
           </InputGroup>
-          <Form.Check
-            onChange={() => setisphrasal(!isphrasal)}
-            type="switch"
-            id="custom-switch"
-            label={"phrasal verb"}
-          />
         </Col>
         <Col md={6}>
           <h2>ar</h2>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="NameAr" type="text" placeholder="الاسم" aria-label="الاسم" aria-describedby="basic-addon1" />
+            <Form.Control name="NameAr" type="text" placeholder="الاسم" aria-label="الاسم" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="ExAr" type="text" placeholder="المثال" aria-label="المثال" aria-describedby="basic-addon1" />
+            <Form.Control name="ExAr" type="text" placeholder="المثال" aria-label="المثال" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control onChange={(e) => HandleData(e)} name="DescAr" type="text" placeholder="الوصف" aria-label="الوصف" aria-describedby="basic-addon1" />
+            <Form.Control name="DescAr" type="text" placeholder="الوصف" aria-label="الوصف" aria-describedby="basic-addon1" />
           </InputGroup>
         </Col>
-        <Col md="6 mx-auto">
-          <Button className="w-100" onClick={handelSubmit}>submit</Button>
+        <Col md="2 ">
+          <Button className="w-100" onClick={handelSubmit}>submit  {loading && (
+            <Spinner
+              as="span"
+              role="status"
+              style={{ verticalAlign: "sub" }}
+              className="mx-1"
+              aria-hidden="true"
+              size="sm"
+              animation="border"
+            />
+          )}</Button>
         </Col>
       </Row>
     </form>
