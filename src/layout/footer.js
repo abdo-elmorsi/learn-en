@@ -19,7 +19,7 @@ const Footer = () => {
         <Col md="6" className="mt-3 text-md-end text-center">
           <div>
             ©<span>{new Date().getFullYear()}</span>, Made with ♥ by{" "}
-            <a href="https://elmory.vercel.app/" target={`_blank`}>
+            <a href="https://elmorsy.vercel.app/" target={`_blank`}>
               Abdo Elmorsy
             </a>
             .
