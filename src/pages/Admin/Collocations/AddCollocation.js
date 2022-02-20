@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Row, Col, Form, InputGroup, Button, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
-import DataServices from "../../firebase/services"
+import DataServices from "../../../firebase/services"
 const Admin = () => {
   const formData = useRef();
   const [loading, setloading] = useState(false);

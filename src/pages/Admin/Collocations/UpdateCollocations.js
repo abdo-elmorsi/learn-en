@@ -3,17 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Card, Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { CustomDialog } from "react-st-modal";
-import EditDeliverStatus from "../../components/EditDeliverStatus";
-import { AddCollocations } from "../../lib/slices/collocations";
+import EditDeliverStatus from "../../../components/EditDeliverStatus";
+import { AddCollocations } from "../../../lib/slices/collocations";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import DataTable, { createTheme } from "react-data-table-component";
 import { motion } from "framer-motion";
-import { itemSlideUp } from "../../helpers/Animation";
-import Loading from "../../components/Table/Loading";
-import DataServices from "../../firebase/services"
+import { itemSlideUp } from "../../../helpers/Animation";
+import Loading from "../../../components/Table/Loading";
+import DataServices from "../../../firebase/services"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { db } from "../../../firebase/firebase";
+import ExpandedComp from '../../../components/ExpandedComponent'
 
 // Loadin table and error message
 export const Actions = ({ status }) => {
@@ -29,7 +30,7 @@ export const Actions = ({ status }) => {
 	}
 	const handleEdit = async () => {
 		const result = await CustomDialog(<EditDeliverStatus config={config} status={status} />, {
-			title: "Update user status",
+			title: "Update Collocation",
 		});
 		if (result) {
 			const data = {
@@ -138,64 +139,20 @@ const UpdateCollocations = () => {
 
 	// Fetch Data
 	useEffect(() => {
-		if (Collocations.collocations.length === 0) {
-			try {
-				onSnapshot(query(collection(db, 'Collocations'), orderBy('createdAt', 'asc')),
-					(snapshot) => {
-						dispatch(AddCollocations([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
-						setloading(false);
-						console.log('yes');
-					})
-			} catch (error) {
-				console.log(error);
-				setloading(false);
-			}
-		} else {
+		try {
+			onSnapshot(query(collection(db, 'Collocations'), orderBy('createdAt', 'asc')),
+				(snapshot) => {
+					dispatch(AddCollocations([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
+					setloading(false);
+				})
+		} catch (error) {
 			setloading(false);
 		}
-	}, [dispatch, Collocations.collocations.length]);
+
+	}, [dispatch]);
 	// data provides access to your row data
-	const ExpandedComponent = ({ data }) => {
-		return (
-			<div>
-				<pre></pre>
-				{Language === "en" ? (
-					<>
-						Example:<pre
-							className="mx-0 mx-lg-5"
-							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#6f42c1"}` }}>
-							{JSON.stringify(data?.en?.Ex)}
-						</pre>
-					</>
-				) : (
-					<>
-						مثال:<pre
-							className="mx-0 mx-lg-5"
-							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#198754"}` }}>
-							{JSON.stringify(data?.ar?.Ex)}
-						</pre>
-					</>
-				)}
-				{Language === "en" ? (
-					<>
-						Description:<pre
-							className="mx-0 mx-lg-5"
-							style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
-							{JSON.stringify(data?.en?.Desc)}
-						</pre>
-					</>
-				) : (
-					<>
-						الوصف:<pre
-							className="mx-0 mx-lg-5"
-							style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
-							{JSON.stringify(data?.ar?.Desc)}
-						</pre>
-					</>
-				)}
-			</div>
-		)
-	};
+	const ExpandedComponent = ({ data }) => <ExpandedComp data={data} Language={Language} config={config.darkMode} />;
+
 
 	return (
 		<Card style={{ minHeight: '400px' }}>

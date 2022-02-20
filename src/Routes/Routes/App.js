@@ -3,10 +3,16 @@ import { Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import * as ROUTES from "../Constants";
 import Home from "../../pages";
+// collocations
 import Collocations from "../../pages/Collocations";
-import PhrasalVerb from "../../pages/PhrasalVerb";
-import AddCollocation from "../../pages/Admin/AddCollocation";
-import UpdateCollocations from "../../pages/Admin/UpdateCollocations";
+import AddCollocation from "../../pages/Admin/Collocations/AddCollocation";
+import UpdateCollocations from "../../pages/Admin/Collocations/UpdateCollocations";
+
+// PhrasalVerb
+import PhrasalVerbs from "../../pages/PhrasalVerbs";
+import AddPhrasalVerbs from "../../pages/Admin/PhrasalVerbs/AddPhrasalVerbs";
+import UpdatePhrasalVerbs from "../../pages/Admin/PhrasalVerbs/UpdatePhrasalVerbs";
+
 import SignIn from "../../pages/auth/Signin";
 import SignUp from "../../pages/auth/Signup";
 
@@ -21,11 +27,15 @@ const AppRouter = () => {
         <Switch>
           <Admin exact component={Home} path={ROUTES.HOME} />
           <Admin component={Collocations} path={ROUTES.COLLOCATIONS} />
-          <Admin component={PhrasalVerb} path={ROUTES.PHRASAL_VERBS} />
+          <Admin component={PhrasalVerbs} path={ROUTES.PHRASAL_VERBS} />
 
           {/* Admin */}
           <Admin component={AddCollocation} path={ROUTES.ADD_COLLOCATION} />
           <Admin component={UpdateCollocations} path={ROUTES.UPDATE_COLLOCATIONS} />
+
+          <Admin component={AddPhrasalVerbs} path={ROUTES.ADD_PHRASAL_VERBS} />
+          <Admin component={UpdatePhrasalVerbs} path={ROUTES.UPDATE_PHRASALVERBS} />
+
 
           {/* Not Found And Login*/}
           <Admin component={SignIn} path={ROUTES.SIGN_IN} />

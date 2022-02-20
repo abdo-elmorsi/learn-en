@@ -29,6 +29,13 @@ const SubHeader = ({ pageName = "" }) => {
         case "/updateCollocations":
           setState("Update collocations");
           break;
+
+        case "/addPhrasalVerbs":
+          setState("Add Phrasal Verbs");
+          break;
+        case "/updatePhrasalVerbs":
+          setState("Update Phrasal Verbs");
+          break;
         default:
           setState("404");
           break;
