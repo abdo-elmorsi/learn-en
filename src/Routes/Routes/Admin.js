@@ -32,7 +32,7 @@ const AdminRoute = ({ path, component: Component, ...rest }) => {
 							{...rest}
 							component={(props) => {
 								if (path === "/sign-in" || path === "/sign-up") return <Redirect to="/" />;
-								if (path === "/addCollocation" || path === "/CollocationsReports") {
+								if (path === "/addCollocation" || path === "/updateCollocations") {
 									toast.warning("You are not Abdo");
 									return <Redirect to="/" />
 								};

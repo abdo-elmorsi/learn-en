@@ -36,6 +36,7 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('NameAr', { required: 'Name is required', })}
 								name="NameAr"
 								value={NameAr}
+								placeholder={NameAr}
 								onChange={(e) => setNameAr(e.target.value)}
 								type="text" aria-label="Name" aria-describedby="basic-addon1" />
 						</InputGroup>
@@ -48,6 +49,7 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('ExAr', { required: 'Example is required', })}
 								name="ExAr"
 								value={ExAr}
+								placeholder={ExAr}
 								onChange={(e) => setExAr(e.target.value)}
 								type="text" aria-label="Ex" aria-describedby="basic-addon1" />
 						</InputGroup>
@@ -59,6 +61,7 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('DescAr', { required: 'Description is required', })}
 								name="DescAr"
 								value={DescAr}
+								placeholder={DescAr}
 								onChange={(e) => setDescAr(e.target.value)}
 								type="text" aria-label="Descreption" aria-describedby="basic-addon1" />
 						</InputGroup>
@@ -74,6 +77,7 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('NameEn', { required: 'Name is required', })}
 								name="NameEn"
 								value={Name}
+								placeholder={Name}
 								onChange={(e) => setName(e.target.value)}
 								type="text" aria-label="Name" aria-describedby="basic-addon1" />
 						</InputGroup>
@@ -86,8 +90,9 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('ExEn', { required: 'Example is required', })}
 								name="ExEn"
 								value={Ex}
+								placeholder={Ex}
 								onChange={(e) => setEx(e.target.value)}
-								type="text" aria-label="Ex" aria-describedby="basic-addon1" />
+								type="text" aria-label="Example" aria-describedby="basic-addon1" />
 						</InputGroup>
 						<Form.Text className="err-msg text-danger">
 							{errors?.ExEn?.message}
@@ -97,6 +102,7 @@ const EditDeliverStatus = ({ status, config }) => {
 							<Form.Control {...register('DescEn', { required: 'Description is required', })}
 								name="DescEn"
 								value={Desc}
+								placeholder={Desc}
 								onChange={(e) => setDesc(e.target.value)}
 								type="text" aria-label="Descreption" aria-describedby="basic-addon1" />
 						</InputGroup>

@@ -45,7 +45,7 @@ const Admin = () => {
             <Form.Control name="Name" type="text" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
-            <Form.Control name="Ex" type="text" placeholder="Ex" aria-label="Ex" aria-describedby="basic-addon1" />
+            <Form.Control name="Ex" type="text" placeholder="Example" aria-label="Ex" aria-describedby="basic-addon1" />
           </InputGroup>
           <InputGroup className="mb-4">
             <Form.Control name="Desc" type="text" placeholder="Descreption" aria-label="Descreption" aria-describedby="basic-addon1" />

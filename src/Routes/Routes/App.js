@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import * as ROUTES from "../Constants";
 import Home from "../../pages";
 import Collocations from "../../pages/Collocations";
+import PhrasalVerb from "../../pages/PhrasalVerb";
 import AddCollocation from "../../pages/Admin/AddCollocation";
 import UpdateCollocations from "../../pages/Admin/UpdateCollocations";
 import SignIn from "../../pages/auth/Signin";
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Switch>
           <Admin exact component={Home} path={ROUTES.HOME} />
           <Admin component={Collocations} path={ROUTES.COLLOCATIONS} />
+          <Admin component={PhrasalVerb} path={ROUTES.PHRASAL_VERBS} />
 
           {/* Admin */}
           <Admin component={AddCollocation} path={ROUTES.ADD_COLLOCATION} />

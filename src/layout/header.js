@@ -3,7 +3,6 @@ import { Navbar, Container, Nav, Dropdown, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
-import { toggleHead } from "../lib/slices/toggle-header";
 import { darkMode } from "../lib/slices/config";
 import Styles from "../styles/WidgetMenu.module.scss";
 
@@ -29,7 +28,6 @@ const languages = [
     name: "Arabic",
   },
 ];
-
 
 const Header = () => {
   const location = useHistory();
@@ -138,10 +136,10 @@ const Header = () => {
               boxShadow: "none",
               borderColor: "transparent",
               marginTop: "10px",
+              height: '20px'
             }}
           >
             <div
-              onClick={() => dispatch(toggleHead())}
               style={{
                 left: currentLanguageCode === "ar" && "1rem",
                 right: currentLanguageCode === "ar" && "auto",

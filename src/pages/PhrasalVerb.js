@@ -5,14 +5,14 @@ import { Card, Col, Form, Row } from "react-bootstrap";
 import DataTable, { createTheme } from "react-data-table-component";
 import { useSelector, useDispatch } from "react-redux";
 import { itemSlideUp } from "../helpers/Animation";
-import { AddCollocations } from "../lib/slices/collocations";
+import { AddPhrasalVerb } from "../lib/slices/phrasalVerb";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
-const Collocations = () => {
+const PhrasalVerb = () => {
 	const Language = Cookies.get("i18next") || "en";
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Collocations = () => {
 	const [CollocationsType, setCollocationsType] = useState('')
 	const [Data, setData] = useState([]);
 	const [loading, setloading] = useState(true);
-	const { config, Collocations } = useSelector((state) => state);
+	const { config, PhrasalVerb } = useSelector((state) => state);
 	createTheme(
 		"solarized",
 		{
@@ -51,20 +51,21 @@ const Collocations = () => {
 	);
 	// handle filter
 	useEffect(() => {
-		const newData = Collocations?.collocations.filter((item) => {
+		const newData = PhrasalVerb?.phrasalVerb.filter((item) => {
 			return item?.en?.Name?.toString().includes(filter?.toLowerCase()) ||
 				false;
 		});
 		setData(newData);
-	}, [Collocations, filter]);
+	}, [PhrasalVerb, filter]);
 
 	// Fetch Data
 	useEffect(() => {
-		if (Collocations.collocations.length === 0) {
+		if (PhrasalVerb.phrasalVerb.length === 0) {
 			try {
-				onSnapshot(query(collection(db, 'Collocations'), orderBy('createdAt', 'asc')),
+				onSnapshot(query(collection(db, 'PhrasalVerb'), orderBy('createdAt', 'asc')),
 					(snapshot) => {
-						dispatch(AddCollocations([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
+						console.log([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]);
+						dispatch(AddPhrasalVerb([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
 						setloading(false);
 					})
 			} catch (error) {
@@ -74,7 +75,7 @@ const Collocations = () => {
 		} else {
 			setloading(false);
 		}
-	}, [dispatch, Collocations.collocations.length]);
+	}, [dispatch, PhrasalVerb.phrasalVerb.length]);
 
 
 	// data provides access to your row data
@@ -164,7 +165,7 @@ const Collocations = () => {
 					>
 						{!loading ? (
 							<DataTable
-								title={t("Collocations")}
+								title={t("Phrasal verbs")}
 								columns={columns}
 								data={Data.filter(ele => ele?.en?.Name.toString().startsWith(`${CollocationsType}`))}
 								highlightOnHover
@@ -183,6 +184,6 @@ const Collocations = () => {
 	);
 };
 
-export default Collocations;
+export default PhrasalVerb;
 
 // translation ##################################

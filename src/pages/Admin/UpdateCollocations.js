@@ -113,7 +113,6 @@ const UpdateCollocations = () => {
 				selector: (_, i) => i + 1,
 				sortable: true,
 				maxWidth: "125px",
-				cell: (row) => <span style={{ color: `${row?.isphrasal ? "red" : null}` }}>{row?.id} {row?.isphrasal && "_ isphrasal"}</span>,
 			},
 			{
 				name: `${t("Name")}`,
