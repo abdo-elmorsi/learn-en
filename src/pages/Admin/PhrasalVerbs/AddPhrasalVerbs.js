@@ -23,8 +23,8 @@ const Admin = () => {
     }
     if (formData.current.Name.value !== "" && formData.current.Name.value !== undefined && formData.current.NameAr.value !== "" && formData.current.NameAr.value !== undefined) {
       try {
-        await DataServices.addItem('Collocations', data);
-        toast.success("Collocation added");
+        await DataServices.addItem('PhrasalVerb', data);
+        toast.success("Phrasal Verb added");
         formData.current.reset();
         setloading(false);
       } catch (error) {
@@ -33,11 +33,11 @@ const Admin = () => {
         setloading(false);
       }
     } else {
-      toast.warning("At least add collocation name ar/en")
+      toast.warning("At least add Phrasal Verb name ar/en")
     }
   }
   return (
-    <form onSubmit={(e) => handelSubmit(e)} ref={formData}>
+    <form onSubmit={handelSubmit} ref={formData}>
       <Row>
         <Col md={6}>
           <h2>en</h2>

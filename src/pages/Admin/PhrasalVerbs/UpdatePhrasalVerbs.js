@@ -16,7 +16,7 @@ import { itemSlideUp } from "../../../helpers/Animation";
 
 import DataTable, { createTheme } from "react-data-table-component";
 import Loading from "../../../components/Table/Loading";
-import ExpandedComp from '../../../components/ExpandedComponent'
+import ExpandedComp from '../../../components/Table/ExpandedComponent'
 
 import { db } from "../../../firebase/firebase";
 import DataServices from "../../../firebase/services"

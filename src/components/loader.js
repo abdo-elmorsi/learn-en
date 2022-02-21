@@ -1,17 +1,17 @@
 import React from 'react';
-import './Loader.css';
+import Styles from '../styles/Loader.module.scss'
 const Loader = () => {
     return (
-        <div id="loader-wrapper">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div id="object_two" className="object"></div>
-                    <div id="object_four" className="object"></div>
+        <div className={`${Styles.loader_wrapper}`}>
+            <div className={`${Styles.loading_center}`}>
+                <div className={`${Styles.loading_center_absolute}`}>
+                    <div className={`${Styles.object} ${Styles.object_two}`}></div>
+                    <div className={`${Styles.object} ${Styles.object_four}`}></div>
 
-                    <div id="object_six" className="object"></div>
-                    <div id="object_eight" className="object"></div>
+                    <div className={`${Styles.object} ${Styles.object_six}`}></div>
+                    <div className={`${Styles.object} ${Styles.object_eight}`}></div>
 
-                    <div id="object_big" className="object"></div>
+                    <div className={`${Styles.object} ${Styles.object_big}`}></div>
                 </div>
             </div>
         </div>

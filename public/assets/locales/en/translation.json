@@ -1,9 +1,16 @@
 {
     "Home": "Home",
     "Collocations": "Collocations",
+    "Phrasal verbs": "Phrasal verbs",
     "Search": "Search",
     "Name": "Name",
     "Choose Collocations Type": "Choose Collocations Type",
     "Update Collocations": "Update Collocations",
-    "Add Collocations": "Add Collocation"
+    "Add Collocations": "Add Collocation",
+    "What is a collocation?": "What is a collocation?",
+    "A collocation is two or more words that often go together. These combinations just sound \"right\" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound \"wrong\".": "A collocation is two or more words that often go together. These combinations just sound \"right\" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound \"wrong\".",
+    "Why learn collocations?": "Why learn collocations?",
+    "Your language will be more natural and more easily understood.": "Your language will be more natural and more easily understood.",
+    "You will have alternative and richer ways of expressing yourself.": "You will have alternative and richer ways of expressing yourself.",
+    "It is easier for our brains to remember and use language in chunks or blocks rather than as single words.": "It is easier for our brains to remember and use language in chunks or blocks rather than as single words."
 }

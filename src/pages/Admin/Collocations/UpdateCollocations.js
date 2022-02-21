@@ -14,7 +14,7 @@ import Loading from "../../../components/Table/Loading";
 import DataServices from "../../../firebase/services"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import ExpandedComp from '../../../components/ExpandedComponent'
+import ExpandedComp from '../../../components/Table/ExpandedComponent'
 
 // Loadin table and error message
 export const Actions = ({ status }) => {

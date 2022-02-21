@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ExpandedComponent({ data, Language, config }) {
+export default function ExpandedComponent({ data, darkMode, Language }) {
 	return (
 		<div>
 			<pre></pre>
@@ -8,7 +8,7 @@ export default function ExpandedComponent({ data, Language, config }) {
 				<>
 					Example:<pre
 						className="mx-0 mx-lg-5"
-						style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#6f42c1"}` }}>
+						style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${darkMode ? "#FFEB3B" : "#6f42c1"}` }}>
 						{JSON.stringify(data?.en?.Ex)}
 					</pre>
 				</>
@@ -16,7 +16,7 @@ export default function ExpandedComponent({ data, Language, config }) {
 				<>
 					مثال:<pre
 						className="mx-0 mx-lg-5"
-						style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#198754"}` }}>
+						style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${darkMode ? "#FFEB3B" : "#198754"}` }}>
 						{JSON.stringify(data?.ar?.Ex)}
 					</pre>
 				</>
@@ -25,7 +25,7 @@ export default function ExpandedComponent({ data, Language, config }) {
 				<>
 					Description:<pre
 						className="mx-0 mx-lg-5"
-						style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+						style={{ whiteSpace: "break-spaces", padding: "0 10px", color: `${darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
 						{JSON.stringify(data?.en?.Desc)}
 					</pre>
 				</>
@@ -33,7 +33,7 @@ export default function ExpandedComponent({ data, Language, config }) {
 				<>
 					الوصف:<pre
 						className="mx-0 mx-lg-5"
-						style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${config.darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
+						style={{ direction: "rtl", whiteSpace: "break-spaces", padding: "0 10px", color: `${darkMode ? "#FFEB3B" : "#dc3545d6"}` }}>
 						{JSON.stringify(data?.ar?.Desc)}
 					</pre>
 				</>
