@@ -151,7 +151,7 @@ const UpdateCollocations = () => {
 
 	}, [dispatch]);
 	// data provides access to your row data
-	const ExpandedComponent = ({ data }) => <ExpandedComp data={data} Language={Language} config={config.darkMode} />;
+	const ExpandedComponent = ({ data }) => <ExpandedComp data={data} Language={Language} config={config} />;
 
 
 	return (
