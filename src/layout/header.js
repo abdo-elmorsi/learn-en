@@ -56,7 +56,7 @@ const Header = () => {
     [dispatch, config.darkMode, currentLanguage?.dir]
   );
   return (
-    <>
+    <header>
       <Navbar
         expand="lg"
         variant="light"
@@ -402,7 +402,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </header>
   );
 };
 export default Header;

@@ -42,6 +42,7 @@ export default function Index({ filter, setfilter, t, loading, Data, darkMode, D
 		],
 		[t, Language],
 	);
+	const rowPreExpanded = row => row.en.Name === 'go shopping' || row.en.Name === 'break up'
 	return (
 		<Card className="mt-4" style={{ minHeight: '400px' }}>
 			<Card.Body>
@@ -89,6 +90,7 @@ export default function Index({ filter, setfilter, t, loading, Data, darkMode, D
 								pagination
 								expandableRows
 								expandableRowsComponent={ExpandedComponent}
+								expandableRowExpanded={rowPreExpanded}
 							/>
 						) :
 							<Loading />
