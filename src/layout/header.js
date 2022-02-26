@@ -354,7 +354,7 @@ const Header = () => {
                   aria-expanded="false"
                 >
                   <Image
-                    src={auth?.currentUser?.photoURL || `/assets/images/avatars/01.png`}
+                    src={auth?.currentUser?.photoURL || `/assets/images/02.ico`}
                     width={40}
                     alt="User-Profile"
                     className="img-fluid avatar avatar-rounded avatar-rounded"

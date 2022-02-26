@@ -13,6 +13,9 @@ import PhrasalVerbs from "../../pages/PhrasalVerbs";
 import AddPhrasalVerbs from "../../pages/Admin/PhrasalVerbs/AddPhrasalVerbs";
 import UpdatePhrasalVerbs from "../../pages/Admin/PhrasalVerbs/UpdatePhrasalVerbs";
 
+
+// Idioms  Expressions
+import IdiomsExpressions from "../../pages/IdiomsExpressions"
 import SignIn from "../../pages/auth/Signin";
 import SignUp from "../../pages/auth/Signup";
 
@@ -28,6 +31,7 @@ const AppRouter = () => {
           <Admin exact component={Home} path={ROUTES.HOME} />
           <Admin component={Collocations} path={ROUTES.COLLOCATIONS} />
           <Admin component={PhrasalVerbs} path={ROUTES.PHRASAL_VERBS} />
+          <Admin component={IdiomsExpressions} path={ROUTES.IDIOMS_EXPRESSIONS} />
 
           {/* Admin */}
           <Admin component={AddCollocation} path={ROUTES.ADD_COLLOCATION} />

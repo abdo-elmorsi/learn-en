@@ -13,13 +13,16 @@ const SubHeader = ({ pageName = "" }) => {
     (_) => {
       switch (pageName) {
         case "/":
-          setState("Home");
+          setState("Tenses");
           break;
         case "/collocations":
           setState("Collocations");
           break;
         case "/phrasalVerb":
           setState("Phrasal verbs");
+          break;
+        case "/idioms-expressions":
+          setState("Idioms expressions");
           break;
 
         // Admin

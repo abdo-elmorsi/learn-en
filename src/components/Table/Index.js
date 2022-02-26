@@ -65,7 +65,7 @@ export default function Index({ filter, setfilter, t, loading, Data, darkMode, D
 							<Form.Label>{t("Choose Collocations Type")}</Form.Label>
 							<Form.Select style={{ cursor: "pointer" }} aria-label="Floating label select example" onChange={(e) => setDataType(e.target.value)}>
 								<option value="">All Types</option>
-								{['do', 'go', 'make', 'take', 'pay', 'have', 'come', 'break', 'calm'].map(ele => {
+								{['do', 'go', 'make', 'take', 'hold', 'have', 'come', 'break', 'calm'].map(ele => {
 									return (
 										<option>{ele}</option>
 									)

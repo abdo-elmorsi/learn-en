@@ -6,6 +6,7 @@ import TableComp from '../components/Table/Index'
 
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import { Accordion } from "react-bootstrap";
 
 const PhrasalVerb = () => {
 	const { t } = useTranslation();
@@ -39,7 +40,19 @@ const PhrasalVerb = () => {
 	}, [dispatch]);
 
 	return (
-		<TableComp filter={filter} setfilter={setfilter} t={t} loading={loading} Data={Data} darkMode={darkMode} DataType={DataType} setDataType={setDataType} />
+		<>
+			<Accordion defaultActiveKey="0" alwaysOpen>
+				<Accordion.Item className={`${darkMode ? "bg-dark" : ''}`} eventKey="0">
+					<Accordion.Header style={{ direction: 'initial' }} className={`${darkMode ? "dark" : ''}`}>{t('What is Phrasal verbs?')}</Accordion.Header>
+					<Accordion.Body>
+						{t('Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb.')}
+					</Accordion.Body>
+				</Accordion.Item>
+
+			</Accordion>
+
+			<TableComp filter={filter} setfilter={setfilter} t={t} loading={loading} Data={Data} darkMode={darkMode} DataType={DataType} setDataType={setDataType} />
+		</>
 	);
 };
 

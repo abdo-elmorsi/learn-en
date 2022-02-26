@@ -1,16 +1,21 @@
 {
-    "Home": "الرئيسيه",
+    "Tenses": "الأزمنة",
     "Collocations": "المتلازمات",
-    "Phrasal verbs":"أشباه الجمل الفعلية",
+    "Phrasal verbs": "أشباه الجمل الفعلية",
+    "Idioms expressions": "التعبيرات الاصطلاحية",
     "Search": "بحث",
     "Name": "الاسم",
     "Choose Collocations Type": "اختر نوع الارتباطات",
     "Update Collocations": "تحديث الترابطات",
     "Add Collocation": "اضافه ترابط",
     "What is a collocation?": "ما هو التجميع؟",
-    "A collocation is two or more words that often go together. These combinations just sound \"right\" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound \"wrong\".": "التجميع هو كلمتان أو أكثر غالبًا ما يتم الجمع بينهما. تبدو هذه التركيبات 'صحيحة' للمتحدثين الأصليين للغة الإنجليزية ، الذين يستخدمونها طوال الوقت. من ناحية أخرى ، قد تكون التركيبات الأخرى غير طبيعية ويبدو أنها 'خاطئة'.",
+    "What is Phrasal verbs?": "ما هي أشباه الجمل الفعلية?",
     "Why learn collocations?": "لماذا تعلم التجميعات؟",
+    "Types of collocation?": "?أنواع التجميع",
+    "A collocation is two or more words that often go together. These combinations just sound \"right\" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound \"wrong\".": "التجميع هو كلمتان أو أكثر غالبًا ما يتم الجمع بينهما. تبدو هذه التركيبات 'صحيحة' للمتحدثين الأصليين للغة الإنجليزية ، الذين يستخدمونها طوال الوقت. من ناحية أخرى ، قد تكون التركيبات الأخرى غير طبيعية ويبدو أنها 'خاطئة'.",
     "Your language will be more natural and more easily understood.": "ستكون لغتك طبيعية أكثر وأكثر سهولة في الفهم.",
     "You will have alternative and richer ways of expressing yourself.": "سيكون لديك طرق بديلة وأكثر ثراءً للتعبير عن نفسك.",
-    "It is easier for our brains to remember and use language in chunks or blocks rather than as single words.": "من الأسهل على أدمغتنا أن تتذكر اللغة وتستخدمها في أجزاء أو أجزاء بدلاً من كلمات مفردة."
+    "It is easier for our brains to remember and use language in chunks or blocks rather than as single words.": "من الأسهل على أدمغتنا أن تتذكر اللغة وتستخدمها في أجزاء أو أجزاء بدلاً من كلمات مفردة.",
+    "There are several different types of collocation made from combinations of verb, noun, adjective etc. Some of the most common types are": "هناك عدة أنواع مختلفة من التجميع المصنوع من مجموعات من الفعل والاسم والصفة وما إلى ذلك. بعض الأنواع الأكثر شيوعًا هي",
+    "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb.": "أشباه الجمل الفعلية شائعة جدًا في اللغة الإنجليزية ، خاصة في السياقات غير الرسمية. وهي مكونة من فعل وجسيم ، وأحيانًا من جسيمين. غالبًا ما يغير الجسيم معنى الفعل."
 }

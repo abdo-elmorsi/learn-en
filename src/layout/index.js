@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     <>
       {!pathname.includes("sign") && <Sidebar />}
       <main className="main-content">
-        <div className="position-relative">
+        <div className="position-relative overflow-hidden">
           {!pathname.includes("sign") && <Header />}
           {!pathname.includes("sign") && (
             <SubHeader pageName={pathname} />

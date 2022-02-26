@@ -1,6 +1,7 @@
 export const HOME = "/";
 export const COLLOCATIONS = '/collocations'
 export const PHRASAL_VERBS = '/phrasalVerb'
+export const IDIOMS_EXPRESSIONS = '/idioms-expressions'
 
 // Admin
 export const ADD_COLLOCATION = '/addCollocation'
