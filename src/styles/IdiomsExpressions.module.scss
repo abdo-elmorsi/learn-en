@@ -1,0 +1,7 @@
+.col {
+    &:hover {
+        background-color: #023f67;
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+}
