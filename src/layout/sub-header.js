@@ -6,83 +6,104 @@ import { useTranslation } from "react-i18next";
 import { fadeIn } from "../helpers/Animation";
 
 const SubHeader = ({ pageName = "" }) => {
-  const { t } = useTranslation();
-  const [state, setState] = useState("");
-  const currentLanguageCode = Cookies.get("i18next") || "en";
-  useEffect(
-    (_) => {
-      switch (pageName) {
-        case "/":
-          setState("Tenses");
-          break;
-        case "/collocations":
-          setState("Collocations");
-          break;
-        case "/phrasalVerb":
-          setState("Phrasal verbs");
-          break;
-        case "/idioms-expressions":
-          setState("Idioms expressions");
-          break;
+    const { t } = useTranslation();
+    const [state, setState] = useState("");
+    const currentLanguageCode = Cookies.get("i18next") || "en";
+    useEffect(
+        (_) => {
+            switch (pageName) {
+                // Pages
+                case "/":
+                    setState("Tenses");
+                    break;
+                case "/collocations":
+                    setState("Collocations");
+                    break;
+                case "/phrasalVerb":
+                    setState("Phrasal verbs");
+                    break;
+                case "/idioms-expressions":
+                    setState("Idioms expressions");
+                    break;
+                // ###################################
+                // Tenses
+                case "/past-tense":
+                    setState("Past Tense");
+                    break;
+                case "/past-simple-tense":
+                    setState("Past Simple");
+                    break;
+                // ###################################
+                // Admin
+                case "/addCollocation":
+                    setState("Add Collocation");
+                    break;
+                case "/updateCollocations":
+                    setState("Update collocations");
+                    break;
 
-        // Admin
-        case "/addCollocation":
-          setState("Add Collocation");
-          break;
-        case "/updateCollocations":
-          setState("Update collocations");
-          break;
-
-        case "/addPhrasalVerbs":
-          setState("Add Phrasal Verbs");
-          break;
-        case "/updatePhrasalVerbs":
-          setState("Update Phrasal Verbs");
-          break;
-        default:
-          setState("404");
-          break;
-      }
-    },
-    [pageName]
-  );
-  return (
-    <>
-      <motion.div
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-        className="iq-navbar-header"
-        style={{ height: "145px" }}>
-        <Container fluid className=" iq-container">
-          <Row>
-            <Col md="12">
-              <p
-                style={{
-                  bottom: "1%", color: "gray", fontSize: "15px",
-                  right: `${currentLanguageCode === "en" ? "15px" : "auto"}`,
-                  left: `${currentLanguageCode === "en" ? "auto" : "15px"}`
-                }}
-                className="position-absolute">{`${new Date().toDateString()}`}</p>
-              <div className="d-flex justify-content-between flex-wrap">
-                <div>
-                  <h1>{t(state)}</h1>
+                case "/addPhrasalVerbs":
+                    setState("Add Phrasal Verbs");
+                    break;
+                case "/updatePhrasalVerbs":
+                    setState("Update Phrasal Verbs");
+                    break;
+                default:
+                    setState("404");
+                    break;
+            }
+        },
+        [pageName]
+    );
+    return (
+        <>
+            <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+                className="iq-navbar-header"
+                style={{ height: "145px" }}
+            >
+                <Container fluid className=" iq-container">
+                    <Row>
+                        <Col md="12">
+                            <p
+                                style={{
+                                    bottom: "1%",
+                                    color: "gray",
+                                    fontSize: "15px",
+                                    right: `${
+                                        currentLanguageCode === "en"
+                                            ? "15px"
+                                            : "auto"
+                                    }`,
+                                    left: `${
+                                        currentLanguageCode === "en"
+                                            ? "auto"
+                                            : "15px"
+                                    }`,
+                                }}
+                                className="position-absolute"
+                            >{`${new Date().toDateString()}`}</p>
+                            <div className="d-flex justify-content-between flex-wrap">
+                                <div>
+                                    <h1>{t(state)}</h1>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+                {/* {{!-- rounded-bottom if not using animation --}} */}
+                <div className="iq-header-img">
+                    <img
+                        src="/assets/images/top-header.jpg"
+                        alt="header"
+                        className="img-fluid w-100 h-100 animated-scaleX"
+                    />
                 </div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        {/* {{!-- rounded-bottom if not using animation --}} */}
-        <div className="iq-header-img">
-          <img
-            src="/assets/images/top-header.jpg"
-            alt="header"
-            className="img-fluid w-100 h-100 animated-scaleX"
-          />
-        </div>
-      </motion.div>
-    </>
-  );
+            </motion.div>
+        </>
+    );
 };
 
 export default SubHeader;

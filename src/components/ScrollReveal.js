@@ -1,23 +1,24 @@
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const ScrollReveal = ({
     children,
     className = null,
     variants,
     custom = 0.1,
+    key,
 }) => {
-    const controls = useAnimation()
+    const controls = useAnimation();
     const [ref, inView] = useInView({
         threshold: 0.1,
-    })
+    });
 
     useEffect(() => {
         if (inView) {
-            controls.start('visible')
+            controls.start("visible");
         }
-    }, [controls, inView])
+    }, [controls, inView]);
 
     return (
         <motion.div
@@ -27,10 +28,11 @@ const ScrollReveal = ({
             variants={variants}
             custom={custom}
             className={className}
+            key={key}
         >
             {children}
         </motion.div>
-    )
-}
+    );
+};
 
-export default ScrollReveal
+export default ScrollReveal;

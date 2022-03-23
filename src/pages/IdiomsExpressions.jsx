@@ -13,9 +13,9 @@ export default function IdiomsExpressions() {
     useEffect(() => {
         setloading(true);
         (async () => {
-            const res = await fetch("assets/idiomsExpressions.json");
-            const { data } = await res.json();
-            setData(data);
+            const res = await fetch("assets/dumyData.json");
+            const { IdiomsExpressions } = await res.json();
+            setData(IdiomsExpressions);
             setloading(false);
         })();
     }, []);

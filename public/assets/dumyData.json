@@ -1,5 +1,5 @@
 {
-    "data": [
+    "IdiomsExpressions": [
         {
             "first": "Break the news",
             "second": "to make something known"
@@ -203,6 +203,90 @@
         {
             "first": "Stand a chance",
             "second": "to have the possibility of success"
+        }
+    ],
+    "PastSimpleExs": [
+        {
+            "Ar": " جاء علي إلى المدرسة الأسبوع الماضي.",
+            "Affirmative": "Ali came to school last week.",
+            "Negative": "Ali didn't come to school last week.",
+            "Interrogative": "Did Ali come to school last week?"
+        },
+        {
+            "Ar": " هو كان جائعاً. ",
+            "Affirmative": "He was hungry.",
+            "Negative": "He was not hungry.",
+            "Interrogative": "Was he hungry?"
+        },
+        {
+            "Ar": "كان الجو باردا الشهر الماضي.",
+            "Affirmative": "It was cold last month.",
+            "Negative": "It was not cold last month.",
+            "Interrogative": "Was it cold last month?"
+        },
+        {
+            "Ar": "لقد فقدت المفاتيح الأسبوع الماضي.",
+            "Affirmative": "You lost the keys last week.",
+            "Negative": "You didn't lose the keys last week.",
+            "Interrogative": "Did you lose the keys last week?"
+        },
+        {
+            "Ar": "قرأ أحمد كتابين الشهر الماضي.",
+            "Affirmative": "Ahmed read two books last month.",
+            "Negative": "Ahmed didn't read two books last month.",
+            "Interrogative": "Did Ahmed read two books last month?"
+        },
+        {
+            "Ar": "لقد لعبت كرة القدم أمس.",
+            "Affirmative": "I played football yesterday.",
+            "Negative": "I didn't play football yesterday.",
+            "Interrogative": "Did you play football yesterday?"
+        },
+        {
+            "Ar": "عملت في القاهرة عام 2005.",
+            "Affirmative": "She worked in Cairo in 2005.",
+            "Negative": "She didn't work in Cairo in 2005.",
+            "Interrogative": "Did she work in Cairo in 2005?"
+        }
+    ],
+    "TensesTitles": [
+        {
+            "title": "Past Tense",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "A tense expressing an action that has happened or a state that previously existed.",
+            "link": "past-tense"
+        },
+        {
+            "title": "Present Tense",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "A tense expressing an action that is currently going on or habitually performed, or a state that currently or generally exists.",
+            "link": ""
+        },
+        {
+            "title": "Future tense",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "A tense expressing an action that has not yet happened or a state that does not yet exist.",
+            "link": ""
+        }
+    ],
+    "PastTensesTitles": [
+        {
+            "title": "Past Simple",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "Is a verb tense that is used to talk about things that happened or existed before now.",
+            "link": "past-simple-tense"
+        },
+        {
+            "title": "Past Continuous",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "The past continuous tense, also known as the past progressive tense, refers to a continuing action or state that was happening at some point in the past.",
+            "link": ""
+        },
+        {
+            "title": "Past Perfect",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
+            "desc": "The past perfect continuous tense (also known as the past perfect progressive tense) shows that an action that started in the past continued up until another time in the past.",
+            "link": ""
         }
     ]
 }
