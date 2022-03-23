@@ -53,10 +53,10 @@ export default function PastSimple() {
             <a className="me-2" href="#Interrogative">
                 Interrogative
             </a>
-            <Card className="p-4">
+            <Card className="p-2 pt-4 p-md-4">
                 <Row className="mb-3">
                     <Col sm={12}>
-                        <h5 className="w-75 text-center mx-auto mb-5">
+                        <h5 className="w-100 w-md-75 text-center mx-auto mb-5">
                             {t(
                                 "The English language is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases."
                             )}
@@ -67,7 +67,7 @@ export default function PastSimple() {
                         >
                             1: Affirmative:
                         </h3>
-                        <div className="ps-4">
+                        <div className="ps-2 ps-md-4">
                             <span className="fw-bold mb-2 d-block">
                                 The form: ( Subject + Verb.2 + Object )
                             </span>
@@ -181,7 +181,7 @@ export default function PastSimple() {
                         <h3 id="Negative" className="fw-bold mt-5 text-primary">
                             2: Negative:
                         </h3>
-                        <div className="ps-4">
+                        <div className="ps-2 ps-md-4">
                             <span className="fw-bold mb-2 d-block">
                                 The form: ( Subject + did + not + verb1 )
                             </span>
