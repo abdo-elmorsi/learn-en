@@ -27,7 +27,6 @@ export default function Signin() {
 		setLoading(true);
 		await createUserWithEmailAndPassword(auth, email, password)
 			.then(({ user }) => {
-				console.log(user);
 				setTimeout(() => {
 					toast.success("Login Success");
 					history.push("/");

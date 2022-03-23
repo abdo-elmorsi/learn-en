@@ -28,7 +28,6 @@ const Admin = () => {
         formData.current.reset();
         setloading(false);
       } catch (error) {
-        console.log(error);
         toast.error(error);
         setloading(false);
       }

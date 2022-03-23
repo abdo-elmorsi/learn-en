@@ -24,7 +24,6 @@ export const Actions = ({ status }) => {
 			await DataServices.deleteItem('Collocations', status.id);
 			toast.success("Collocation Deleted");
 		} catch (error) {
-			console.log(error);
 			toast.error("Sorry there is an error");
 		}
 	}
@@ -49,7 +48,6 @@ export const Actions = ({ status }) => {
 				await DataServices.updateItem('Collocations', status.id, data)
 				toast.success("Collocation updated");
 			} catch (error) {
-				console.log(error);
 				toast.error("Sorry there is an error");
 			}
 		}

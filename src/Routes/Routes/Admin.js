@@ -11,7 +11,6 @@ import { getUser } from "../../lib/slices/auth"
 const AdminRoute = ({ path, component: Component, ...rest }) => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.auth.user);
-	console.log(path.startsWith("/sign"));
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
 			if (currentUser !== null) {

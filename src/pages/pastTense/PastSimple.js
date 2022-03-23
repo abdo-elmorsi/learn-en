@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Accordion, Card, Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
@@ -39,7 +39,6 @@ export default function PastSimple() {
             const { PastSimpleExs } = await res.json();
             setData(PastSimpleExs);
             setloading(false);
-            console.log(PastSimpleExs);
         })();
     }, []);
 

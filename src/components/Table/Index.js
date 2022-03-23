@@ -83,7 +83,7 @@ export default function Index({
                                     "break",
                                     "calm",
                                 ].map((ele) => {
-                                    return <option>{ele}</option>;
+                                    return <option key={ele}>{ele}</option>;
                                 })}
                             </Form.Select>
                         </Form.Group>

@@ -30,7 +30,6 @@ export const Actions = ({ status }) => {
 			await DataServices.deleteItem('PhrasalVerb', status.id);
 			toast.success("Phrasal Verb Deleted");
 		} catch (error) {
-			console.log(error);
 			toast.error("Sorry there is an error");
 		}
 	}
@@ -55,7 +54,6 @@ export const Actions = ({ status }) => {
 				await DataServices.updateItem('PhrasalVerb', status.id, data)
 				toast.success("Phrasal Verb updated");
 			} catch (error) {
-				console.log(error);
 				toast.error("Sorry there is an error");
 			}
 		}
@@ -148,7 +146,6 @@ const UpdatePhrasalVerbs = () => {
 		try {
 			onSnapshot(query(collection(db, 'PhrasalVerb'), orderBy('createdAt', 'asc')),
 				(snapshot) => {
-					console.log([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]);
 					dispatch(AddPhrasalVerb([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
 					setloading(false);
 				})
