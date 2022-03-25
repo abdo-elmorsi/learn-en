@@ -25,7 +25,7 @@ export default function TenseCard({ data }) {
                 />
                 <Card.Body>
                     <h5 className="card-title">{t(`${data.title}`)}</h5>
-                    <p className="card-text" style={{ minHeight: "80px" }}>
+                    <p className="card-text" style={{ minHeight: "100px" }}>
                         {t(data.desc)}
                     </p>
                     <Link to={`/${data.link}`} className="btn btn-primary">

@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Card, Col, Row } from "react-bootstrap";
+import { Accordion, Card, Col, Row, Table } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
 import Loading from "../../components/Table/Loading";
+import ColorSwithcer from "../../components/ColorSwithcer";
 
 export default function PastSimple() {
     const { t } = useTranslation();
     const columns = [
         {
-            name: `${t("Arabic")}`,
-            selector: (row) => row.Ar,
-            sortable: true,
-        },
-        {
-            name: `${t("Affirmative")}`,
+            name: `${t("Affirmative (+)")}`,
             selector: (row) => row.Affirmative,
             sortable: true,
         },
         {
-            name: `${t("Negative")}`,
+            name: `${t("Negative (-)")}`,
             selector: (row) => row.Negative,
             sortable: true,
         },
         {
-            name: `${t("Interrogative")}`,
+            name: `${t("Interrogative (?)")}`,
             selector: (row) => row.Interrogative,
+            sortable: true,
+        },
+        {
+            name: `${t("Arabic")}`,
+            selector: (row) => row.Ar,
             sortable: true,
         },
     ];
@@ -44,309 +45,281 @@ export default function PastSimple() {
 
     return (
         <>
-            <a className="me-2" href="#Affirmative">
-                Affirmative
-            </a>
-            <a className="me-2" href="#Negative">
-                Negative
-            </a>
-            <a className="me-2" href="#Interrogative">
-                Interrogative
-            </a>
-            <Card className="p-2 pt-4 p-md-4">
-                <Row className="mb-3">
-                    <Col sm={12}>
-                        <h5 className="w-100 w-md-75 text-center mx-auto mb-5">
-                            {t(
-                                "The English language is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases."
-                            )}
-                        </h5>
-                        <h3
-                            id="Affirmative"
-                            className="fw-bold mt-5 text-primary"
-                        >
-                            1: Affirmative:
-                        </h3>
-                        <div className="ps-2 ps-md-4">
-                            <span className="fw-bold mb-2 d-block">
-                                The form: ( Subject + Verb.2 + Object )
-                            </span>
-                            <span>Use cases & Examples</span>
-                            <Accordion defaultActiveKey="0" alwaysOpen>
-                                <Row>
-                                    <Col sm={12}>
-                                        <Accordion.Item
-                                            className={`${
-                                                darkMode ? "bg-dark" : ""
-                                            }`}
-                                            eventKey="0"
-                                        >
-                                            <Accordion.Header
-                                                style={{ direction: "initial" }}
-                                                className={`${
-                                                    darkMode ? "dark" : ""
-                                                }`}
-                                            >
-                                                {t(
-                                                    "1- Expressing events that occurred and ended in the past at a specific time."
-                                                )}
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                {loading ? (
-                                                    <Loading />
-                                                ) : (
-                                                    Data?.slice(0, 3).map(
-                                                        (ele, i) => {
-                                                            return (
-                                                                <Row
-                                                                    key={i}
-                                                                    className={`${
-                                                                        i !==
-                                                                            2 &&
-                                                                        "border-bottom"
-                                                                    } pt-2`}
-                                                                >
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Affirmative
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Ar
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                </Row>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Col>
-                                    <Col sm={12}>
-                                        <Accordion.Item
-                                            className={`${
-                                                darkMode ? "bg-dark" : ""
-                                            }`}
-                                            eventKey="1"
-                                        >
-                                            <Accordion.Header
-                                                style={{ direction: "initial" }}
-                                                className={`${
-                                                    darkMode ? "dark" : ""
-                                                }`}
-                                            >
-                                                {t(
-                                                    "2- Expressing a series of events that ended in the past."
-                                                )}
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                <Row className="">
-                                                    <Col sm={12} lg={6}>
-                                                        <p className="text-center">
-                                                            I finished work,
-                                                            walked to the beach,
-                                                            and found a nice
-                                                            place to swim.
-                                                        </p>
-                                                    </Col>
-                                                    <Col sm={12} lg={6}>
-                                                        <p className="text-center">
-                                                            أنهيت عملي ، مشيت
-                                                            إلى الشاطئ ، ووجدت
-                                                            مكانًا لطيفًا
-                                                            للسباحة.
-                                                        </p>
-                                                    </Col>
-                                                </Row>
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Col>
-                                </Row>
-                            </Accordion>
-                        </div>
-                    </Col>
-                    <Col sm={12}>
-                        <h3 id="Negative" className="fw-bold mt-5 text-primary">
-                            2: Negative:
-                        </h3>
-                        <div className="ps-2 ps-md-4">
-                            <span className="fw-bold mb-2 d-block">
-                                The form: ( Subject + did + not + verb1 )
-                            </span>
-                            <span>Use cases & Examples</span>
-                            <Accordion defaultActiveKey="0" alwaysOpen>
-                                <Row>
-                                    <Col sm={12}>
-                                        <Accordion.Item
-                                            className={`${
-                                                darkMode ? "bg-dark" : ""
-                                            }`}
-                                            eventKey="0"
-                                        >
-                                            <Accordion.Header
-                                                style={{ direction: "initial" }}
-                                                className={`${
-                                                    darkMode ? "dark" : ""
-                                                }`}
-                                            >
-                                                {t(
-                                                    "1- We use the verb in its basic form and then add didn'tor the acronym didn't . before it"
-                                                )}
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                {loading ? (
-                                                    <Loading />
-                                                ) : (
-                                                    Data?.slice(0, 3).map(
-                                                        (ele, i) => {
-                                                            return (
-                                                                <Row
-                                                                    key={i}
-                                                                    className={`${
-                                                                        i !==
-                                                                            2 &&
-                                                                        "border-bottom"
-                                                                    } pt-2`}
-                                                                >
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Negative
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Ar
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                </Row>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Col>
-                                </Row>
-                            </Accordion>
-                        </div>
-                    </Col>
-                    <Col sm={12}>
-                        <h3
-                            id="Interrogative"
-                            className="fw-bold mt-5 text-primary"
-                        >
-                            2: Interrogative:
-                        </h3>
-                        <div className="ps-4">
-                            <span className="fw-bold mb-2 d-block">
-                                The form: ( Did + subject + verb1 )
-                            </span>
-                            <span>Use cases & Examples</span>
-                            <Accordion defaultActiveKey="0" alwaysOpen>
-                                <Row>
-                                    <Col sm={12}>
-                                        <Accordion.Item
-                                            className={`${
-                                                darkMode ? "bg-dark" : ""
-                                            }`}
-                                            eventKey="0"
-                                        >
-                                            <Accordion.Header
-                                                style={{ direction: "initial" }}
-                                                className={`${
-                                                    darkMode ? "dark" : ""
-                                                }`}
-                                            >
-                                                {t(
-                                                    "1- We use Did at the beginning of the sentence, then we put the subject and then the verb in the infinitive."
-                                                )}
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                {loading ? (
-                                                    <Loading />
-                                                ) : (
-                                                    Data?.slice(0, 3).map(
-                                                        (ele, i) => {
-                                                            return (
-                                                                <Row
-                                                                    key={i}
-                                                                    className={`${
-                                                                        i !==
-                                                                            2 &&
-                                                                        "border-bottom"
-                                                                    } pt-2`}
-                                                                >
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Interrogative
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                    <Col
-                                                                        sm={12}
-                                                                        lg={6}
-                                                                    >
-                                                                        <p className="text-center">
-                                                                            {
-                                                                                ele.Ar
-                                                                            }
-                                                                        </p>
-                                                                    </Col>
-                                                                </Row>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Col>
-                                </Row>
-                            </Accordion>
-                        </div>
-                    </Col>
-                </Row>
-                {/* table */}
-                <Row className="mt-5">
-                    {/* <h3>Examples:</h3> */}
-                    {loading ? (
-                        <Loading />
-                    ) : (
-                        <DataTable
-                            title={"Examples:"}
-                            columns={columns}
-                            data={Data}
-                            highlightOnHover
-                            theme={`${darkMode && "solarized"}`}
-                            pagination
+            <Card>
+                <Card.Header className="pt-4 bg-transparent">
+                    <h5 className="w-100  mx-auto mb-5">
+                        {t(
+                            "The English language is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases."
+                        )}
+                    </h5>
+                    {/* <p>A: How do we use the Past Simple tense?</p> */}
+                    <p className="ps-0 ps-lg-3">
+                        We use the Past Simple tense to talk about an action or
+                        a situation - an event - in the past. The event can be
+                        short or long.
+                    </p>
+                    <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap">
+                        <li className="border-bottom mb-3">
+                            the event is <ColorSwithcer text="in the past" />
+                        </li>
+                        <li className="border-bottom mb-3">
+                            the event is
+                            <ColorSwithcer text="completely finished" />
+                        </li>
+                        <li className="border-bottom mb-3">
+                            we say (or understand) the
+                            <ColorSwithcer text="time" />
+                            and/or
+                            <ColorSwithcer text="place" />
+                            of the event
+                        </li>
+                    </ol>
+                </Card.Header>
+                <Card.Body>
+                    <p className="lead border-top border-2 pt-5">
+                        1- How do we make the Past Simple tense?
+                    </p>
+                    <small>
+                        Look at these examples with the main verbs
+                        <ColorSwithcer text={"go"} />
+                        (irregular) and
+                        <ColorSwithcer text={"work"} />
+                        (regular):
+                    </small>
+                    <Table className="mb-5" responsive striped bordered>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>sub</th>
+                                <th>helping (v)</th>
+                                <th>&nbsp;</th>
+                                <th>main (v)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    title="Affirmative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    +
+                                </td>
+                                <td>I</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>went</td>
+                                <td>to school.</td>
+                            </tr>
+                            <tr>
+                                <td>You</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>worked</td>
+                                <td>very hard.</td>
+                            </tr>
+                            <tr>
+                                <td
+                                    title="Negative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    -
+                                </td>
+                                <td>She</td>
+                                <td>did</td>
+                                <td className="text-danger">not</td>
+                                <td>go</td>
+                                <td>with me.</td>
+                            </tr>
+                            <tr>
+                                <td>We</td>
+                                <td>did</td>
+                                <td className="text-danger">not</td>
+                                <td>work</td>
+                                <td>yesterday.</td>
+                            </tr>
+                            <tr>
+                                <td
+                                    title="Interrogative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    ?
+                                </td>
+                                <td>Did</td>
+                                <td>you</td>
+                                <td>&nbsp;</td>
+                                <td>go</td>
+                                <td>to London?</td>
+                            </tr>
+                            <tr>
+                                <td>Did</td>
+                                <td>they</td>
+                                <td>&nbsp;</td>
+                                <td>work</td>
+                                <td>at home?</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                    <p>From the above table, notice the following points:</p>
+
+                    <ColorSwithcer
+                        className={"ps-0 ps-lg-4"}
+                        text={"A: For positive sentences:"}
+                    />
+
+                    <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap">
+                        <li className="border-bottom mb-3">
+                            There is <strong>no auxiliary verb</strong>.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            The main verb is conjugated in the Past Simple,
+                            invariable: -ed (or irregular).
+                        </li>
+                    </ol>
+                    <ColorSwithcer
+                        className={"ps-0 ps-lg-4"}
+                        text={"B: For negative and question sentences:"}
+                    />
+
+                    <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap">
+                        <li className="border-bottom mb-3">
+                            The auxiliary is conjugated in the Past Simple,
+                            invariable: did.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            For question sentences, we exchange the subject and
+                            the auxiliary verb.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            The main verb is invariable in base form: base.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            For negative sentences, we insert not between the
+                            auxiliary verb and main verb.
+                        </li>
+                    </ol>
+                    {/* second table */}
+                    <p className="lead mt-5 pt-5 border-top border-2">
+                        2- The structure of the Past Simple with the main{" "}
+                        <ColorSwithcer
+                            className={"font-weight-bold"}
+                            text="verb be"
                         />
-                    )}
-                </Row>
+                        is:
+                    </p>
+                    <Table responsive striped bordered>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>sub</th>
+                                <th>
+                                    main (v) <em>be</em>
+                                </th>
+                                <th></th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    title="Affirmative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    +
+                                </td>
+                                <td>I, he/she/it</td>
+                                <td>was</td>
+                                <td></td>
+                                <td>here.</td>
+                            </tr>
+                            <tr>
+                                <td>You, we, they</td>
+                                <td>were</td>
+                                <td>&nbsp;</td>
+                                <td>in London.</td>
+                            </tr>
+                            <tr>
+                                <td
+                                    title="Negative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    -
+                                </td>
+                                <td>I, he/she/it</td>
+                                <td>was</td>
+                                <td className="text-danger">not</td>
+                                <td>there.</td>
+                            </tr>
+                            <tr>
+                                <td>You, we, they</td>
+                                <td>were</td>
+                                <td className="text-danger">not</td>
+                                <td>happy.</td>
+                            </tr>
+                            <tr>
+                                <td
+                                    title="Interrogative"
+                                    rowspan="2"
+                                    className="text-center"
+                                >
+                                    ?
+                                </td>
+                                <td>Was</td>
+                                <td>I, he/she/it</td>
+                                <td>&nbsp;</td>
+                                <td>right?</td>
+                            </tr>
+                            <tr>
+                                <td>Were</td>
+                                <td>you, we, they</td>
+                                <td>&nbsp;</td>
+                                <td>late?</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                    <p className="ps-3">
+                        From the above table, notice the following points:
+                    </p>
+                    <ol className="ps-5 d-flex justify-content-around align-items-center flex-wrap">
+                        <li className="border-bottom mb-3">
+                            There is no auxiliary verb, even for questions and
+                            negatives.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            The main verb (be) is conjugated in the Past Simple:
+                            <ColorSwithcer text="was, were" />
+                        </li>
+                        <li className="border-bottom mb-3">
+                            For negative sentences, we insert not after the main
+                            verb.
+                        </li>
+                        <li className="border-bottom mb-3">
+                            For question sentences, we exchange the subject and
+                            the main verb.
+                        </li>
+                    </ol>
+                    {/* table */}
+                    <Row className="mt-5">
+                        {/* <h3>Examples:</h3> */}
+                        {loading ? (
+                            <Loading />
+                        ) : (
+                            <DataTable
+                                title={"Examples:"}
+                                columns={columns}
+                                data={Data}
+                                highlightOnHover
+                                theme={`${darkMode && "solarized"}`}
+                                pagination
+                            />
+                        )}
+                    </Row>
+                </Card.Body>
             </Card>
         </>
     );

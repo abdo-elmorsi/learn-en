@@ -1,41 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit'
-import Cookies from 'js-cookie';
-import { encryptName } from "../../helpers/encryptions";
+import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 let initialConfig = {
-    darkMode: Cookies.get(encryptName('config')) && JSON.parse(Cookies.get(encryptName("config"))).darkMode,
-    language: 'en'
-}
+    darkMode:
+        Cookies.get("config") && JSON.parse(Cookies.get("config")).darkMode,
+    language: "en",
+};
 
 const storage = (key, value) => {
     initialConfig[key] = value;
-    Cookies.set(encryptName('config'), JSON.stringify(initialConfig));
-}
+    Cookies.set("config", JSON.stringify(initialConfig));
+};
 
 export const ConfigSlice = createSlice({
-    name: 'config',
+    name: "config",
     initialState: {
-        ...initialConfig
+        ...initialConfig,
     },
     reducers: {
         darkMode: (state) => {
             state.darkMode = !state.darkMode;
-            storage('darkMode', state.darkMode);
+            storage("darkMode", state.darkMode);
         },
         changeLanguage: (state, action) => {
             state.language = action.payload;
-            storage('language', state.language)
+            storage("language", state.language);
         },
         setConfig: (state, action) => {
-            Object.assign(state, action.payload)
+            Object.assign(state, action.payload);
         },
     },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const {
-    darkMode,
-    setConfig,
-    changeLanguage } = ConfigSlice.actions
+export const { darkMode, setConfig, changeLanguage } = ConfigSlice.actions;
 
-export default ConfigSlice.reducer
+export default ConfigSlice.reducer;

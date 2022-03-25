@@ -247,6 +247,66 @@
             "Affirmative": "She worked in Cairo in 2005.",
             "Negative": "She didn't work in Cairo in 2005.",
             "Interrogative": "Did she work in Cairo in 2005?"
+        },
+        {
+            "Ar": "ذهبت إلى الحفلة أمس",
+            "Affirmative": "You went to the party yesterday",
+            "Negative": "You didn't go to the party yesterday",
+            "Interrogative": "Why didn't you go to the party yesterday?"
+        },
+        {
+            "Ar": "انفجرت السيارة في الساعة 9:30 صباحًا الأسبوع الماضي.",
+            "Affirmative": "The car exploded at 9.30am last week.",
+            "Negative": "The car didn't explode at 9.30am last week.",
+            "Interrogative": "Did the car explode at 9.30 am last week?"
+        },
+        {
+            "Ar": "هي ذهبت إلى الباب.",
+            "Affirmative": "She went to the door.",
+            "Negative": "She didn't go to the door.",
+            "Interrogative": "Did whe go to the door."
+        },
+        {
+            "Ar": "سمعنا الهاتف في الساعة الماضية",
+            "Affirmative": "We heard the telephone last hour.",
+            "Negative": "We did not hear the telephone last hour.",
+            "Interrogative": "Did we heard the telephone last hour last hour."
+        },
+        {
+            "Ar": "لقد شاهدت التلفزيون الليلة الماضية.",
+            "Affirmative": "You watched TV last night.",
+            "Negative": "You didn't watch TV last night.",
+            "Interrogative": "Did you watch TV last night?"
+        },
+        {
+            "Ar": "كنت أعيش في هذا المنزل عندما كنت صغيرًا.",
+            "Affirmative": "I lived in that house when I was young.",
+            "Negative": "I didn't live in that house when I was young.",
+            "Interrogative": "Did I live in that house when I was young?"
+        },
+        {
+            "Ar": "لم يعجبه الفيلم.",
+            "Affirmative": "He liked the movie.",
+            "Negative": "He didn't like the movie.",
+            "Interrogative": "Did he like the movie."
+        },
+        {
+            "Ar": "لقد لعبت التنس الأسبوع الماضي.",
+            "Affirmative": "You played tennis last week.",
+            "Negative": "You didn't play tennis last week.",
+            "Interrogative": "Did you play tennis last week?"
+        },
+        {
+            "Ar": "عشت في بانكوك لمدة 10 سنوات.",
+            "Affirmative": "I lived in Bangkok for 10 years.",
+            "Negative": "I didn't live in Bangkok for 10 years.",
+            "Interrogative": "Did I live in Bangkok for 10 years?"
+        },
+        {
+            "Ar": "غنينا في الحفلة اليوم الماضي.",
+            "Affirmative": "We sang at the concert last day.",
+            "Negative": "We did not sing at the concert last day.",
+            "Interrogative": "Did we sing at the concert last day?"
         }
     ],
     "TensesTitles": [

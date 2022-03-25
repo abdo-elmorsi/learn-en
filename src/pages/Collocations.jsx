@@ -67,7 +67,7 @@ const Collocations = () => {
 						<Accordion.Item className={`${darkMode ? "bg-dark" : ''}`} eventKey="2">
 							<Accordion.Header style={{ direction: 'initial' }} className={`${darkMode ? "dark" : ''}`}>{t('Types of collocation?')}</Accordion.Header>
 							<Accordion.Body>
-								<p className="lead px-2">{t("There are several different types of collocation made from combinations of verb, noun, adjective etc. Some of the most common types are")}:</p>
+								<p>{t("There are several different types of collocation made from combinations of verb, noun, adjective etc. Some of the most common types are")}:</p>
 								<ListGroup>
 									<ListGroup.Item className={`${darkMode ? 'text-white' : ''} mb-2`}>
 										<strong>adverb + adjective</strong>: completely satisfied (NOT <del>downright</del> satisfied)
