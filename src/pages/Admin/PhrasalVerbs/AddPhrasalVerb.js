@@ -9,7 +9,7 @@ const AddAcollocation = () => {
     const { config } = useSelector((state) => state);
     const handleAdd = async () => {
         const result = await CustomDialog(<AddItem config={config} />, {
-            title: "Add a collocation",
+            title: "Add a phrasal verb",
         });
         if (result) {
             const data = {
@@ -25,8 +25,8 @@ const AddAcollocation = () => {
                 },
             };
             try {
-                await DataServices.addItem("Collocations", data);
-                toast.success(`Collocation ( ${data.en.Name} ) is  added`);
+                await DataServices.addItem("PhrasalVerb", data);
+                toast.success(`Collocation  ( ${data.en.Name} ) is added`);
             } catch (error) {
                 console.log(error);
                 toast.error("Sorry there is an error");

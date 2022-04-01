@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { animateList, slideUp } from "../helpers/Animation";
 import ScrollReveal from "../components/ScrollReveal";
+import ColorSwitcher from "../components/ColorSwitcher";
 
 import Styles from "../styles/IdiomsExpressions.module.scss";
 export default function IdiomsExpressions() {
@@ -26,8 +27,8 @@ export default function IdiomsExpressions() {
     return (
         <div>
             <ListGroup>
-                <Row>
-                    <ScrollReveal variants={animateList}>
+                <ScrollReveal variants={animateList}>
+                    <Row>
                         {Data?.map((ele, i) => {
                             return (
                                 <motion.div
@@ -35,7 +36,7 @@ export default function IdiomsExpressions() {
                                     transition={{
                                         delay: (i - 0.8) * 0.5,
                                     }}
-                                    className={`Col `}
+                                    className={`col-12 col-md-6`}
                                     sm={12}
                                     lg={6}
                                     key={i}
@@ -46,8 +47,10 @@ export default function IdiomsExpressions() {
                                         } my-2 ${Styles.col}`}
                                     >
                                         <u>
-                                            {`${i + 1}:  `}
-                                            {ele?.first}
+                                            {`${ele.id}: `}
+                                            <ColorSwitcher
+                                                text={`${ele?.first}`}
+                                            />
                                         </u>
                                         {" => "}
                                         {ele?.second}
@@ -55,8 +58,8 @@ export default function IdiomsExpressions() {
                                 </motion.div>
                             );
                         })}
-                    </ScrollReveal>
-                </Row>
+                    </Row>
+                </ScrollReveal>
             </ListGroup>
         </div>
     );

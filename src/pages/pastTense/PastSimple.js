@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
 import Loading from "../../components/Table/Loading";
-import ColorSwithcer from "../../components/ColorSwithcer";
+import ColorSwitcher from "../../components/ColorSwitcher";
 
 export default function PastSimple() {
     const { t } = useTranslation();
@@ -63,17 +63,17 @@ export default function PastSimple() {
                             <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap gap-4">
                                 <li className="border-bottom mb-3">
                                     {t("the event is")}
-                                    <ColorSwithcer text="in the past" />
+                                    <ColorSwitcher text="in the past" />
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t("the event is")}
-                                    <ColorSwithcer text="completely finished" />
+                                    <ColorSwitcher text="completely finished" />
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t("we say (or understand) the")}
-                                    <ColorSwithcer text="time" />
+                                    <ColorSwitcher text="time" />
                                     and/or
-                                    <ColorSwithcer text="place" />
+                                    <ColorSwitcher text="place" />
                                     {t("of the event")}
                                 </li>
                             </ol>
@@ -86,9 +86,9 @@ export default function PastSimple() {
                                 {t(
                                     "Look at these examples with the main verbs"
                                 )}
-                                <ColorSwithcer text={"go"} />
+                                <ColorSwitcher text={"go"} />
                                 (irregular) and
-                                <ColorSwithcer text={"work"} />
+                                <ColorSwitcher text={"work"} />
                                 (regular):
                             </small>
                             <Table
@@ -181,7 +181,7 @@ export default function PastSimple() {
                                 :
                             </p>
 
-                            <ColorSwithcer
+                            <ColorSwitcher
                                 className={"ps-0 ps-lg-4"}
                                 text={"A: For positive sentences"}
                             />
@@ -197,7 +197,7 @@ export default function PastSimple() {
                                     .
                                 </li>
                             </ol>
-                            <ColorSwithcer
+                            <ColorSwitcher
                                 className={"ps-0 ps-lg-4"}
                                 text={"B: For negative and question sentences:"}
                             />
@@ -234,7 +234,7 @@ export default function PastSimple() {
                                 {t(
                                     "The structure of the Past Simple with the main"
                                 )}
-                                <ColorSwithcer
+                                <ColorSwitcher
                                     className={"font-weight-bold"}
                                     text="verb be"
                                 />
@@ -335,7 +335,7 @@ export default function PastSimple() {
                                         "The main verb (be) is conjugated in the Past Simple"
                                     )}
                                     :
-                                    <ColorSwithcer text="was, were" />
+                                    <ColorSwitcher text="was, were" />
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t(
@@ -354,7 +354,7 @@ export default function PastSimple() {
                             <p className="lead border-top border-2 pt-5">
                                 2- {t("Tags")}:
                             </p>
-                            <ColorSwithcer
+                            <ColorSwitcher
                                 className={"ps-0 ps-lg-4"}
                                 text={
                                     "A: Repetition (often, sometimes, always):"
@@ -364,16 +364,16 @@ export default function PastSimple() {
                             <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap">
                                 <li className="border-bottom mb-3">
                                     {t("I")}
-                                    <ColorSwithcer text="sometimes walked" />
+                                    <ColorSwitcher text="sometimes walked" />
                                     {t("home at lunchtime")}.
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t("I")}
-                                    <ColorSwithcer text="often brought" />
+                                    <ColorSwitcher text="often brought" />
                                     {t("my lunch to school")} .
                                 </li>
                             </ol>
-                            <ColorSwithcer
+                            <ColorSwitcher
                                 className={"ps-0 ps-lg-4"}
                                 text={
                                     "B: Specific point in time  (last week, when I was a child, yesterday, six weeks ago):"
@@ -383,19 +383,19 @@ export default function PastSimple() {
                             <ol className="ps-5 d-flex justify-content-flex-start justify-content-lg-around align-items-center flex-wrap gap-4">
                                 <li className="border-bottom mb-3">
                                     {t("We saw a good film")}
-                                    <ColorSwithcer text="last week" />.
+                                    <ColorSwitcher text="last week" />.
                                 </li>
                                 <li className="border-bottom mb-3">
-                                    <ColorSwithcer text="Yesterday" />,
+                                    <ColorSwitcher text="Yesterday" />,
                                     {t("I arrived in Geneva")}.
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t("She finished her work")}
-                                    <ColorSwithcer text="at seven o'clock" />.
+                                    <ColorSwitcher text="at seven o'clock" />.
                                 </li>
                                 <li className="border-bottom mb-3">
                                     {t("I went to the theatre")}
-                                    <ColorSwithcer text="last week" />
+                                    <ColorSwitcher text="last week" />
                                 </li>
                             </ol>
                             {/* table */}

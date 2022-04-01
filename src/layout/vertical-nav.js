@@ -1,12 +1,40 @@
-import React from "react";
-import { Accordion } from "react-bootstrap";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { auth } from "../firebase/firebase";
+import {
+    Accordion,
+    useAccordionButton,
+    AccordionContext,
+} from "react-bootstrap";
+
+function CustomToggle({ children, eventKey, onClick }) {
+    const { activeEventKey } = useContext(AccordionContext);
+
+    const decoratedOnClick = useAccordionButton(eventKey, (active) =>
+        onClick({ state: !active, eventKey: eventKey })
+    );
+
+    const isCurrentEventKey = activeEventKey === eventKey;
+
+    return (
+        <Link
+            aria-expanded={isCurrentEventKey ? "true" : "false"}
+            className="nav-link"
+            role="button"
+            onClick={(e) => {
+                decoratedOnClick(isCurrentEventKey);
+            }}
+        >
+            {children}
+        </Link>
+    );
+}
 
 const VerticalNav = () => {
     const { t } = useTranslation();
     let location = useLocation();
+    const [activeMenu, setActiveMenu] = useState(false);
     return (
         <>
             <Accordion as="ul" className="navbar-nav iq-main-menu">
@@ -39,7 +67,7 @@ const VerticalNav = () => {
                                         </svg>
                                     </i>
                                     <span className="item-name">
-                                        {t("Tenses")}
+                                        {t("Grammar")}
                                     </span>
                                 </div>
                             </Link>
@@ -47,131 +75,215 @@ const VerticalNav = () => {
                         <Accordion.Item
                             as="li"
                             className="mb-1"
-                            eventKey="horizontal-menu"
+                            eventKey="Vocabulary"
                             bsPrefix="nav-item"
                         >
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to="/collocations"
+                            <CustomToggle
+                                eventKey="Vocabulary"
+                                active={
+                                    activeMenu === "Vocabulary" ? true : false
+                                }
+                                onClick={(activeKey) =>
+                                    setActiveMenu(activeKey)
+                                }
                             >
-                                <div
-                                    className={`${
-                                        location.pathname === "/collocations"
-                                            ? "active"
-                                            : ""
-                                    } nav-link`}
-                                >
-                                    <i className="icon">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="22"
-                                            height="23"
-                                            viewBox="0 0 48 64"
+                                <i className="icon">
+                                    <svg
+                                        width="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            opacity="0.4"
+                                            d="M2 11.0786C2.05 13.4166 2.19 17.4156 2.21 17.8566C2.281 18.7996 2.642 19.7526 3.204 20.4246C3.986 21.3676 4.949 21.7886 6.292 21.7886C8.148 21.7986 10.194 21.7986 12.181 21.7986C14.176 21.7986 16.112 21.7986 17.747 21.7886C19.071 21.7886 20.064 21.3566 20.836 20.4246C21.398 19.7526 21.759 18.7896 21.81 17.8566C21.83 17.4856 21.93 13.1446 21.99 11.0786H2Z"
+                                            fill="currentColor"
+                                        ></path>
+                                        <path
+                                            d="M11.2451 15.3843V16.6783C11.2451 17.0923 11.5811 17.4283 11.9951 17.4283C12.4091 17.4283 12.7451 17.0923 12.7451 16.6783V15.3843C12.7451 14.9703 12.4091 14.6343 11.9951 14.6343C11.5811 14.6343 11.2451 14.9703 11.2451 15.3843Z"
+                                            fill="currentColor"
+                                        ></path>
+                                        <path
+                                            fillRule="evenodd"
+                                            clipRule="evenodd"
+                                            d="M10.211 14.5565C10.111 14.9195 9.762 15.1515 9.384 15.1015C6.833 14.7455 4.395 13.8405 2.337 12.4815C2.126 12.3435 2 12.1075 2 11.8555V8.38949C2 6.28949 3.712 4.58149 5.817 4.58149H7.784C7.972 3.12949 9.202 2.00049 10.704 2.00049H13.286C14.787 2.00049 16.018 3.12949 16.206 4.58149H18.183C20.282 4.58149 21.99 6.28949 21.99 8.38949V11.8555C21.99 12.1075 21.863 12.3425 21.654 12.4815C19.592 13.8465 17.144 14.7555 14.576 15.1105C14.541 15.1155 14.507 15.1175 14.473 15.1175C14.134 15.1175 13.831 14.8885 13.746 14.5525C13.544 13.7565 12.821 13.1995 11.99 13.1995C11.148 13.1995 10.433 13.7445 10.211 14.5565ZM13.286 3.50049H10.704C10.031 3.50049 9.469 3.96049 9.301 4.58149H14.688C14.52 3.96049 13.958 3.50049 13.286 3.50049Z"
+                                            fill="currentColor"
+                                        ></path>
+                                    </svg>
+                                </i>
+                                <span className="item-name">
+                                    {t("Vocabulary")}
+                                </span>
+                                <i className="right-icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M9 5l7 7-7 7"
+                                        />
+                                    </svg>
+                                </i>
+                            </CustomToggle>
+                            <Accordion.Collapse eventKey="Vocabulary">
+                                <ul className="sub-nav">
+                                    <li className="nav-item">
+                                        <Link
+                                            className={`${
+                                                location.pathname === "/idioms"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/idioms"
                                         >
-                                            <path
-                                                fill="currentColor"
-                                                d="M42,8H30.92A6.53,6.53,0,0,0,31,7,7,7,0,0,0,17,7a5.47,5.47,0,0,0,.08,1H6a6,6,0,0,0-6,6V58a6,6,0,0,0,6,6H42a6,6,0,0,0,6-6V14A6,6,0,0,0,42,8ZM24,4a3,3,0,1,1-3,3A3,3,0,0,1,24,4ZM44,58a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V14a2,2,0,0,1,2-2h6v2.5A1.51,1.51,0,0,0,13.5,16h21A1.5,1.5,0,0,0,36,14.5V12h6a2,2,0,0,1,2,2ZM14,41a3,3,0,1,0,3,3A3,3,0,0,0,14,41Zm21,1H21a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H35a1,1,0,0,0,1-1V43A1,1,0,0,0,35,42ZM15.77,33.8l8-7.95a.68.68,0,0,0,0-1l-1.58-1.59a.68.68,0,0,0-.95,0l-5.95,5.9L12.75,26.6a.68.68,0,0,0-.95,0l-1.59,1.57a.69.69,0,0,0,0,1l4.64,4.67A.64.64,0,0,0,15.77,33.8ZM35,30H25.3l-4,4H35a1,1,0,0,0,1-1V31A1,1,0,0,0,35,30Z"
-                                            />
-                                        </svg>
-                                    </i>
-                                    <span className="item-name">
-                                        {t("Collocations")}
-                                    </span>
-                                </div>
-                            </Link>
-                        </Accordion.Item>
-                        <Accordion.Item
-                            as="li"
-                            className="mb-1"
-                            eventKey="horizontal-menu"
-                            bsPrefix="nav-item"
-                        >
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to="/phrasalVerb"
-                            >
-                                <div
-                                    className={`${
-                                        location.pathname === "/phrasalVerb"
-                                            ? "active"
-                                            : ""
-                                    } nav-link`}
-                                >
-                                    <i className="icon">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="22"
-                                            height="23"
-                                            viewBox="0 0 48 64"
-                                        >
-                                            <path
-                                                fill="currentColor"
-                                                d="M42,8H30.92A6.53,6.53,0,0,0,31,7,7,7,0,0,0,17,7a5.47,5.47,0,0,0,.08,1H6a6,6,0,0,0-6,6V58a6,6,0,0,0,6,6H42a6,6,0,0,0,6-6V14A6,6,0,0,0,42,8ZM24,4a3,3,0,1,1-3,3A3,3,0,0,1,24,4ZM44,58a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V14a2,2,0,0,1,2-2h6v2.5A1.51,1.51,0,0,0,13.5,16h21A1.5,1.5,0,0,0,36,14.5V12h6a2,2,0,0,1,2,2ZM14,41a3,3,0,1,0,3,3A3,3,0,0,0,14,41Zm21,1H21a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H35a1,1,0,0,0,1-1V43A1,1,0,0,0,35,42ZM15.77,33.8l8-7.95a.68.68,0,0,0,0-1l-1.58-1.59a.68.68,0,0,0-.95,0l-5.95,5.9L12.75,26.6a.68.68,0,0,0-.95,0l-1.59,1.57a.69.69,0,0,0,0,1l4.64,4.67A.64.64,0,0,0,15.77,33.8ZM35,30H25.3l-4,4H35a1,1,0,0,0,1-1V31A1,1,0,0,0,35,30Z"
-                                            />
-                                        </svg>
-                                    </i>
-                                    <span className="item-name">
-                                        {t("Phrasal verbs")}
-                                    </span>
-                                </div>
-                            </Link>
-                        </Accordion.Item>
-                        <Accordion.Item
-                            as="li"
-                            className="mb-1"
-                            eventKey="horizontal-menu"
-                            bsPrefix="nav-item"
-                        >
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to="/idioms-expressions"
-                            >
-                                <div
-                                    className={`${
-                                        location.pathname ===
-                                        "/idioms-expressions"
-                                            ? "active"
-                                            : ""
-                                    } nav-link`}
-                                >
-                                    <i className="icon">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 120.05 160.1"
-                                            width="18"
-                                            style={{ marginLeft: "2px" }}
-                                        >
-                                            <g id="Layer_2" data-name="Layer 2">
-                                                <g
-                                                    id="Layer_2-2"
-                                                    data-name="Layer 2"
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
                                                 >
-                                                    <path
-                                                        fill="currentColor"
-                                                        className="cls-1"
-                                                        d="M115.64 30.64L89.41 4.41A15 15 0 0078.82 0H15A15.05 15.05 0 000 15v130.09a15 15 0 0015 15h90a15 15 0 0015-15V41.27a15.05 15.05 0 00-4.36-10.63zM80 10.19a5 5 0 012.32 1.31l26.23 26.23a5 5 0 011.31 2.32H80zm30 134.9a5 5 0 01-5 5H15a5 5 0 01-5-5V15a5 5 0 015-5h55v32.55a7.48 7.48 0 007.5 7.5h32.52z"
-                                                    ></path>
-                                                    <path
-                                                        fill="currentColor"
-                                                        className="cls-1"
-                                                        d="M54.61 75.17H65.44V134.41H54.61z"
-                                                    ></path>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    
-                                    <span className="item-name">
-                                        {t("Idioms expressions")}
-                                    </span>
-                                </div>
-                            </Link>
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                I{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Idioms")}
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            className={`${
+                                                location.pathname ===
+                                                "/prepositions"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/prepositions"
+                                        >
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                P{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Prepositions")}
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            className={`${
+                                                location.pathname ===
+                                                "/collocations"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/collocations"
+                                        >
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                C{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Collocations")}
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link
+                                            className={`${
+                                                location.pathname ===
+                                                "/phrasalVerb"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/phrasalVerb"
+                                        >
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                P{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Phrasal verbs")}
+                                            </span>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Accordion.Collapse>
                         </Accordion.Item>
                     </>
                 ) : (
                     <>
                         {/* Admin */}
-                        {/* Add Collocations */}
+                        {/*  Collocations Controls */}
                         <Accordion.Item
                             as="li"
                             className="mb-1"
@@ -180,56 +292,12 @@ const VerticalNav = () => {
                         >
                             <Link
                                 style={{ textDecoration: "none" }}
-                                to="/addCollocation"
-                            >
-                                <div
-                                    className={`${
-                                        location.pathname === "/addCollocation"
-                                            ? "active"
-                                            : ""
-                                    } nav-link`}
-                                >
-                                    <i className="icon">
-                                        <svg
-                                            width="22"
-                                            height="23"
-                                            aria-hidden="true"
-                                            focusable="false"
-                                            data-prefix="fal"
-                                            data-icon="pen"
-                                            role="img"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 512 512"
-                                            className="svg-inline--fa fa-pen fa-w-16 fa-2x"
-                                        >
-                                            <path
-                                                fill="currentColor"
-                                                d="M493.25 56.26l-37.51-37.51C443.25 6.25 426.87 0 410.49 0s-32.76 6.25-45.26 18.74L12.85 371.12.15 485.34C-1.45 499.72 9.88 512 23.95 512c.89 0 1.78-.05 2.69-.15l114.14-12.61 352.48-352.48c24.99-24.99 24.99-65.51-.01-90.5zM126.09 468.68l-93.03 10.31 10.36-93.17 263.89-263.89 82.77 82.77-263.99 263.98zm344.54-344.54l-57.93 57.93-82.77-82.77 57.93-57.93c6.04-6.04 14.08-9.37 22.63-9.37 8.55 0 16.58 3.33 22.63 9.37l37.51 37.51c12.47 12.48 12.47 32.78 0 45.26z"
-                                                className=""
-                                            ></path>
-                                        </svg>
-                                    </i>
-                                    <span className="item-name">
-                                        {t("Add Collocation")}
-                                    </span>
-                                </div>
-                            </Link>
-                        </Accordion.Item>
-                        {/* Update Collocations */}
-                        <Accordion.Item
-                            as="li"
-                            className="mb-1"
-                            eventKey="horizontal-menu"
-                            bsPrefix="nav-item"
-                        >
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to="/updateCollocations"
+                                to="/collocations-controls"
                             >
                                 <div
                                     className={`${
                                         location.pathname ===
-                                        "/updateCollocations"
+                                        "/collocations-controls"
                                             ? "active"
                                             : ""
                                     } nav-link`}
@@ -255,13 +323,13 @@ const VerticalNav = () => {
                                         </svg>
                                     </i>
                                     <span className="item-name">
-                                        {t("Update Collocations")}
+                                        {t("collocations Controls")}
                                     </span>
                                 </div>
                             </Link>
                         </Accordion.Item>
 
-                        {/* Add Phrasal Vrebs */}
+                        {/* Phrasal Verbs Controls */}
                         <Accordion.Item
                             as="li"
                             className="mb-1"
@@ -270,56 +338,12 @@ const VerticalNav = () => {
                         >
                             <Link
                                 style={{ textDecoration: "none" }}
-                                to="/addPhrasalVerbs"
-                            >
-                                <div
-                                    className={`${
-                                        location.pathname === "/addPhrasalVerbs"
-                                            ? "active"
-                                            : ""
-                                    } nav-link`}
-                                >
-                                    <i className="icon">
-                                        <svg
-                                            width="22"
-                                            height="23"
-                                            aria-hidden="true"
-                                            focusable="false"
-                                            data-prefix="fal"
-                                            data-icon="pen"
-                                            role="img"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 512 512"
-                                            className="svg-inline--fa fa-pen fa-w-16 fa-2x"
-                                        >
-                                            <path
-                                                fill="currentColor"
-                                                d="M493.25 56.26l-37.51-37.51C443.25 6.25 426.87 0 410.49 0s-32.76 6.25-45.26 18.74L12.85 371.12.15 485.34C-1.45 499.72 9.88 512 23.95 512c.89 0 1.78-.05 2.69-.15l114.14-12.61 352.48-352.48c24.99-24.99 24.99-65.51-.01-90.5zM126.09 468.68l-93.03 10.31 10.36-93.17 263.89-263.89 82.77 82.77-263.99 263.98zm344.54-344.54l-57.93 57.93-82.77-82.77 57.93-57.93c6.04-6.04 14.08-9.37 22.63-9.37 8.55 0 16.58 3.33 22.63 9.37l37.51 37.51c12.47 12.48 12.47 32.78 0 45.26z"
-                                                className=""
-                                            ></path>
-                                        </svg>
-                                    </i>
-                                    <span className="item-name">
-                                        {t("Add Phrasal Verbs")}
-                                    </span>
-                                </div>
-                            </Link>
-                        </Accordion.Item>
-                        {/* Update Phrasal Vrebs */}
-                        <Accordion.Item
-                            as="li"
-                            className="mb-1"
-                            eventKey="horizontal-menu"
-                            bsPrefix="nav-item"
-                        >
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to="/updatePhrasalVerbs"
+                                to="/PhrasalVerbs-controls"
                             >
                                 <div
                                     className={`${
                                         location.pathname ===
-                                        "/updatePhrasalVerbs"
+                                        "/PhrasalVerbs-controls"
                                             ? "active"
                                             : ""
                                     } nav-link`}
@@ -345,7 +369,7 @@ const VerticalNav = () => {
                                         </svg>
                                     </i>
                                     <span className="item-name">
-                                        {t("Update Phrasal Verbs")}
+                                        {t("Phrasal verbs controls")}
                                     </span>
                                 </div>
                             </Link>

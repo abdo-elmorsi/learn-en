@@ -10,13 +10,11 @@ import PastSimple from "../../pages/pastTense/PastSimple";
 
 // collocations
 import Collocations from "../../pages/Collocations";
-import AddCollocation from "../../pages/Admin/Collocations/AddCollocation";
-import UpdateCollocations from "../../pages/Admin/Collocations/UpdateCollocations";
+import CollocationsControls from "../../pages/Admin/Collocations";
 
 // PhrasalVerb
 import PhrasalVerbs from "../../pages/PhrasalVerbs";
-import AddPhrasalVerbs from "../../pages/Admin/PhrasalVerbs/AddPhrasalVerbs";
-import UpdatePhrasalVerbs from "../../pages/Admin/PhrasalVerbs/UpdatePhrasalVerbs";
+import PhrasalVerbsControls from "../../pages/Admin/PhrasalVerbs";
 
 // Idioms  Expressions
 import IdiomsExpressions from "../../pages/IdiomsExpressions";
@@ -54,21 +52,13 @@ const AppRouter = () => {
 
                     {/* Admin */}
                     <Admin
-                        component={AddCollocation}
-                        path={ROUTES.ADD_COLLOCATION}
-                    />
-                    <Admin
-                        component={UpdateCollocations}
-                        path={ROUTES.UPDATE_COLLOCATIONS}
+                        component={CollocationsControls}
+                        path={ROUTES.COLLOCATIONS_CONTROL}
                     />
 
                     <Admin
-                        component={AddPhrasalVerbs}
-                        path={ROUTES.ADD_PHRASAL_VERBS}
-                    />
-                    <Admin
-                        component={UpdatePhrasalVerbs}
-                        path={ROUTES.UPDATE_PHRASALVERBS}
+                        component={PhrasalVerbsControls}
+                        path={ROUTES.PHRASAL_VERBS_CONTROL}
                     />
 
                     {/* Not Found And Login*/}

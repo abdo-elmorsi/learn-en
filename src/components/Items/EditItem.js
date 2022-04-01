@@ -113,7 +113,7 @@ const EditDeliverStatus = ({ status, config }) => {
 				</Row>
 
 				<Form.Group className="d-flex justify-content-around w-100 mt-4">
-					<Button type="submit" className="px-4 py-2 bg-primary text-white rounded d-block">update</Button>
+					<Button type="submit" className="px-4 py-2 bg-primary text-white rounded d-block">Update</Button>
 
 					<Button className="px-4 py-2 bg-secondary text-white rounded d-block" onClick={() => dialog.close(false)}>Close</Button>
 				</Form.Group>

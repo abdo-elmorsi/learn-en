@@ -14,7 +14,7 @@ const SubHeader = ({ pageName = "" }) => {
             switch (pageName) {
                 // Pages
                 case "/":
-                    setState("Tenses");
+                    setState("Grammar");
                     break;
                 case "/collocations":
                     setState("Collocations");
@@ -22,7 +22,7 @@ const SubHeader = ({ pageName = "" }) => {
                 case "/phrasalVerb":
                     setState("Phrasal verbs");
                     break;
-                case "/idioms-expressions":
+                case "/idioms":
                     setState("Idioms expressions");
                     break;
                 // ###################################
@@ -35,18 +35,12 @@ const SubHeader = ({ pageName = "" }) => {
                     break;
                 // ###################################
                 // Admin
-                case "/addCollocation":
-                    setState("Add Collocation");
-                    break;
-                case "/updateCollocations":
-                    setState("Update collocations");
+                case "/collocations-controls":
+                    setState("Collocations Controls");
                     break;
 
-                case "/addPhrasalVerbs":
-                    setState("Add Phrasal Verbs");
-                    break;
-                case "/updatePhrasalVerbs":
-                    setState("Update Phrasal Verbs");
+                case "/PhrasalVerbs-controls":
+                    setState("Phrasal Verbs Controls");
                     break;
                 default:
                     setState("404");
