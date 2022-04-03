@@ -150,7 +150,7 @@ const Header = () => {
                             </svg>
                         </i>
                     </div>
-                    <Navbar.Toggle aria-controls="navbarSupportedContent">
+                    <Navbar.Toggle>
                         <div
                             className={`${Styles.hamburger} ${
                                 ToggleHeader.value && Styles.active
