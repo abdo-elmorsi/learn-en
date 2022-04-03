@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
 import { darkMode } from "../lib/slices/config";
 import Styles from "../styles/WidgetMenu.module.scss";
-import { toggleHead } from "../lib/slices/toggle-header";
 
 // Translation
 import i18next from "i18next";
@@ -153,7 +152,6 @@ const Header = () => {
                     </div>
                     <Navbar.Toggle aria-controls="navbarSupportedContent">
                         <div
-                            onClick={() => dispatch(toggleHead())}
                             className={`${Styles.hamburger} ${
                                 ToggleHeader.value && Styles.active
                             } shadow-none 
