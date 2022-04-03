@@ -39,7 +39,7 @@ export default function Index({
                 selector: (row) => {
                     return (
                         <SayButton
-                            pitch={5}
+                            pitch={2}
                             rate={.8}
                             speak={`${row?.en?.Name}`}
                             volume={1}
