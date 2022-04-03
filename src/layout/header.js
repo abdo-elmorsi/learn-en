@@ -153,6 +153,11 @@ const Header = () => {
                     </div>
                     <Navbar.Toggle aria-controls="navbarSupportedContent">
                         <div
+                            style={{
+                                left: currentLanguageCode === "ar" && "1rem",
+                                right: currentLanguageCode === "ar" && "auto",
+                                // height: "auto",
+                            }}
                             onClick={() => dispatch(toggleHead())}
                             className={`${Styles.hamburger} ${
                                 ToggleHeader.value && Styles.active

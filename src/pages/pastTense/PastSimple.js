@@ -154,7 +154,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Interrogative"
-                                            rowspan="2"
+                                            rowspan="3"
                                             className="text-center"
                                         >
                                             ?
@@ -171,6 +171,13 @@ export default function PastSimple() {
                                         <td>&nbsp;</td>
                                         <td>work</td>
                                         <td>at home?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Where did</td>
+                                        <td>they</td>
+                                        <td>&nbsp;</td>
+                                        <td>work</td>
+                                        <td>yesterday.</td>
                                     </tr>
                                 </tbody>
                             </Table>
