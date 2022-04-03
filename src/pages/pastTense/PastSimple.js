@@ -174,9 +174,9 @@ export default function PastSimple() {
                                     </tr>
                                     <tr>
                                         <td>Where did</td>
-                                        <td>they</td>
+                                        <td>she</td>
                                         <td>&nbsp;</td>
-                                        <td>work</td>
+                                        <td>play</td>
                                         <td>yesterday.</td>
                                     </tr>
                                 </tbody>

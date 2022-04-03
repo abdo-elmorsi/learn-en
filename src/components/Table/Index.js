@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import React, { useMemo } from "react";
-import { Card, Col, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import { itemSlideUp } from "../../helpers/Animation";
 import { useLocation } from "react-router-dom";
 
 import ExpandedComp from "./ExpandedComponent";
 import Loading from "./Loading";
+import { SayButton } from "react-say";
 
 export default function Index({
     filter,
@@ -31,6 +32,24 @@ export default function Index({
                 name: "id",
                 selector: (row, i) => i + 1,
                 // sortable: true,
+            },
+
+            {
+                name: `${t("Voice")}`,
+                selector: (row) => {
+                    return (
+                        <SayButton
+                            pitch={5}
+                            rate={.8}
+                            speak={`${row?.en?.Name}`}
+                            volume={1}
+                            onClick={(event) => console.log(event)}
+                        >
+                            Tell me
+                        </SayButton>
+                    );
+                },
+                sortable: true,
             },
             {
                 name: `${t("Name")}`,
