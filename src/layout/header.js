@@ -150,30 +150,39 @@ const Header = () => {
                             </svg>
                         </i>
                     </div>
-                    <Navbar.Toggle>
-                        <div
-                            className={`${Styles.hamburger} ${
-                                ToggleHeader.value && Styles.active
-                            } shadow-none 
-                            ${config.darkMode ? "bg-transparent" : ""}`}
-                        >
-                            <span
-                                className={`${Styles.hamburger__patty} ${
-                                    config.darkMode ? "bg-white" : ""
-                                }`}
-                            />
-                            <span
-                                className={`${Styles.hamburger__patty} ${
-                                    config.darkMode ? "bg-white" : ""
-                                }`}
-                            />
-                            <span
-                                className={`${Styles.hamburger__patty} ${
-                                    config.darkMode ? "bg-white" : ""
-                                }`}
-                            />
-                        </div>
-                    </Navbar.Toggle>
+                    <Navbar.Toggle
+		    aria-controls="navbarSupportedContent"
+		    style={{
+		      boxShadow: "none",
+		      borderColor: "transparent",
+		      marginTop: "10px",
+		      height: '20px'
+		    }}
+		  >
+		    <div
+		      style={{
+			left: currentLanguageCode === "ar" && "1rem",
+			right: currentLanguageCode === "ar" && "auto",
+			height: "auto",
+		      }}
+		      className={`${Styles.hamburger} ${ToggleHeader.value && Styles.active
+			} shadow-none
+				    ${config?.darkMode ? "bg-transparent" : ""}`}
+		    >
+		      <span
+			className={`${Styles.hamburger__patty} ${config?.darkMode ? "bg-white" : ""
+			  }`}
+		      />
+		      <span
+			className={`${Styles.hamburger__patty} ${config?.darkMode ? "bg-white" : ""
+			  }`}
+		      />
+		      <span
+			className={`${Styles.hamburger__patty} ${config?.darkMode ? "bg-white" : ""
+			  }`}
+		      />
+		    </div>
+		  </Navbar.Toggle>
                     <Navbar.Collapse
                         id="navbarSupportedContent"
                         className={`${ToggleHeader.value && "show"}`}
