@@ -46,6 +46,12 @@ export default function Signin() {
         await signInWithPopup(auth, googleAuthProvider)
             .then((res) => {
                 setLoading(false);
+                toast.success(`Welcome ${user?.email.split("@").slice(0, 1)}`);
+                dispatch(getUser(user));
+               
+                if(user?.email.split("@").slice(0, 1) != "abdelrahmandiv") {
+                    Navigate("/"); 
+                }
             })
             .catch(({ message }) => {
                 setLoading(false);
@@ -58,6 +64,9 @@ export default function Signin() {
         await signInWithPopup(auth, facebookAuthProvider)
             .then((res) => {
                 setLoading(false);
+                toast.success(`Welcome ${user?.email.split("@").slice(0, 1)}`);
+                dispatch(getUser(user));
+                Navigate("/");
             })
             .catch(({ message }) => {
                 setLoading(false);
