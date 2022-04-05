@@ -44,8 +44,14 @@ export default function Signin() {
         setLoading(true);
         const googleAuthProvider = new GoogleAuthProvider();
         await signInWithPopup(auth, googleAuthProvider)
-            .then((res) => {
+            .then(({user}) => {
                 setLoading(false);
+                toast.success(`Welcome ${user?.email.split("@").slice(0, 1)}`);
+                dispatch(getUser(user));
+               
+                if(user?.email.split("@").slice(0, 1) != "abdelrahmandiv") {
+                    Navigate("/"); 
+                }
             })
             .catch(({ message }) => {
                 setLoading(false);
@@ -56,8 +62,11 @@ export default function Signin() {
         setLoading(true);
         const facebookAuthProvider = new FacebookAuthProvider();
         await signInWithPopup(auth, facebookAuthProvider)
-            .then((res) => {
+            .then(({user}) => {
                 setLoading(false);
+                toast.success(`Welcome ${user?.email.split("@").slice(0, 1)}`);
+                dispatch(getUser(user));
+                Navigate("/");
             })
             .catch(({ message }) => {
                 setLoading(false);
