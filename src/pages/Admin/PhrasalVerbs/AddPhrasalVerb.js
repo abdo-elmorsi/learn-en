@@ -26,7 +26,7 @@ const AddAcollocation = () => {
             };
             try {
                 await DataServices.addItem("PhrasalVerb", data);
-                toast.success(`Collocation  ( ${data.en.Name} ) is added`);
+                toast.success(`PhrasalVerb  ( ${data.en.Name} ) is added`);
             } catch (error) {
                 console.log(error);
                 toast.error("Sorry there is an error");

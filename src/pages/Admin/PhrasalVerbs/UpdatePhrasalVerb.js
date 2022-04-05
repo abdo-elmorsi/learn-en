@@ -10,7 +10,7 @@ const UpdatePhrasalVerb = ({ status }) => {
     const handleDelete = async () => {
         try {
             await DataServices.deleteItem("PhrasalVerb", status.id);
-            toast.success(`Phrasal verb ( ${status.NameEn} ) is deleted`);
+            toast.success(`Phrasal verb ( ${status.en.Name} ) is deleted`);
         } catch (error) {
             toast.error("Sorry there is an error");
         }
@@ -19,7 +19,7 @@ const UpdatePhrasalVerb = ({ status }) => {
         const result = await CustomDialog(
             <EditItem config={config} status={status} />,
             {
-                title: `Update phrasal verb ( ${status.NameEn} )`,
+                title: `Update phrasal verb ( ${status.en.Name} )`,
             }
         );
         if (result) {

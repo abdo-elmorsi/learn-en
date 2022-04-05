@@ -1,8 +1,8 @@
 // export const HOME = "/";
 
-import Home from "../pages";
+// import Home from "../pages";
 import Basics from "../pages/Grammar/Basics";
-import Tenses from "../pages/Grammar/Tenses";
+// import Tenses from "../pages/Grammar/Tenses";
 
 import IdiomsExpressions from "../pages/Vocabulary/IdiomsExpressions";
 import Prepositions from "../pages/Vocabulary/Prepositions";
@@ -11,6 +11,9 @@ import PhrasalVerbs from "../pages/Vocabulary/PhrasalVerbs";
 
 import CollocationsAdmin from "../pages/Admin/Collocations";
 import PhrasalVerbsAdmin from "../pages/Admin/PhrasalVerbs";
+import React from "react";
+const Home = React.lazy(() => import("../pages"));
+const Tenses = React.lazy(() => import("../pages/Grammar/Tenses"));
 
 // ************************    AdminRouts      ************************
 export const UsersRouts = [

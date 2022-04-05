@@ -48,11 +48,11 @@ const SubHeader = ({ pageName = "" }) => {
                     break;
                 // ###################################
                 // Admin
-                case "/collocations-controls":
+                case "/collocations_controls":
                     setState("Collocations Controls");
                     break;
 
-                case "/PhrasalVerbs-controls":
+                case "/phrasalVerbs_controls":
                     setState("Phrasal Verbs Controls");
                     break;
                 default:

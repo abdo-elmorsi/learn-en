@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
@@ -13,7 +13,8 @@ import { AdminRouts, UsersRouts } from "../Constants";
 const AppRouter = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
-    useEffect(() => {
+
+    useLayoutEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             if (currentUser !== null) {
                 dispatch(getUser(currentUser));
@@ -30,7 +31,11 @@ const AppRouter = () => {
                     return (
                         <Route
                             key={e.route}
-                            element={e.element}
+                            element={
+                                <React.Suspense fallback="Loading...">
+                                    {e.element}
+                                </React.Suspense>
+                            }
                             path={e.route}
                         />
                     );

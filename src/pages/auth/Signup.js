@@ -25,8 +25,10 @@ export default function Signin() {
         await createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 setTimeout(() => {
-                    toast.success("Login Success");
-                    Navigate("/");
+                    toast.success(
+                        `Welcome ${user?.email.split("@").slice(0, 1)}`
+                    );
+                    Navigate("/", { replace: true });
                 }, 2000);
             })
             .catch(({ message }) => {

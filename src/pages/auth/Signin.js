@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Col, Form, FormLabel, Row, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import ImageLoader from "../../components/Image-loader";
 import {
@@ -32,7 +32,7 @@ export default function Signin() {
                         `Welcome ${user?.email.split("@").slice(0, 1)}`
                     );
                     dispatch(getUser(user));
-                    Navigate("/");
+                    Navigate("/", { replace: true });
                 }, 2000);
             })
             .catch(({ message }) => {
