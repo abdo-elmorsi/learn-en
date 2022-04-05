@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { auth } from "../firebase/firebase";
+
 import {
     Accordion,
     useAccordionButton,
     AccordionContext,
 } from "react-bootstrap";
+import { sidebarMini } from "../lib/slices/toggleSidebar";
+import { useDispatch } from "react-redux";
 
 function CustomToggle({ children, eventKey, onClick }) {
     const { activeEventKey } = useContext(AccordionContext);
@@ -18,22 +21,26 @@ function CustomToggle({ children, eventKey, onClick }) {
     const isCurrentEventKey = activeEventKey === eventKey;
 
     return (
-        <Link
+        <NavLink
             aria-expanded={isCurrentEventKey ? "true" : "false"}
             className="nav-link"
             role="button"
             onClick={(e) => {
+                e.preventDefault();
+
                 decoratedOnClick(isCurrentEventKey);
             }}
+            to={`${children.length}`}
         >
             {children}
-        </Link>
+        </NavLink>
     );
 }
 
 const VerticalNav = () => {
     const { t } = useTranslation();
-    let location = useLocation();
+    let { pathname } = useLocation();
+    const dispatch = useDispatch();
     const [activeMenu, setActiveMenu] = useState(false);
     return (
         <>
@@ -46,12 +53,16 @@ const VerticalNav = () => {
                             eventKey="horizontal-menu"
                             bsPrefix="nav-item"
                         >
-                            <Link style={{ textDecoration: "none" }} to="/">
+                            <NavLink
+                                onClick={(e) => {
+                                    dispatch(sidebarMini());
+                                }}
+                                style={{ textDecoration: "none" }}
+                                to="/"
+                            >
                                 <div
                                     className={`${
-                                        location.pathname === "/"
-                                            ? "active"
-                                            : ""
+                                        pathname === "/" ? "active" : ""
                                     } nav-link`}
                                 >
                                     <i className="icon">
@@ -67,10 +78,139 @@ const VerticalNav = () => {
                                         </svg>
                                     </i>
                                     <span className="item-name">
-                                        {t("Grammar")}
+                                        {t("Home")}
                                     </span>
                                 </div>
-                            </Link>
+                            </NavLink>
+                        </Accordion.Item>
+                        <Accordion.Item
+                            as="li"
+                            className="mb-1"
+                            eventKey="Grammars"
+                            bsPrefix="nav-item"
+                        >
+                            <CustomToggle
+                                eventKey="Grammars"
+                                active={
+                                    activeMenu === "Grammars" ? true : false
+                                }
+                                onClick={(activeKey) =>
+                                    setActiveMenu(activeKey)
+                                }
+                            >
+                                <i className="icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="22"
+                                        height="23"
+                                        viewBox="0 0 48 64"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M42,8H30.92A6.53,6.53,0,0,0,31,7,7,7,0,0,0,17,7a5.47,5.47,0,0,0,.08,1H6a6,6,0,0,0-6,6V58a6,6,0,0,0,6,6H42a6,6,0,0,0,6-6V14A6,6,0,0,0,42,8ZM24,4a3,3,0,1,1-3,3A3,3,0,0,1,24,4ZM44,58a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V14a2,2,0,0,1,2-2h6v2.5A1.51,1.51,0,0,0,13.5,16h21A1.5,1.5,0,0,0,36,14.5V12h6a2,2,0,0,1,2,2ZM14,41a3,3,0,1,0,3,3A3,3,0,0,0,14,41Zm21,1H21a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H35a1,1,0,0,0,1-1V43A1,1,0,0,0,35,42ZM15.77,33.8l8-7.95a.68.68,0,0,0,0-1l-1.58-1.59a.68.68,0,0,0-.95,0l-5.95,5.9L12.75,26.6a.68.68,0,0,0-.95,0l-1.59,1.57a.69.69,0,0,0,0,1l4.64,4.67A.64.64,0,0,0,15.77,33.8ZM35,30H25.3l-4,4H35a1,1,0,0,0,1-1V31A1,1,0,0,0,35,30Z"
+                                        ></path>
+                                    </svg>
+                                </i>
+                                <span className="item-name">
+                                    {t("Grammars")}
+                                </span>
+                                <i className="right-icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M9 5l7 7-7 7"
+                                        />
+                                    </svg>
+                                </i>
+                            </CustomToggle>
+                            <Accordion.Collapse eventKey="Grammars">
+                                <ul className="sub-nav">
+                                    <li className="nav-item">
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
+                                            className={`${
+                                                pathname === "/g_basics"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/g_basics"
+                                        >
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                B{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Basics")}
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
+                                            className={`${
+                                                pathname === "/g_tenses"
+                                                    ? "active"
+                                                    : ""
+                                            } nav-link`}
+                                            to="/g_tenses"
+                                        >
+                                            <i className="icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="10"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                >
+                                                    <g>
+                                                        <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="8"
+                                                            fill="currentColor"
+                                                        ></circle>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                            <i className="sidenav-mini-icon">
+                                                {" "}
+                                                T{" "}
+                                            </i>
+                                            <span className="item-name">
+                                                {t("Tenses")}
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            </Accordion.Collapse>
                         </Accordion.Item>
                         <Accordion.Item
                             as="li"
@@ -134,9 +274,12 @@ const VerticalNav = () => {
                             <Accordion.Collapse eventKey="Vocabulary">
                                 <ul className="sub-nav">
                                     <li className="nav-item">
-                                        <Link
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
                                             className={`${
-                                                location.pathname === "/idioms"
+                                                pathname === "/idioms"
                                                     ? "active"
                                                     : ""
                                             } nav-link`}
@@ -166,13 +309,15 @@ const VerticalNav = () => {
                                             <span className="item-name">
                                                 {t("Idioms")}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <Link
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
                                             className={`${
-                                                location.pathname ===
-                                                "/prepositions"
+                                                pathname === "/prepositions"
                                                     ? "active"
                                                     : ""
                                             } nav-link`}
@@ -202,13 +347,15 @@ const VerticalNav = () => {
                                             <span className="item-name">
                                                 {t("Prepositions")}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <Link
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
                                             className={`${
-                                                location.pathname ===
-                                                "/collocations"
+                                                pathname === "/collocations"
                                                     ? "active"
                                                     : ""
                                             } nav-link`}
@@ -238,13 +385,15 @@ const VerticalNav = () => {
                                             <span className="item-name">
                                                 {t("Collocations")}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <Link
+                                        <NavLink
+                                            onClick={(e) => {
+                                                dispatch(sidebarMini());
+                                            }}
                                             className={`${
-                                                location.pathname ===
-                                                "/phrasalVerb"
+                                                pathname === "/phrasalVerb"
                                                     ? "active"
                                                     : ""
                                             } nav-link`}
@@ -274,7 +423,7 @@ const VerticalNav = () => {
                                             <span className="item-name">
                                                 {t("Phrasal verbs")}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </Accordion.Collapse>
@@ -290,14 +439,16 @@ const VerticalNav = () => {
                             eventKey="horizontal-menu"
                             bsPrefix="nav-item"
                         >
-                            <Link
+                            <NavLink
+                                onClick={(e) => {
+                                    dispatch(sidebarMini());
+                                }}
                                 style={{ textDecoration: "none" }}
-                                to="/collocations-controls"
+                                to="/collocations_controls"
                             >
                                 <div
                                     className={`${
-                                        location.pathname ===
-                                        "/collocations-controls"
+                                        pathname === "/collocations_controls"
                                             ? "active"
                                             : ""
                                     } nav-link`}
@@ -326,7 +477,7 @@ const VerticalNav = () => {
                                         {t("collocations Controls")}
                                     </span>
                                 </div>
-                            </Link>
+                            </NavLink>
                         </Accordion.Item>
 
                         {/* Phrasal Verbs Controls */}
@@ -336,14 +487,16 @@ const VerticalNav = () => {
                             eventKey="horizontal-menu"
                             bsPrefix="nav-item"
                         >
-                            <Link
+                            <NavLink
+                                onClick={(e) => {
+                                    dispatch(sidebarMini());
+                                }}
                                 style={{ textDecoration: "none" }}
-                                to="/PhrasalVerbs-controls"
+                                to="/phrasalVerbs_controls"
                             >
                                 <div
                                     className={`${
-                                        location.pathname ===
-                                        "/PhrasalVerbs-controls"
+                                        pathname === "/phrasalVerbs_controls"
                                             ? "active"
                                             : ""
                                     } nav-link`}
@@ -372,7 +525,7 @@ const VerticalNav = () => {
                                         {t("Phrasal verbs controls")}
                                     </span>
                                 </div>
-                            </Link>
+                            </NavLink>
                         </Accordion.Item>
                     </>
                 )}

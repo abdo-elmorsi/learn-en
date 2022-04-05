@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Col, ListGroup, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { AddCollocations } from "../lib/slices/collocations";
+import { AddCollocations } from "../../lib/slices/collocations";
 import { useTranslation } from "react-i18next";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebase/firebase";
+import { db } from "../../firebase/firebase";
 
-import TableComp from '../components/Table/Index'
+import TableComp from '../../components/Table/Index'
 const Collocations = () => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();

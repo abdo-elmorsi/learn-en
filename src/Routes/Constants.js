@@ -1,16 +1,56 @@
-export const HOME = "/";
-export const COLLOCATIONS = "/collocations";
-export const PHRASAL_VERBS = "/phrasalVerb";
-export const IDIOMS_EXPRESSIONS = "/idioms";
+// export const HOME = "/";
 
-export const PAST_TENS = "/past-tense";
-export const PAST_SIMPLE = "/past-simple-tense";
+import Home from "../pages";
+import Basics from "../pages/Grammar/Basics";
+import Tenses from "../pages/Grammar/Tenses";
 
-// Admin
-export const COLLOCATIONS_CONTROL = "/collocations-controls";
-export const PHRASAL_VERBS_CONTROL = "/PhrasalVerbs-controls";
+import IdiomsExpressions from "../pages/Vocabulary/IdiomsExpressions";
+import Prepositions from "../pages/Vocabulary/Prepositions";
+import Collocations from "../pages/Vocabulary/Collocations";
+import PhrasalVerbs from "../pages/Vocabulary/PhrasalVerbs";
 
-export const LAYOUT = "/layout";
-export const SIGN_IN = "/sign-in";
-export const SIGN_UP = "/sign-up";
-export const NOT_FOUND = "*";
+import CollocationsAdmin from "../pages/Admin/Collocations";
+import PhrasalVerbsAdmin from "../pages/Admin/PhrasalVerbs";
+
+// ************************    AdminRouts      ************************
+export const UsersRouts = [
+    {
+        route: "/",
+        element: <Home />,
+    },
+    {
+        route: "g_basics",
+        element: <Basics />,
+    },
+    {
+        route: "g_tenses",
+        element: <Tenses />,
+    },
+    {
+        route: "idioms",
+        element: <IdiomsExpressions />,
+    },
+    {
+        route: "prepositions",
+        element: <Prepositions />,
+    },
+    {
+        route: "collocations",
+        element: <Collocations />,
+    },
+    {
+        route: "phrasalVerb",
+        element: <PhrasalVerbs />,
+    },
+];
+
+export const AdminRouts = [
+    {
+        route: "collocations_controls",
+        element: <CollocationsAdmin />,
+    },
+    {
+        route: "phrasalVerbs_controls",
+        element: <PhrasalVerbsAdmin />,
+    },
+];

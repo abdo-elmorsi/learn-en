@@ -1,24 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import VerticalNav from "./vertical-nav";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
-import { sidebarMini } from "../lib/slices/toggleSidebar";
-// import { closeHead } from "../lib/slices/toggle-header";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+// import { sidebarMini } from "../lib/slices/toggleSidebar";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     const config = useSelector((state) => state.config);
     const isActiveSideBar = useSelector((state) => state.toggleMenu.value);
     const dispatch = useDispatch();
-    const History = useHistory();
+    // const Navigate = useNavigate();
 
-    useEffect(() => {
-        History.listen(() => {
-            // dispatch(closeHead());
-            dispatch(sidebarMini());
-        });
-    }, [History, dispatch]);
+    // useEffect(() => {
+    //     Navigate.listen(() => {
+    //         // dispatch(closeHead());
+    //         dispatch(sidebarMini());
+    //     });
+    // }, [Navigate, dispatch]);
 
     return (
         <>
@@ -28,7 +26,7 @@ const Sidebar = () => {
                 }`}
             >
                 <div className="sidebar-header d-flex align-items-center justify-content-start">
-                    <Link to="/" className="navbar-brand">
+                    <NavLink to="/" className="navbar-brand">
                         <svg
                             id="Layer_1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +86,7 @@ const Sidebar = () => {
                         >
                             English Stu
                         </span>
-                    </Link>
+                    </NavLink>
                     <div
                         className="sidebar-toggle"
                         data-toggle="sidebar"

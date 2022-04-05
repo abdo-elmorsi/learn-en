@@ -8,18 +8,19 @@ import { useLocation } from "react-router-dom";
 
 import ExpandedComp from "./ExpandedComponent";
 import Loading from "./Loading";
-import { SayButton } from "react-say";
-
-export default function Index({
-    filter,
-    setfilter,
-    t,
-    loading,
-    Data,
-    darkMode,
-    DataType,
-    setDataType,
-}) {
+import { useSpeechSynthesis } from "react-speech-kit";
+export default function Index(props) {
+    const {
+        filter,
+        setfilter,
+        t,
+        loading,
+        Data,
+        darkMode,
+        DataType,
+        setDataType,
+    } = props;
+    const { speak } = useSpeechSynthesis();
     const { pathname } = useLocation();
     const Language = Cookies.get("i18next") || "en";
 
@@ -38,18 +39,14 @@ export default function Index({
                 name: `${t("Voice")}`,
                 selector: (row) => {
                     return (
-                        <SayButton
-                            pitch={5}
-                            rate={.8}
-                            speak={`${row?.en?.Name}`}
-                            volume={1}
-                            onClick={(event) => console.log(event)}
+                        <Button
+                            size="sm"
+                            onClick={() => speak({ text: row?.en?.Name })}
                         >
-                            Tell me
-                        </SayButton>
+                            🎤
+                        </Button>
                     );
                 },
-                sortable: true,
             },
             {
                 name: `${t("Name")}`,
@@ -58,7 +55,7 @@ export default function Index({
                 sortable: true,
             },
         ],
-        [t, Language]
+        [t, Language, speak]
     );
     const rowPreExpanded = (row) =>
         row.en.Name === "go shopping" || row.en.Name === "break up";

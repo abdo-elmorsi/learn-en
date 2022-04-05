@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Styles from "../styles/PageNotFound.module.scss";
 const NotFound = () => {
     return (
@@ -9,7 +9,7 @@ const NotFound = () => {
                 </div>
                 <h2>Oops! This Page Could Not Be Found</h2>
                 <p>Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable</p>
-                <Link to="/">Back To Home Page</Link>
+                <NavLink to="/">Back To Home Page</NavLink>
             </div>
         </div>
     )

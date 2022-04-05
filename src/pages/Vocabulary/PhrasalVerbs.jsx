@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AddPhrasalVerb } from "../lib/slices/phrasalVerb";
+import { AddPhrasalVerb } from "../../lib/slices/phrasalVerb";
 import { useTranslation } from "react-i18next";
-import TableComp from '../components/Table/Index'
+import TableComp from '../../components/Table/Index'
 
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import { Accordion } from "react-bootstrap";
 
 const PhrasalVerb = () => {

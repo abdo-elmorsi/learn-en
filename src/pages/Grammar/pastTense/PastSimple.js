@@ -112,7 +112,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Affirmative"
-                                            rowspan="2"
+                                            rowSpan="2"
                                             className="text-center"
                                         >
                                             +
@@ -133,7 +133,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Negative"
-                                            rowspan="2"
+                                            rowSpan="2"
                                             className="text-center"
                                         >
                                             -
@@ -154,7 +154,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Interrogative"
-                                            rowspan="3"
+                                            rowSpan="3"
                                             className="text-center"
                                         >
                                             ?
@@ -268,7 +268,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Affirmative"
-                                            rowspan="2"
+                                            rowSpan="2"
                                             className="text-center"
                                         >
                                             +
@@ -287,7 +287,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Negative"
-                                            rowspan="2"
+                                            rowSpan="2"
                                             className="text-center"
                                         >
                                             -
@@ -306,7 +306,7 @@ export default function PastSimple() {
                                     <tr>
                                         <td
                                             title="Interrogative"
-                                            rowspan="2"
+                                            rowSpan="2"
                                             className="text-center"
                                         >
                                             ?

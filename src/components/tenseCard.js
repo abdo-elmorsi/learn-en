@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ImageLoader from "./Image-loader";
 
 import { slideUp, animateList } from "../helpers/Animation";
@@ -28,9 +28,9 @@ export default function TenseCard({ data }) {
                     <p className="card-text" style={{ minHeight: "100px" }}>
                         {t(data.desc)}
                     </p>
-                    <Link to={`/${data.link}`} className="btn btn-primary">
+                    <NavLink to={`/${data.link}`} className="btn btn-primary">
                         {t("Details")}
-                    </Link>
+                    </NavLink>
                 </Card.Body>
             </motion.div>
         </ScrollReveal>

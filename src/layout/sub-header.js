@@ -14,16 +14,29 @@ const SubHeader = ({ pageName = "" }) => {
             switch (pageName) {
                 // Pages
                 case "/":
-                    setState("Grammar");
+                    setState("Home");
+                    break;
+                // Grammar
+                case "/g_tenses":
+                    setState("Tenses");
+                    break;
+                case "/g_basics":
+                    setState("Basics");
+                    break;
+
+                // Vocabulary
+                case "/idioms":
+                    setState("Idioms expressions");
+                    break;
+                case "/prepositions":
+                    setState("Prepositions");
                     break;
                 case "/collocations":
                     setState("Collocations");
                     break;
+
                 case "/phrasalVerb":
                     setState("Phrasal verbs");
-                    break;
-                case "/idioms":
-                    setState("Idioms expressions");
                     break;
                 // ###################################
                 // Tenses

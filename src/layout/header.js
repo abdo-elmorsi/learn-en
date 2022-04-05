@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Dropdown, Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
 import { darkMode } from "../lib/slices/config";
@@ -12,6 +11,8 @@ import i18next from "i18next";
 import Cookies from "js-cookie";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const languages = [
     {
         key: "222",
@@ -31,25 +32,33 @@ const languages = [
 ];
 
 const Header = () => {
-    const location = useHistory();
     const dispatch = useDispatch();
+    const Navigate = useNavigate();
     const [showLang, setShowLang] = useState(false);
 
     const currentLanguageCode = Cookies.get("i18next") || "en";
     const currentLanguage = languages.find(
         (l) => l.code === currentLanguageCode
     );
-    const config = useSelector((state) => state.config);
+    const {
+        config,
+        auth: { user },
+    } = useSelector((state) => state);
     const { ToggleHeader } = useSelector((state) => state);
     const handleSignOut = async (e) => {
         e.preventDefault();
-        await signOut(auth)
-            .then((_) => {
-                location.push("/sign-in");
-            })
-            .catch((er) => {
-                console.error(er);
-            });
+        console.log(user);
+        if (user) {
+            await signOut(auth)
+                .then((_) => {
+                    toast("Signed out");
+                })
+                .catch((er) => {
+                    toast(er);
+                });
+        } else {
+            Navigate("/sign-in");
+        }
     };
     useEffect(
         (_) => {
@@ -412,7 +421,9 @@ const Header = () => {
                                         className="px-0"
                                     >
                                         <div className="d-flex justify-content-around ">
-                                            <span>Logout</span>
+                                            <span>
+                                                log {`${user ? "out" : "in"}`}
+                                            </span>
                                             <svg
                                                 width="18px"
                                                 aria-hidden="true"

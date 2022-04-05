@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { ListGroup, Row } from "react-bootstrap";
+import { Button, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { animateList, slideUp } from "../helpers/Animation";
-import ScrollReveal from "../components/ScrollReveal";
-import ColorSwitcher from "../components/ColorSwitcher";
+import { animateList, slideUp } from "../../helpers/Animation";
+import ScrollReveal from "../../components/ScrollReveal";
+import ColorSwitcher from "../../components/ColorSwitcher";
 
-import Styles from "../styles/IdiomsExpressions.module.scss";
+import Styles from "../../styles/IdiomsExpressions.module.scss";
+import { useSpeechSynthesis } from "react-speech-kit";
 export default function IdiomsExpressions() {
     const [Data, setData] = useState();
     const [loading, setloading] = useState(false);
     const { darkMode } = useSelector((state) => state.config);
+    const { speak } = useSpeechSynthesis();
     useEffect(() => {
         setloading(true);
         (async () => {
@@ -46,6 +48,15 @@ export default function IdiomsExpressions() {
                                             darkMode ? "text-white" : ""
                                         } my-2 ${Styles.col}`}
                                     >
+                                        <Button
+                                            size="sm"
+                                            className="bg-transparent shadow-none border-0"
+                                            onClick={() =>
+                                                speak({ text: ele.first })
+                                            }
+                                        >
+                                            🎤
+                                        </Button>
                                         <u>
                                             {`${ele.id}: `}
                                             <ColorSwitcher
