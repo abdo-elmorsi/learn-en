@@ -7,16 +7,10 @@ import { getUser } from "../../lib/slices/auth";
 import { AdminRouts, UsersRouts } from "../Constants";
 import Loader from "../../components/loader";
 
-// import Loader from "../../components/loader";
 const Layout = React.lazy(() => import("../../layout"));
 const Signin = React.lazy(() => import("../../pages/auth/Signin"));
 const SignUp = React.lazy(() => import("../../pages/auth/Signup"));
 const NotFound = React.lazy(() => import("../../pages/PageNotFound"));
-// import Layout from "../../layout";
-// import Signin from "../../pages/auth/Signin";
-// import SignUp from "../../pages/auth/Signup";
-// import NotFound from "../../pages/PageNotFound";
-
 const AppRouter = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
