@@ -259,6 +259,51 @@
             "id": 52,
             "first": "Stand a chance",
             "second": "to have the possibility of success"
+        },
+        {
+            "id": 53,
+            "first": "Cheesy person",
+            "second": "Means you aren't funny not a bad thing"
+        },
+        {
+            "id": 54,
+            "first": "I will go banana",
+            "second": "I'm going crazy or I'm losing my mind"
+        },
+        {
+            "id": 55,
+            "first": "He looks blue",
+            "second": "He looks sad"
+        },
+        {
+            "id": 56,
+            "first": "She is in the clouds",
+            "second": "She is absent-minded"
+        },
+        {
+            "id": 57,
+            "first": "Break the ice",
+            "second": "Pave the way or pave the way for something"
+        },
+        {
+            "id": 58,
+            "first": "This is nuts",
+            "second": "This is insane or nonsense"
+        },
+        {
+            "id": 59,
+            "first": "It's a piece of cake",
+            "second": "It's very easy"
+        },
+        {
+            "id": 60,
+            "first": "He is a black sheep",
+            "second": "He is a bad person"
+        },
+        {
+            "id": 61,
+            "first": "This is a hot air",
+            "second": "This is useless talk"
         }
     ],
     "PastSimpleExs": [
@@ -370,19 +415,19 @@
             "title": "Past Tense",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "A tense expressing an action that has happened or a state that previously existed.",
-            "link": "past-tense"
+            "link": "past"
         },
         {
             "title": "Present Tense",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "A tense expressing an action that is currently going on or habitually performed, or a state that currently or generally exists.",
-            "link": ""
+            "link": "present"
         },
         {
             "title": "Future tense",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "A tense expressing an action that has not yet happened or a state that does not yet exist.",
-            "link": ""
+            "link": "future"
         }
     ],
     "PastTensesTitles": [
@@ -390,19 +435,19 @@
             "title": "Past Simple",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "Is a verb tense that is used to talk about things that happened or existed before now.",
-            "link": "past-simple-tense"
+            "link": "simple"
         },
         {
             "title": "Past Continuous",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "The past continuous tense, also known as the past progressive tense, refers to a continuing action or state that was happening at some point in the past.",
-            "link": ""
+            "link": "continuous"
         },
         {
             "title": "Past Perfect",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
             "desc": "The past perfect continuous tense (also known as the past perfect progressive tense) shows that an action that started in the past continued up until another time in the past.",
-            "link": ""
+            "link": "perfect"
         }
     ]
 }

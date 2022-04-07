@@ -9,7 +9,8 @@ import { createTheme } from "react-data-table-component";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import { BrowserRouter as Route } from "react-router-dom";
-const AppRouter = React.lazy(() => import("./Routes/Routes/App"));
+import AppRouter from "./Routes/Routes/App";
+// const AppRouter = React.lazy(() => import("./Routes/Routes/App"));
 const App = () => {
     useEffect(() => {
         const online = () => toast.warning("Back Online");

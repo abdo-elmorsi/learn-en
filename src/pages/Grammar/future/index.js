@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 
-import TenseCard from "../../components/tenseCard";
-import Loader from "../../components/Table/Loading";
+import TenseCard from "../../../components/tenseCard";
+import Loader from "../../../components/Table/Loading";
 const PastTense = () => {
     const [Data, setData] = useState();
     const [loading, setloading] = useState(false);
     useEffect(() => {
         setloading(true);
         (async () => {
-            const res = await fetch("assets/dumyData.json");
+            const res = await fetch("/assets/dumyData.json");
             const { PastTensesTitles } = await res.json();
             setData(PastTensesTitles);
             setTimeout(() => {

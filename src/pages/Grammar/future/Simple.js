@@ -3,8 +3,8 @@ import { Card, Col, Row, Table } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
-import Loading from "../../components/Table/Loading";
-import ColorSwitcher from "../../components/ColorSwitcher";
+import Loading from "../../../components/Table/Loading";
+import ColorSwitcher from "../../../components/ColorSwitcher";
 
 export default function PastSimple() {
     const { t } = useTranslation();
@@ -36,7 +36,7 @@ export default function PastSimple() {
     useEffect(() => {
         setloading(true);
         (async () => {
-            const res = await fetch("assets/dumyData.json");
+            const res = await fetch("/assets/dumyData.json");
             const { PastSimpleExs } = await res.json();
             setData(PastSimpleExs);
             setloading(false);

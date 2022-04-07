@@ -28,7 +28,7 @@ export default function TenseCard({ data }) {
                     <p className="card-text" style={{ minHeight: "100px" }}>
                         {t(data.desc)}
                     </p>
-                    <NavLink to={`/${data.link}`} className="btn btn-primary">
+                    <NavLink to={`${data.link}`} className="btn btn-primary">
                         {t("Details")}
                     </NavLink>
                 </Card.Body>

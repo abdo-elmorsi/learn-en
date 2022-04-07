@@ -4,12 +4,14 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { getUser } from "../../lib/slices/auth";
-import Layout from "../../layout";
-import NotFound from "../../pages/PageNotFound";
-import Signin from "../../pages/auth/Signin";
-import SignUp from "../../pages/auth/Signup";
-
 import { AdminRouts, UsersRouts } from "../Constants";
+
+// import Loader from "../../components/loader";
+const Layout = React.lazy(() => import("../../layout"));
+const Signin = React.lazy(() => import("../../pages/auth/Signin"));
+const SignUp = React.lazy(() => import("../../pages/auth/Signup"));
+const NotFound = React.lazy(() => import("../../pages/PageNotFound"));
+
 const AppRouter = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
@@ -47,7 +49,11 @@ const AppRouter = () => {
                             key={e.route}
                             element={(() => {
                                 if (user?.email.startsWith("abdelrahmandiv"))
-                                    return e.element;
+                                    return (
+                                        <React.Suspense fallback="Loading...">
+                                            {e.element}
+                                        </React.Suspense>
+                                    );
                                 return <Navigate to={"/sign-in"} />;
                             })()}
                             path={e.route}
@@ -60,7 +66,11 @@ const AppRouter = () => {
                     element={(() => {
                         if (user?.email.startsWith("abdelrahmandiv"))
                             return <Navigate to={`/collocations_controls`} />;
-                        return <Signin />;
+                        return (
+                            <React.Suspense fallback="Loading...">
+                                <Signin />
+                            </React.Suspense>
+                        );
                     })()}
                     path={"sign-in"}
                 />
@@ -68,7 +78,11 @@ const AppRouter = () => {
                     element={(() => {
                         if (user?.email.startsWith("abdelrahmandiv"))
                             return <Navigate to={`/collocations_controls`} />;
-                        return <SignUp />;
+                        return (
+                            <React.Suspense fallback="Loading...">
+                                <SignUp />
+                            </React.Suspense>
+                        );
                     })()}
                     path={"sign-up"}
                 />
@@ -76,7 +90,9 @@ const AppRouter = () => {
                 {/* not found */}
                 <Route
                     element={(() => (
-                        <NotFound />
+                        <React.Suspense fallback="Loading...">
+                            <NotFound />
+                        </React.Suspense>
                     ))()}
                     path={"*"}
                 />
