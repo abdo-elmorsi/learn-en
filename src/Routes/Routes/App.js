@@ -7,10 +7,14 @@ import { getUser } from "../../lib/slices/auth";
 import { AdminRouts, UsersRouts } from "../Constants";
 
 // import Loader from "../../components/loader";
-const Layout = React.lazy(() => import("../../layout"));
-const Signin = React.lazy(() => import("../../pages/auth/Signin"));
-const SignUp = React.lazy(() => import("../../pages/auth/Signup"));
-const NotFound = React.lazy(() => import("../../pages/PageNotFound"));
+// const Layout = React.lazy(() => import("../../layout"));
+// const Signin = React.lazy(() => import("../../pages/auth/Signin"));
+// const SignUp = React.lazy(() => import("../../pages/auth/Signup"));
+// const NotFound = React.lazy(() => import("../../pages/PageNotFound"));
+import Layout from "../../layout";
+import Signin from "../../pages/auth/Signin";
+import SignUp from "../../pages/auth/Signup";
+import NotFound from "../../pages/PageNotFound";
 
 const AppRouter = () => {
     const dispatch = useDispatch();
@@ -34,9 +38,10 @@ const AppRouter = () => {
                         <Route
                             key={e.route}
                             element={
-                                <React.Suspense fallback="Loading...">
-                                    {e.element}
-                                </React.Suspense>
+                                e.element
+                                // <React.Suspense fallback="Loading...">
+                                //     {e.element}
+                                // </React.Suspense>
                             }
                             path={e.route}
                         />
@@ -49,11 +54,10 @@ const AppRouter = () => {
                             key={e.route}
                             element={(() => {
                                 if (user?.email.startsWith("abdelrahmandiv"))
-                                    return (
-                                        <React.Suspense fallback="Loading...">
-                                            {e.element}
-                                        </React.Suspense>
-                                    );
+                                    return e.element;
+                                // <React.Suspense fallback="Loading...">
+                                //     {e.element}
+                                // </React.Suspense>
                                 return <Navigate to={"/sign-in"} />;
                             })()}
                             path={e.route}
@@ -67,9 +71,10 @@ const AppRouter = () => {
                         if (user?.email.startsWith("abdelrahmandiv"))
                             return <Navigate to={`/collocations_controls`} />;
                         return (
-                            <React.Suspense fallback="Loading...">
-                                <Signin />
-                            </React.Suspense>
+                            <Signin />
+                            // <React.Suspense fallback="Loading...">
+                            //     <Signin />
+                            // </React.Suspense>
                         );
                     })()}
                     path={"sign-in"}
@@ -79,9 +84,10 @@ const AppRouter = () => {
                         if (user?.email.startsWith("abdelrahmandiv"))
                             return <Navigate to={`/collocations_controls`} />;
                         return (
-                            <React.Suspense fallback="Loading...">
-                                <SignUp />
-                            </React.Suspense>
+                            <SignUp />
+                            // <React.Suspense fallback="Loading...">
+                            //     <SignUp />
+                            // </React.Suspense>
                         );
                     })()}
                     path={"sign-up"}
@@ -90,9 +96,10 @@ const AppRouter = () => {
                 {/* not found */}
                 <Route
                     element={(() => (
-                        <React.Suspense fallback="Loading...">
-                            <NotFound />
-                        </React.Suspense>
+                        <NotFound />
+                        // <React.Suspense fallback="Loading...">
+                        //     <NotFound />
+                        // </React.Suspense>
                     ))()}
                     path={"*"}
                 />
