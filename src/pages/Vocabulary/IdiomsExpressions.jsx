@@ -27,19 +27,18 @@ export default function IdiomsExpressions() {
         return "loading...";
     }
     return (
-        <div>
-            <ListGroup>
-                <Row>
-                    {Data?.map((ele, i) => {
-                        return (
-                            <ScrollReveal
-                                className={`col-12 col-md-6`}
-                                sm={12}
-                                lg={6}
-                                key={i}
-                                variants={animateList}
-                            >
-                                <motion.div variants={slideUp}>
+        <Row>
+            {Data?.map((ele, i) => {
+                return (
+                    <React.Fragment key={i}>
+                        <ScrollReveal
+                            className={`col-12 col-md-6`}
+                            sm={12}
+                            lg={6}
+                            variants={animateList}
+                        >
+                            <motion.div variants={slideUp}>
+                                <ListGroup>
                                     <ListGroup.Item
                                         className={`${
                                             darkMode ? "text-white" : ""
@@ -63,12 +62,12 @@ export default function IdiomsExpressions() {
                                         {" => "}
                                         {ele?.second}
                                     </ListGroup.Item>
-                                </motion.div>
-                            </ScrollReveal>
-                        );
-                    })}
-                </Row>
-            </ListGroup>
-        </div>
+                                </ListGroup>
+                            </motion.div>
+                        </ScrollReveal>
+                    </React.Fragment>
+                );
+            })}
+        </Row>
     );
 }
