@@ -25,7 +25,16 @@ export default function IdiomsExpressions() {
     useEffect(() => {
         (async () => {
             const { docs } = await DataServices.getAllItems("Idioms");
-            setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+            const sortedData = docs
+                .map((doc) => ({ ...doc.data(), id: doc.id }))
+                .sort((a, b) =>
+                    a.Ex.length > b.Ex.length
+                        ? -1
+                        : a.Ex.length < b.Ex.length
+                        ? 1
+                        : 0
+                );
+            setData(sortedData);
         })();
     }, []);
     return (

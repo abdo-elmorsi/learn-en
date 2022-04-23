@@ -391,10 +391,10 @@ const Header = () => {
                                     aria-expanded="false"
                                 >
                                     <Image
-                                        src={
+                                        src={`${
                                             auth?.currentUser?.photoURL ||
-                                            `/assets/images/02.ico`
-                                        }
+                                            "/assets/images/02.ico"
+                                        }`}
                                         width={40}
                                         alt="User-Profile"
                                         className="img-fluid avatar avatar-rounded avatar-rounded"

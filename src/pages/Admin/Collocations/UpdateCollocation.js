@@ -10,7 +10,7 @@ const UpdateCollocation = ({ status }) => {
     const handleDelete = async () => {
         try {
             await DataServices.deleteItem("Collocations", status.id);
-            toast.success(`Collocation ( ${status.NameEn} ) is deleted`);
+            toast.success(`Collocation ( ${status.en.Name} ) is deleted`);
         } catch (error) {
             toast.error("Sorry there is an error");
         }

@@ -17,7 +17,7 @@ import ColorSwitcher from "../../../components/ColorSwitcher";
 
 // animation
 import { motion } from "framer-motion";
-import { animateList, itemSlideUp, slideUp } from "../../../helpers/Animation";
+import { animateList, slideUp } from "../../../helpers/Animation";
 // table
 
 import Loading from "../../../components/Table/Loading";
@@ -27,6 +27,7 @@ import DataServices from "../../../firebase/services";
 import AddIdioms from "./AddIdioms";
 import ScrollReveal from "../../../components/ScrollReveal";
 import { useSpeechSynthesis } from "react-speech-kit";
+import UpdateIdioms from "./UpdateIdioms";
 
 const CollocationsControl = () => {
     const { speak } = useSpeechSynthesis();
@@ -52,8 +53,17 @@ const CollocationsControl = () => {
     // Fetch Data
     useEffect(() => {
         (async () => {
-            const data = await DataServices.getAllItems("Idioms");
-            setoldData(data.docs.map((doc) => ({ ...doc.data() })));
+            const { docs } = await DataServices.getAllItems("Idioms");
+            const sortedData = docs
+                .map((doc) => ({ ...doc.data(), id: doc.id }))
+                .sort((a, b) =>
+                    a.Ex.length > b.Ex.length
+                        ? -1
+                        : a.Ex.length < b.Ex.length
+                        ? 1
+                        : 0
+                );
+            setData(sortedData);
         })();
     }, []);
 
@@ -116,7 +126,7 @@ const CollocationsControl = () => {
                                                                 darkMode
                                                                     ? "text-white"
                                                                     : ""
-                                                            } my-2 ${
+                                                            } my-2 d-flex justify-content-between ${
                                                                 Styles.col
                                                             }`}
                                                         >
@@ -131,7 +141,7 @@ const CollocationsControl = () => {
                                                             >
                                                                 🎤
                                                             </Button>
-                                                            <span>
+                                                            <span className="flex-grow-1">
                                                                 {`${i + 1}: `}
                                                                 <ColorSwitcher
                                                                     text={
@@ -139,9 +149,10 @@ const CollocationsControl = () => {
                                                                     }
                                                                 />
                                                             </span>
-                                                            {" => "}
-                                                            <span>
-                                                                {ele?.second}
+                                                            <span className="">
+                                                                <UpdateIdioms
+                                                                    status={ele}
+                                                                />
                                                             </span>
                                                         </ListGroup.Item>
                                                     </OverlayTrigger>
