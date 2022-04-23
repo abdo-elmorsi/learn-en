@@ -51,7 +51,7 @@ const Header = () => {
         if (user) {
             await signOut(auth)
                 .then((_) => {
-                    toast("Signed out");
+                    toast.success("Signed out");
                 })
                 .catch((er) => {
                     toast(er);
@@ -400,13 +400,13 @@ const Header = () => {
                                         className="img-fluid avatar avatar-rounded avatar-rounded"
                                     />
                                     <div className="caption ms-3 d-none d-md-block">
-                                        <h6 className="mb-0 caption-title">
-                                            {auth?.currentUser?.displayName !==
-                                            null
+                                        <h6 className="mb-0 caption-title pe-2">
+                                            {auth?.currentUser?.displayName
                                                 ? auth?.currentUser?.displayName
                                                 : auth?.currentUser?.email
                                                       .split("@")
                                                       .slice(0, 1)}
+                                            {!auth.currentUser && "guest "}
                                         </h6>
                                     </div>
                                 </Dropdown.Toggle>

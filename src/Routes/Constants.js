@@ -32,6 +32,8 @@ const PhrasalVerbs = React.lazy(() => import("../pages/Vocabulary/PhrasalVerbs")
 //*****    Admin    ***** //
 const CollocationsAdmin =  React.lazy(() => import("../pages/Admin/Collocations"));
 const PhrasalVerbsAdmin =  React.lazy(() => import("../pages/Admin/PhrasalVerbs"));
+const IdiomsAdmin =  React.lazy(() => import("../pages/Admin/Idioms"));
+
 // ************************    AdminRouts      ************************
 export const UsersRouts = [
     {
@@ -91,5 +93,9 @@ export const AdminRouts = [
     {
         route: "phrasalVerbs_controls",
         element: <PhrasalVerbsAdmin />,
+    },
+    {
+        route: "idioms_controls",
+        element: <IdiomsAdmin />,
     },
 ];

@@ -74,7 +74,7 @@ const CollocationsControl = () => {
             onSnapshot(
                 query(
                     collection(db, "Collocations"),
-                    orderBy("createdAt", "asc")
+                    orderBy("createdAt")
                 ),
                 (snapshot) => {
                     dispatch(

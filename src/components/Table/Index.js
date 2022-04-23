@@ -32,7 +32,6 @@ export default function Index(props) {
             {
                 name: "id",
                 selector: (row, i) => i + 1,
-                // sortable: true,
             },
 
             {

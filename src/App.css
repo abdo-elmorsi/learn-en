@@ -48,3 +48,18 @@ h2.dark button::after {
     background-color: #222738 !important;
     color: #fff;
 }
+
+/* tooltip */
+
+#button-tooltip > .tooltip-inner {
+    background-color: #023f67;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+#button-tooltip > .tooltip-arrow::before {
+    right: 2px;
+    transform: translateY(-5px);
+    border-color: #023f67 transparent transparent transparent;
+    border-width: 10px;
+}

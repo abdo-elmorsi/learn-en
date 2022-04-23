@@ -29,7 +29,7 @@ const PhrasalVerb = () => {
 	// Fetch Data
 	useEffect(() => {
 		try {
-			onSnapshot(query(collection(db, 'PhrasalVerb'), orderBy('createdAt', 'asc')),
+			onSnapshot(query(collection(db, 'PhrasalVerb'), orderBy('createdAt')),
 				(snapshot) => {
 					dispatch(AddPhrasalVerb([...snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))]))
 					setloading(false);

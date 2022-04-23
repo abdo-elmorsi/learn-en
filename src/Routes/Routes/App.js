@@ -39,12 +39,13 @@ const AppRouter = () => {
                         return (
                             <Route
                                 key={e.route}
-                                element={
-                                    // e.element
-                                    <React.Suspense fallback="Loading...">
-                                        {e.element}
-                                    </React.Suspense>
-                                }
+                                element={(() => {
+                                    return (
+                                        <React.Suspense fallback="Loading...">
+                                            {e.element}
+                                        </React.Suspense>
+                                    );
+                                })()}
                                 path={e.route}
                             />
                         );
@@ -57,11 +58,13 @@ const AppRouter = () => {
                                 element={(() => {
                                     if (
                                         user?.email.startsWith("abdelrahmandiv")
-                                    )
-                                        // return e.element;
-                                        <React.Suspense fallback="Loading...">
-                                            {e.element}
-                                        </React.Suspense>;
+                                    ) {
+                                        return (
+                                            <React.Suspense fallback="Loading...">
+                                                {e.element}
+                                            </React.Suspense>
+                                        );
+                                    }
                                     return <Navigate to={"/sign-in"} />;
                                 })()}
                                 path={e.route}
@@ -72,10 +75,11 @@ const AppRouter = () => {
                     {/* sign-in */}
                     <Route
                         element={(() => {
-                            if (user?.email.startsWith("abdelrahmandiv"))
+                            if (user?.email.startsWith("abdelrahmandiv")) {
                                 return (
                                     <Navigate to={`/collocations_controls`} />
                                 );
+                            }
                             return (
                                 // <Signin />
                                 <React.Suspense fallback="Loading...">

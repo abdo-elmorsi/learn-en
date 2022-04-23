@@ -40,11 +40,17 @@ const SubHeader = ({ pageName = "" }) => {
                     break;
                 // ###################################
                 // Tenses
-                case "/past-tense":
+                case "/g_tenses/past":
                     setState("Past Tense");
                     break;
-                case "/past-simple-tense":
+                case "/g_tenses/past/simple":
                     setState("Past Simple");
+                    break;
+                case "/g_tenses/past/continuous":
+                    setState("Past Continuous");
+                    break;
+                case "/g_tenses/past/perfect":
+                    setState("Past Perfect");
                     break;
                 // ###################################
                 // Admin
@@ -54,6 +60,9 @@ const SubHeader = ({ pageName = "" }) => {
 
                 case "/phrasalVerbs_controls":
                     setState("Phrasal Verbs Controls");
+                    break;
+                case "/idioms_controls":
+                    setState("idioms Controls");
                     break;
                 default:
                     setState("404");
