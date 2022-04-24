@@ -1,7 +1,14 @@
 {
+    "Home": "الرئيسيه",
     "Grammar": "قواعد",
+    "Basics": "الأساسيات",
+    "Tenses": "الأزمنة",
+    "Idioms": "مصطلحات",
+    "Prepositions": "حروف الجر",
     "Vocabulary": "كلمات",
     "Past Tense": "زمن الماضي",
+    "Past Simple": "الماضي البسيط",
+    "Past Continuous": "الماضي المستمر",
     "Present Tense": "زمن الحاضر",
     "Future tense": "زمن المستقبل",
     "Collocations": "المتلازمات",
@@ -10,8 +17,12 @@
     "Affirmative": "اثبات",
     "Negative": "نفي",
     "Interrogative": "استفهام",
+    "Examples": "أمثلة",
 
     "Search": "بحث",
+    "Uses": "الاستخدامات",
+    "auxiliary": "مساعد",
+    "main": "اساسي",
     "Name": "الاسم",
     "Details": "تفاصيل",
     "Choose Collocations Type": "اختر نوع الارتباطات",
@@ -48,9 +59,9 @@
     "For question sentences, we exchange the subject and the auxiliary verb": "لجمل السؤال ، نقوم بتبادل الفاعل والفعل المساعد",
     "The main verb is invariable in base form: base": "الفعل الرئيسي ثابت في الشكل الأساسي: القاعدة",
     "For negative sentences, we insert not between the auxiliary verb and main verb": "بالنسبة للجمل السلبية ، لا ندرج بين الفعل المساعد والفعل الرئيسي",
-    "The structure of the Past Simple with the main": "هيكل الماضي البسيط مع الرئيسي",
+    "Past Simple with the main verb be :": "هيكل الماضي البسيط مع (v) be",
     "There is no auxiliary verb, even for questions and negatives": "لا يوجد فعل مساعد ، حتى بالنسبة للأسئلة والسلبيات",
-    "The main verb (be) is conjugated in the Past Simple": "يتم تصريف الفعل الرئيسي (be) في Past Simple",
+    "The main verb (be) is conjugated in the Past Simple": "يتم تصريف الفعل الرئيسي (be) في",
     "For negative sentences, we insert not after the main verb": "بالنسبة للجمل السلبية ، فإننا لا ندخلها بعد الفعل الرئيسي",
     "For question sentences, we exchange the subject and the main verb": "لجمل السؤال ، نقوم بتبادل الفاعل والفعل الرئيسي",
     "Tags": "الكلمات الدلاليه",
@@ -68,9 +79,14 @@
     "She finished her work": "أنهت عملها",
     "I went to the theatre": "ذهبت إلى المسرح",
 
-    "How do we make the Past Simple tense": "كيف نجعل صيغة الماضي بسيطة",
+    "How do we make the Past Simple": "كيف نفعل صيغة الماضي البسيط",
+    "How do we make the Past Continuous": "كيف نفعل صيغة الماضي المستمر",
+    "The structure of the past continuous tense is :": "هيكل الماضي المستمر هو :",
+
     "Look at these examples with the main verbs": "انظر إلى هذه الأمثلة بالأفعال الرئيسية",
     "From the above table, notice the following points": "من الجدول أعلاه ، لاحظ النقاط",
-    "The past simple  is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases.": "يستخدم الماضي البسيط للتحدث عن أحداث وقعت في الماضي في وقت محدد. في هذا الدرس ، سوف نتعلم كيفية تشكيل الماضي البسيط في حالات الإيجابي والسلبي والتساؤل.",
-    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "نستخدم صيغة الماضي البسيط للتحدث عن فعل أو موقف - حدث - في الماضي. يمكن أن يكون الحدث قصيرًا أو طويلًا."
+    "The past simple  is used to talk about events that occurred in the past at a specific time.": "يستخدم الماضي البسيط للتحدث عن أحداث وقعت في الماضي في وقت محدد. في هذا الدرس ، سوف نتعلم كيفية تشكيل الماضي البسيط في حالات الإيجابي والسلبي والتساؤل.",
+    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "نستخدم صيغة الماضي البسيط للتحدث عن فعل أو موقف - حدث - في الماضي. يمكن أن يكون الحدث قصيرًا أو طويلًا.",
+
+    "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time.": "نستخدم الزمن الماضي المستمر للتحدث عن الإجراءات والأحداث التي استمرت لفترة زمنية محددة."
 }

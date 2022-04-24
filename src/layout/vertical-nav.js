@@ -112,7 +112,7 @@ const VerticalNav = () => {
                                     </svg>
                                 </i>
                                 <span className="item-name">
-                                    {t("Grammars")}
+                                    {t("Grammar")}
                                 </span>
                                 <i className="right-icon">
                                     <svg

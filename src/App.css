@@ -63,3 +63,30 @@ h2.dark button::after {
     border-color: #023f67 transparent transparent transparent;
     border-width: 10px;
 }
+
+.Header_Line {
+    position: relative;
+    z-index: 2;
+}
+.Header_Line::after {
+    content: "";
+    width: 25%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.Header_Line::before {
+    content: "";
+    width: 25%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}

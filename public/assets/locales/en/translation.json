@@ -1,7 +1,14 @@
 {
+    "Home": "Home",
     "Grammar": "Grammar",
+    "Basics": "Basics",
+    "Tenses": "Tenses",
+    "Idioms": "Idioms",
+    "Prepositions": "Prepositions",
     "Vocabulary": "Vocabulary",
     "Past Tense": "Past Tense",
+    "Past Simple": "Past Simple",
+    "Past Continuous": "Past Continuous",
     "Present Tense": "Present Tense",
     "Future tense": "Future tense",
     "Collocations": "Collocations",
@@ -10,8 +17,12 @@
     "Affirmative": "Affirmative",
     "Negative": "Negative",
     "Interrogative": "Interrogative",
+    "Examples": "Examples",
 
     "Search": "Search",
+    "Uses": "Uses",
+    "auxiliary": "auxiliary",
+    "main": "main",
     "Name": "Name",
     "Details": "Details",
     "Choose Collocations Type": "Choose Collocations Type",
@@ -48,7 +59,7 @@
     "For question sentences, we exchange the subject and the auxiliary verb": "For question sentences, we exchange the subject and the auxiliary verb",
     "The main verb is invariable in base form: base": "The main verb is invariable in base form: base",
     "For negative sentences, we insert not between the auxiliary verb and main verb": "For negative sentences, we insert not between the auxiliary verb and main verb",
-    "The structure of the Past Simple with the main": "The structure of the Past Simple with the main",
+    "Past Simple with the main verb be :": "Past Simple with the main verb be :",
     "There is no auxiliary verb, even for questions and negatives": "There is no auxiliary verb, even for questions and negatives",
     "The main verb (be) is conjugated in the Past Simple": "The main verb (be) is conjugated in the Past Simple",
     "For negative sentences, we insert not after the main verb": "For negative sentences, we insert not after the main verb",
@@ -68,9 +79,14 @@
     "She finished her work": "She finished her work",
     "I went to the theatre": "I went to the theatre",
 
-    "How do we make the Past Simple tense": "How do we make the Past Simple tense",
+    "How do we make the Past Simple": "How do we make the Past Simple tense",
+    "How do we make the Past Continuous": "How do we make the Past Continuous",
+    "The structure of the past continuous tense is :": "The structure of the past continuous tense is :",
+
     "Look at these examples with the main verbs": "Look at these examples with the main verbs",
     "From the above table, notice the following points": "From the above table, notice the following points",
-    "The past simple  is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases.": "The past simple  is used to talk about events that occurred in the past at a specific time. In this lesson, we will learn how to form the past simple in the affirmative, negative and question cases.",
-    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long."
+    "The past simple  is used to talk about events that occurred in the past at a specific time.": "The past simple  is used to talk about events that occurred in the past at a specific time.",
+    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.",
+
+    "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time.": "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time."
 }

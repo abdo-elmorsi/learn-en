@@ -21,7 +21,7 @@ const Sidebar = () => {
     return (
         <>
             <aside
-                className={`sidebar sidebar-default navs-rounded-all sidebar-hover {{ sidebarVariants }} ${
+                className={`sidebar sidebar-default navs-rounded sidebar-hover {{ sidebarVariants }} ${
                     isActiveSideBar && "sidebar-mini"
                 }`}
             >

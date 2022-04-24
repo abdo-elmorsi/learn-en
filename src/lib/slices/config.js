@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 let initialConfig = {
     darkMode:
-        Cookies.get("config") && JSON.parse(Cookies.get("config")).darkMode,
+        Cookies.get("config") ? JSON.parse(Cookies.get("config")).darkMode : true,
     language: "en",
 };
 
