@@ -15,6 +15,7 @@ const SubHeader = ({ pageName = "" }) => {
                 // Pages
                 case "/":
                     setState("Home");
+                    document.title = "English stu";
                     break;
                 // Grammar
                 case "/g_tenses":
@@ -83,7 +84,7 @@ const SubHeader = ({ pageName = "" }) => {
                     break;
                 default:
                     setState("404");
-                    document.title = "404";
+                    document.title = "English stu / 404";
                     break;
             }
         },

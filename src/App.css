@@ -90,3 +90,14 @@ h2.dark button::after {
     transform: translateY(-50%);
     z-index: 1;
 }
+@media screen and (max-width: 768px) {
+    .Header_Line::after {
+        width: 25%;
+        top: -50%;
+        transform: translateY(-50%);
+    }
+    .Header_Line::before {
+        width: 25%;
+        top: -50%;
+    }
+}
