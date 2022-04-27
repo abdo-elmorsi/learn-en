@@ -47,6 +47,7 @@ const VerticalNav = () => {
             <Accordion as="ul" className="navbar-nav iq-main-menu">
                 {!auth?.currentUser?.email.startsWith("abdelrahmandiv") ? (
                     <>
+                        {/* home */}
                         <Accordion.Item
                             as="li"
                             className="mb-1"
@@ -83,6 +84,7 @@ const VerticalNav = () => {
                                 </div>
                             </NavLink>
                         </Accordion.Item>
+                        {/* grammar */}
                         <Accordion.Item
                             as="li"
                             className="mb-1"
@@ -133,6 +135,7 @@ const VerticalNav = () => {
                             </CustomToggle>
                             <Accordion.Collapse eventKey="Grammars">
                                 <ul className="sub-nav">
+                                    {/* basics */}
                                     <li className="nav-item">
                                         <NavLink
                                             onClick={(e) => {
@@ -171,6 +174,7 @@ const VerticalNav = () => {
                                             </span>
                                         </NavLink>
                                     </li>
+                                    {/* tenses */}
                                     <li className="nav-item">
                                         <NavLink
                                             onClick={(e) => {
@@ -209,9 +213,13 @@ const VerticalNav = () => {
                                             </span>
                                         </NavLink>
                                     </li>
+                                    {/* ggggggggggggggggggggggggggggggggggggg */}
+
+                                    {/* ggggggggggggggggggggggggggggggggggggg */}
                                 </ul>
                             </Accordion.Collapse>
                         </Accordion.Item>
+                        {/* basics */}
                         <Accordion.Item
                             as="li"
                             className="mb-1"

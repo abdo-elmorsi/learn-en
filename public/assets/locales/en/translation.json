@@ -9,6 +9,7 @@
     "Past Tense": "Past Tense",
     "Past Simple": "Past Simple",
     "Past Continuous": "Past Continuous",
+    "Past Perfect": "Past Perfect",
     "Present Tense": "Present Tense",
     "Future tense": "Future tense",
     "Collocations": "Collocations",
@@ -50,11 +51,13 @@
     "we say (or understand) the": "we say (or understand) the",
     "of the event": "of the event",
     "A: For positive sentences": "A: For positive sentences",
+    "B: For negative sentences": "B: For negative sentences",
+    "C: For question sentences": "C: For question sentences",
+    "B: For negative and question sentences:": "B: For negative and question sentences:",
 
     "There is no auxiliary verb": "There is no auxiliary verb",
     "The main verb is conjugated in the Past Simple, invariable: -ed (or irregular)": "The main verb is conjugated in the Past Simple, invariable: -ed (or irregular)",
     "A: Repetition (often, sometimes, always):": "A: Repetition (often, sometimes, always):",
-    "B: For negative and question sentences:": "B: For negative and question sentences:",
     "The auxiliary is conjugated in the Past Simple, invariable: did": "The auxiliary is conjugated in the Past Simple, invariable: did",
     "For question sentences, we exchange the subject and the auxiliary verb": "For question sentences, we exchange the subject and the auxiliary verb",
     "The main verb is invariable in base form: base": "The main verb is invariable in base form: base",
@@ -79,14 +82,43 @@
     "She finished her work": "She finished her work",
     "I went to the theatre": "I went to the theatre",
 
-    "How do we make the Past Simple": "How do we make the Past Simple tense",
-    "How do we make the Past Continuous": "How do we make the Past Continuous",
-    "The structure of the past continuous tense is :": "The structure of the past continuous tense is :",
-
     "Look at these examples with the main verbs": "Look at these examples with the main verbs",
     "From the above table, notice the following points": "From the above table, notice the following points",
-    "The past simple  is used to talk about events that occurred in the past at a specific time.": "The past simple  is used to talk about events that occurred in the past at a specific time.",
-    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.",
 
-    "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time.": "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time."
+    "The past simple  is used to talk about events that occurred in the past at a specific time.": "The past simple  is used to talk about events that occurred in the past at a specific time.",
+    "How do we make the Past Simple": "How do we make the Past Simple tense",
+
+    "We use the past continuous is used to talk about actions and events that lasted for a specific period of time in the past.": "We use the past continuous is used to talk about actions and events that lasted for a specific period of time in the past.",
+    "The structure of the past continuous tense is :": "The structure of the past continuous tense is :",
+    "How do we make the Past Continuous": "How do we make the Past Continuous",
+
+    "We used the past perfect refers to a time earlier than before now. It is used to make it clear that one event happened before another in the past.": "We used the past perfect refers to a time earlier than before now. It is used to make it clear that one event happened before another in the past.",
+    "The past perfect is used to refer to an earlier time than before. It is used to show that an event occurred before another event in the past. Any of the events can be placed, as the sentence's tense denotes the order.": "The past perfect is used to refer to an earlier time than before. It is used to show that an event occurred before another event in the past. Any of the events can be placed, as the sentence's tense denotes the order.",
+    "How do we make the Past Perfect": "How do we make the Past Simple tense",
+    "The structure of the past perfect tense is :": "The structure of the past perfect tense is :",
+    "It takes the auxiliary verb (had).": "It takes the auxiliary verb (had).",
+    "When adding not with the auxiliary verb had, we shorten it, so it": "When adding not with the auxiliary verb had, we shorten it, so it",
+    "We put": "We put",
+    "at the beginning of the sentence and then complete it as is. Below is a table.": "at the beginning of the sentence and then complete it as is. Below is a table.",
+    "The answer to this summer's Interrogative question is": "The answer to this summer's Interrogative question is",
+    "In a question (w), we put the tool": "In a question (w), we put the tool",
+    "at the beginning of the question, then had, then the subject, followed by the clarification.": "at the beginning of the question, then had, then the subject, followed by the clarification.",
+
+    "meaning when the simple past tense comes after it:": "meaning when the simple past tense comes after it:",
+    "As (when) I arrived the station, the train": "As (when) I arrived the station, the train",
+    "already left as (when) I arrived the station.": "already left as (when) I arrived the station.",
+    "after her comes a perfect past:": "after her comes a perfect past:",
+    "The car crashed because": "The car crashed because",
+    "I had driven": "I had driven",
+    "so fast.": "so fast.",
+
+    "Because I had not": "Because I had not",
+    "studied hard, I failed the test.": "studied hard, I failed the test.",
+    "She went to the hospital because": "She went to hospital because",
+    "she had poisoned herself.": "she had poisoned herself.",
+    "I had eaten an apple": "I had eaten an apple",
+    "before": "before",
+    "I went to school yesterday.": "I went to school yesterday.",
+    "I went to school": "I went to school",
+    "The train had": "The train had"
 }

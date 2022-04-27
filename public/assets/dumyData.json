@@ -153,6 +153,38 @@
             "Interrogative": "Was he eating chocolate at 4 a.m.?"
         }
     ],
+    "PastPerfectExs": [
+        {
+            "Ar": "كنت قد لعبت",
+            "Affirmative": "I had played",
+            "Negative": "I had not played",
+            "Interrogative": "Had you played?"
+        },
+        {
+            "Ar": "لقد أكل",
+            "Affirmative": "He had eaten",
+            "Negative": "He had not eaten",
+            "Interrogative": "Had he eaten?"
+        },
+        {
+            "Ar": "لقد انتهوا",
+            "Affirmative": "They had finished",
+            "Negative": "They had not finished",
+            "Interrogative": "Had they finished?"
+        },
+        {
+            "Ar": "بعد أن بدأ الفيلم ، وصلت.",
+            "Affirmative": "After the film had started, I arrived.",
+            "Negative": "After the film hadn't started, I arrived.",
+            "Interrogative": "Had the film started after, I arrived?"
+        },
+        {
+            "Ar": "لقد فشلت في الاختبار لأنني كنت قد درست من أجله.",
+            "Affirmative": "I failed the test because I had studied for it.",
+            "Negative": "I failed the test because I had not studied for it.",
+            "Interrogative": "Had I failed the test because I didn't study for it?"
+        }
+    ],
     "TensesTitles": [
         {
             "title": "Past Tense",
@@ -177,19 +209,19 @@
         {
             "title": "Past Simple",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
-            "desc": "Is a verb tense that is used to talk about things that happened or existed before now.",
+            "desc": "The past simple  is used to talk about events that occurred in the past at a specific time.",
             "link": "simple"
         },
         {
             "title": "Past Continuous",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
-            "desc": "The past continuous tense, also known as the past progressive tense, refers to a continuing action or state that was happening at some point in the past.",
+            "desc": "We use the past continuous is used to talk about actions and events that lasted for a specific period of time in the past.",
             "link": "continuous"
         },
         {
             "title": "Past Perfect",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJL43ao3dKQ720fI_0bUwX2bAQE4M5ZF2jA&usqp=CAU",
-            "desc": "The past perfect continuous tense (also known as the past perfect progressive tense) shows that an action that started in the past continued up until another time in the past.",
+            "desc": "We used the past perfect refers to a time earlier than before now. It is used to make it clear that one event happened before another in the past.",
             "link": "perfect"
         }
     ]

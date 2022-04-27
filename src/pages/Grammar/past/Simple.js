@@ -373,62 +373,61 @@ export default function PastSimple() {
                                         </li>
                                     </ol>
                                 </div>
-                                {/* الكلمات الدلاليه */}
-                                <div className="">
-                                    <h4 className="mb-3 text-center Header_Line">
-                                        <ColorSwitcher text={`${t("Tags")}`} />
-                                    </h4>
+                            </section>
+                            {/* الكلمات الدلاليه */}
+                            <section>
+                                <h4 className="mb-3 text-center Header_Line">
+                                    <ColorSwitcher text={`${t("Tags")}`} />
+                                </h4>
 
-                                    {/* (often, sometimes, always) */}
-                                    <div>
-                                        <ColorSwitcher
-                                            text={
-                                                "A: Repetition (often, sometimes, always):"
-                                            }
-                                        />
+                                {/* (often, sometimes, always) */}
+                                <div>
+                                    <ColorSwitcher
+                                        text={
+                                            "A: Repetition (often, sometimes, always):"
+                                        }
+                                    />
 
-                                        <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                            <li className="mb-3">
-                                                {t("I")}
-                                                <ColorSwitcher text="sometimes walked" />
-                                                {t("home at lunchtime")}.
-                                            </li>
-                                            <li className="mb-3">
-                                                {t("I")}
-                                                <ColorSwitcher text="often brought" />
-                                                {t("my lunch to school")} .
-                                            </li>
-                                        </ol>
-                                    </div>
-                                    {/* last week, when I was a child, yesterday, six weeks ago */}
-                                    <div>
-                                        <ColorSwitcher
-                                            text={
-                                                "B: Specific point in time  (last week, when I was a child, yesterday, six weeks ago):"
-                                            }
-                                        />
+                                    <ol className="d-flex justify-content-flex-start flex-column gap-3">
+                                        <li className="mb-3">
+                                            {t("I")}
+                                            <ColorSwitcher text="sometimes walked" />
+                                            {t("home at lunchtime")}.
+                                        </li>
+                                        <li className="mb-3">
+                                            {t("I")}
+                                            <ColorSwitcher text="often brought" />
+                                            {t("my lunch to school")} .
+                                        </li>
+                                    </ol>
+                                </div>
+                                {/* last week, when I was a child, yesterday, six weeks ago */}
+                                <div>
+                                    <ColorSwitcher
+                                        text={
+                                            "B: Specific point in time  (last week, when I was a child, yesterday, six weeks ago):"
+                                        }
+                                    />
 
-                                        <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                            <li className="mb-3">
-                                                {t("We saw a good film")}
-                                                <ColorSwitcher text="last week" />
-                                                .
-                                            </li>
-                                            <li className="mb-3">
-                                                <ColorSwitcher text="Yesterday" />
-                                                ,{t("I arrived in Geneva")}.
-                                            </li>
-                                            <li className="mb-3">
-                                                {t("She finished her work")}
-                                                <ColorSwitcher text="at seven o'clock" />
-                                                .
-                                            </li>
-                                            <li className="mb-3">
-                                                {t("I went to the theatre")}
-                                                <ColorSwitcher text="last week" />
-                                            </li>
-                                        </ol>
-                                    </div>
+                                    <ol className="d-flex justify-content-flex-start flex-column gap-3">
+                                        <li className="mb-3">
+                                            {t("We saw a good film")}
+                                            <ColorSwitcher text="last week" />.
+                                        </li>
+                                        <li className="mb-3">
+                                            <ColorSwitcher text="Yesterday" />,
+                                            {t("I arrived in Geneva")}.
+                                        </li>
+                                        <li className="mb-3">
+                                            {t("She finished her work")}
+                                            <ColorSwitcher text="at seven o'clock" />
+                                            .
+                                        </li>
+                                        <li className="mb-3">
+                                            {t("I went to the theatre")}
+                                            <ColorSwitcher text="last week" />
+                                        </li>
+                                    </ol>
                                 </div>
                             </section>
                             {/* table */}

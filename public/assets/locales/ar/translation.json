@@ -9,6 +9,7 @@
     "Past Tense": "زمن الماضي",
     "Past Simple": "الماضي البسيط",
     "Past Continuous": "الماضي المستمر",
+    "Past Perfect": "الماضي التام",
     "Present Tense": "زمن الحاضر",
     "Future tense": "زمن المستقبل",
     "Collocations": "المتلازمات",
@@ -49,12 +50,14 @@
     "completely finished": "انتهت تماما",
     "we say (or understand) the": "نقول (أو نفهم)",
     "of the event": "من الحدث",
-    "A: For positive sentences": "A: للجمل الإيجابية",
+    "A: For positive sentences": "ا : للجمل الإيجابية",
+    "B: For negative sentences": "ب : للجمل السلبية",
+    "C: For question sentences": "ت : لجمل السؤال",
+    "B: For negative and question sentences:": "B: بالنسبة للجمل السلبية وجمل السؤال:",
 
     "There is no auxiliary verb": "لا يوجد فعل مساعد",
     "The main verb is conjugated in the Past Simple, invariable: -ed (or irregular)": "الفعل الرئيسي مترافق في الماضي بسيط ، ثابت: -ed (أو غير منتظم)",
     "A: Repetition (often, sometimes, always):": "A: التكرار (غالبًا ، أحيانًا ، دائمًا):",
-    "B: For negative and question sentences:": "B: بالنسبة للجمل السلبية وجمل السؤال:",
     "The auxiliary is conjugated in the Past Simple, invariable: did": "المساعد مترافق في الماضي بسيط ، ثابت: did",
     "For question sentences, we exchange the subject and the auxiliary verb": "لجمل السؤال ، نقوم بتبادل الفاعل والفعل المساعد",
     "The main verb is invariable in base form: base": "الفعل الرئيسي ثابت في الشكل الأساسي: القاعدة",
@@ -79,14 +82,45 @@
     "She finished her work": "أنهت عملها",
     "I went to the theatre": "ذهبت إلى المسرح",
 
-    "How do we make the Past Simple": "كيف نفعل صيغة الماضي البسيط",
-    "How do we make the Past Continuous": "كيف نفعل صيغة الماضي المستمر",
-    "The structure of the past continuous tense is :": "هيكل الماضي المستمر هو :",
-
     "Look at these examples with the main verbs": "انظر إلى هذه الأمثلة بالأفعال الرئيسية",
     "From the above table, notice the following points": "من الجدول أعلاه ، لاحظ النقاط",
-    "The past simple  is used to talk about events that occurred in the past at a specific time.": "يستخدم الماضي البسيط للتحدث عن أحداث وقعت في الماضي في وقت محدد. في هذا الدرس ، سوف نتعلم كيفية تشكيل الماضي البسيط في حالات الإيجابي والسلبي والتساؤل.",
-    "We use the Past Simple tense to talk about anaction or a situation - an event - in the past.The event can be short or long.": "نستخدم صيغة الماضي البسيط للتحدث عن فعل أو موقف - حدث - في الماضي. يمكن أن يكون الحدث قصيرًا أو طويلًا.",
 
-    "We use the Past Continuous Tense to talk about actions and events that lasted for a specific period of time.": "نستخدم الزمن الماضي المستمر للتحدث عن الإجراءات والأحداث التي استمرت لفترة زمنية محددة."
+    "The past simple  is used to talk about events that occurred in the past at a specific time.": "يستخدم الماضي البسيط للتحدث عن أحداث وقعت في الماضي في وقت محدد.",
+    "How do we make the Past Simple": "كيف نفعل صيغة الماضي البسيط",
+
+    "We use the past continuous is used to talk about actions and events that lasted for a specific period of time in the past.": "نستخدم الماضي المستمر للتحدث عن الأفعال والأحداث التي استمرت لفترة زمنية محددة في الماضي.",
+    "The structure of the past continuous tense is :": "هيكل الماضي المستمر هو :",
+    "How do we make the Past Continuous": "كيف نفعل صيغة الماضي المستمر",
+
+    "We used the past perfect refers to a time earlier than before now. It is used to make it clear that one event happened before another in the past.": "استخدمنا الماضي التام يشير إلى وقت أقدم من ذي قبل الآن. يتم استخدامه لتوضيح أن حدثًا وقع قبل الآخر في الماضي.",
+    "The past perfect is used to refer to an earlier time than before. It is used to show that an event occurred before another event in the past. Any of the events can be placed, as the sentence's tense denotes the order.": "يستخدم الماضي التام للإشارة إلى وقت أبكر من ذي قبل. يتم استخدامه لإظهار أن حدثًا قد وقع قبل حدث آخر في الماضي. يمكن وضع أي من الأحداث ، حيث يشير زمن الجملة إلى الترتيب.",
+    "How do we make the Past Perfect": "كيف نجعل صيغة الماضي بسيطة",
+    "The structure of the past perfect tense is :": "هيكل الماضي التام هو :",
+    "It takes the auxiliary verb (had).": "يأخذ الفعل المساعد (had).",
+    "When adding not with the auxiliary verb had, we shorten it, so it": "عند جمع (not) مع الفعل المساعد ، قمنا بتقصيره ، لذلك هو",
+    "We put": "نضع",
+    "at the beginning of the sentence and then complete it as is. Below is a table.": "في بداية الجملة ثم أكملها كما هي. يوجد أدناه جدول.",
+    "The answer to this summer's Interrogative question is": "الجواب على السؤال هو",
+    "In a question (w), we put the tool": "في السؤال (w) نضع الأداة",
+    "at the beginning of the question, then had, then the subject, followed by the clarification.": "في بداية السؤال ، ثم الموضوع ، يليه التوضيح.",
+
+    "meaning when the simple past tense comes after it:": "المعنى عندما يأتي الفعل الماضي البسيط بعده:",
+    "(As) / (when) I arrived the station, the train": "عندما / (عندما)  وصلت إلى المحطة القطار",
+    "already left as (when) I arrived the station.": "غادر بالفعل (عندما) وصلت إلى المحطة.",
+    "after her comes a perfect past:": "يأتي بعدها ماضٍ تام:",
+    "The car crashed because": "تحطمت السيارة بسبب",
+    "I had driven": "لقد قدت السيارة",
+    "so fast.": "سريع جدا.",
+
+    "Because I had not": "لأنني لم ",
+    "studied hard, I failed the test.": "ادرس بجد ، لقد فشلت في الاختبار.",
+    "She went to the hospital because": "ذهبت إلى المستشفى ﻷنها",
+    "she had poisoned herself.": "سممت نفسها.",
+    "I had eaten an apple": "ان أكلت تفاحة",
+    "before": "قبل",
+    "after":"بعد",
+    "I went to school yesterday.": "ذهابي إلى المدرسة أمس.",
+    "I went to school": "ذهبت الى المدرسة",
+    "The train had": "كان القطار"
+
 }

@@ -19,53 +19,71 @@ const SubHeader = ({ pageName = "" }) => {
                 // Grammar
                 case "/g_tenses":
                     setState("Tenses");
+                    document.title = "English stu / Tenses";
+
                     break;
                 case "/g_basics":
                     setState("Basics");
+                    document.title = "English stu / Basics ";
+
                     break;
 
                 // Vocabulary
                 case "/idioms":
                     setState("Idioms expressions");
+                    document.title = "English stu / expressions ";
+
                     break;
                 case "/prepositions":
                     setState("Prepositions");
+                    document.title = "English stu / Prepositions ";
+
                     break;
                 case "/collocations":
                     setState("Collocations");
+                    document.title = "English stu / Collocations ";
                     break;
 
                 case "/phrasalVerb":
                     setState("Phrasal verbs");
+                    document.title = "English stu / Phrasal verbs";
                     break;
                 // ###################################
                 // Tenses
                 case "/g_tenses/past":
                     setState("Past Tense");
+                    document.title = "English stu / Past Tense";
                     break;
                 case "/g_tenses/past/simple":
                     setState("Past Simple");
+                    document.title = "English stu / Past Simple";
                     break;
                 case "/g_tenses/past/continuous":
                     setState("Past Continuous");
+                    document.title = "English stu / Past Continuous";
                     break;
                 case "/g_tenses/past/perfect":
                     setState("Past Perfect");
+                    document.title = "English stu / Past Perfect";
                     break;
                 // ###################################
                 // Admin
                 case "/collocations_controls":
                     setState("Collocations Controls");
+                    document.title = "English stu / Collocations Controls";
                     break;
 
                 case "/phrasalVerbs_controls":
                     setState("Phrasal Verbs Controls");
+                    document.title = "English stu / Phrasal Verbs Controls";
                     break;
                 case "/idioms_controls":
                     setState("idioms Controls");
+                    document.title = "English stu / idioms Controls";
                     break;
                 default:
                     setState("404");
+                    document.title = "404";
                     break;
             }
         },
